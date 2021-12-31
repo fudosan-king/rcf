@@ -1,4 +1,5 @@
 .DS_Store
+.com.apple.timemachine.supported
 
 base-vue/node_modules
 base-vue/dist
