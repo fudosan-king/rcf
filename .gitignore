@@ -5,11 +5,11 @@ base-vue/node_modules
 base-vue/dist
 
 # local env files
-.env
-.env.local
-.env.*.local
-.env.*.production
-.env.production
+base-vue/.env
+base-vue/.env.local
+base-vue/.env.*.local
+base-vue/.env.*.production
+base-vue/.env.production
 
 # Log files
 npm-debug.log*
