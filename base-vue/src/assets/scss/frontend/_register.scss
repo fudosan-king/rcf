@@ -1,5 +1,123 @@
+@import "variables";
+
 .section_template {
   padding-top: 60px;
   margin-bottom: 100px;
   background: rgba(115, 136, 107, 0.15);
+
+  .title {
+    margin-bottom: 40px;
+  }
+
+  .title_sub {
+    font-size: 1em;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    line-height: 1.8em;
+    margin-bottom: 30px;
+    font-weight: 500;
+  }
+
+  .box_content {
+    background: #fff;
+    padding: 60px 106px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    font-size: 0.875rem;
+    color: #556170;
+
+    .form-group {
+      margin-bottom: 40px;
+
+      label {
+        font-weight: 600;
+        margin: 0.5rem auto;
+
+        &.custom-control-label {
+          font-weight: normal;
+
+        }
+
+        &:before {
+          box-shadow: none;
+          border-color: #73886B;
+          background-color: #73886B;
+        }
+      }
+
+      input {
+        &.custom-control-input {
+          width: 16px;
+          height: 16px;
+          margin-right: 0.5rem;
+
+          &:focus {
+            box-shadow: none;
+          }
+
+          &:checked {
+            background-color: #73886B;
+            border-color: #73886B;
+          }
+        }
+      }
+
+      .zipcode_auto {
+        color: #73886B;
+        font-weight: 600;
+        display: flex;
+        font-size: 0.75em;
+        text-decoration: none;
+
+        img {
+          margin-right: .5rem;
+        }
+      }
+
+      &:focus {
+        border-color: #73886B;
+      }
+
+      .btn_confirm {
+        background: #73886B;
+        color: #fff;
+        font-size: 1.125em;
+        min-width: 398px;
+        font-weight: 600;
+        padding: 15px;
+      }
+
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .section_template {
+    margin-bottom: 0;
+    padding-top: 145px;
+
+    .box_content {
+      padding: 30px;
+      margin-left: -15px;
+      margin-right: -15px;
+
+      .form-group {
+        margin-bottom: 20px;
+
+        label {
+          margin-top: 0
+        }
+
+        .btn_confirm {
+          min-width: auto;
+          width: 100%;
+        }
+      }
+
+      .card-body {
+        padding: 15px;
+      }
+    }
+  }
 }

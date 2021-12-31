@@ -24,10 +24,7 @@
                                             paginate.currentPage }}〜{{ paginate.perPage }}件を表示</p>
                                 </div>
                                 <div class="col-12 col-lg-3">
-                                    <select name="" class="form-control">
-                                        <option value="運用状況">運用状況</option>
-                                        <option value="...">...</option>
-                                    </select>
+                                    <multiselect></multiselect>
                                 </div>
                             </div>
                         </div>
@@ -340,6 +337,13 @@ export default {
             },
             listFunds: [],
             pushItem: [],
+            statusFunds: [
+                {id: 1, name: 'all'},
+                {id: 2, name: 'joined'},
+                {id: 3, name: 'not join'},
+                {id: 4, name: 'expired'},
+                {id: 5, name: 'completed'},
+            ],
         }
     },
     methods: {

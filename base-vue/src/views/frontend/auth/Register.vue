@@ -58,14 +58,12 @@
                                     </div>
                                     <div class="col-12 col-lg-9">
                                         <div class="custom-control custom-radio custom-control-inline">
-                                            <input type="radio" id="customRadioInline1" name="customRadioInline"
-                                                   class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadioInline1">男性</label>
+                                            <input type="radio" name="customRadioInline" class="custom-control-input">
+                                            <label class="custom-control-label">男性</label>
                                         </div>
                                         <div class="custom-control custom-radio custom-control-inline">
-                                            <input type="radio" id="customRadioInline2" name="customRadioInline"
-                                                   class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadioInline2">女性</label>
+                                            <input type="radio" class="custom-control-input" name="customRadioInline">
+                                            <label class="custom-control-label">女性</label>
                                         </div>
                                     </div>
                                 </div>
@@ -105,11 +103,12 @@
                                         <label>都道府県</label>
                                     </div>
                                     <div class="col-12 col-lg-9">
-                                        <select class="custom-select">
-                                            <option value="">都道府県を選択してください</option>
-                                            <option value="">...</option>
-                                            <option value="">...</option>
-                                        </select>
+                                        <Dropdown :options="this.prefectures"
+                                                  :disabled="false"
+                                                  name="prefectures"
+                                                  :maxItem="20"
+                                                  :placeholder="prefecturePlaceholder">
+                                        </Dropdown>
                                     </div>
                                 </div>
                             </div>
@@ -179,10 +178,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col-12 col-lg-3">
-                                
-                                    </div>
-                                    <div class="col-12 col-lg-9">
+                                    <div class="col-12 col-lg-6 m-auto text-center">
                                         <button type="submit" class="btn btn_confirm">確認画面へ</button>
                                     </div>
                                 </div>
@@ -196,8 +192,24 @@
 </template>
 
 <script>
+import common from "../../../mixins/common";
+
 export default {
-    name: "Register"
+    name: "Register",
+    mixins: [common],
+    data: function () {
+        return {
+            prefectures: [
+                {id: 1, name: '愛知県'},
+                {id: 2, name: '秋田県'},
+                {id: 3, name: '東京都'},
+                {id: 4, name: '香川県'},
+                {id: 5, name: 'Hanoi'},
+                {id: 6, name: 'HoChiMinhCity'},
+            ]
+        };
+    },
+    methods: {}
 }
 </script>
 

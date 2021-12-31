@@ -35,6 +35,15 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-12">
+                        <ul class="menu_footer d-block d-lg-none">
+                            <li><a href="">運営会社について</a></li>
+                            <li><a href="">利用規約</a></li>
+                            <li><a href="">反社会的勢力排除に関する基本方針</a></li>
+                            <li><a href="">プライバシーポリシー</a></li>
+                            <li><a href="">ソーシャルメディアポリシー</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -70,7 +79,13 @@ export default {
                 })
             }
         },
-    }
+    },
+    data() {
+        return {
+            isActiveMobile: false,
+            isActiveDesktop: false
+        }
+    },
 }
 </script>
 
@@ -81,6 +96,8 @@ footer {
         
         ul {
             li {
+                font-size: 0.875em;
+    
                 &:before {
                     background: url('../../assets/images/svg/i_right.svg') no-repeat;
                 }

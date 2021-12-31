@@ -1,24 +1,31 @@
 # admin-ecommerce
-
-## Project setup
+### Init env
 ```
-npm install
+cp .env.example .env
 ```
 
+### Setup API endpoint in .env
+```
+VUE_APP_API_ENDPOINT=
+```
+
+### Project setup
+```
+cd src
+yarn install
+```
 ### Compiles and hot-reloads for development
 ```
-npm run serve
+[***/rcf/src]
+yarn run serve
 ```
 
 ### Compiles and minifies for production
 ```
-npm run build
+yarn run build
 ```
 
 ### Lints and fixes files
 ```
-npm run lint
+yarn run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
