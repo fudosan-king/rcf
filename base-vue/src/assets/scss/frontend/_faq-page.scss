@@ -1,0 +1,40 @@
+@import 'variables';
+.section_faq {
+	.faq_content {
+		.card {
+			margin-bottom: 80px;
+			border: none;
+			h2 {
+				font-size: 1.5em;
+				margin-bottom: 15px;
+				font-weight: 500;
+			}
+			.card-title {
+				font-size: 1.5em;
+				margin-bottom: 20px;
+				color: $cl-green;
+				font-weight: 500;
+			}
+			.card-body {
+				padding: 30px;
+				background: #F2F2F2;
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.section_faq {
+		.faq_content {
+			.card {
+				margin-bottom: 30px;
+				.card-title {
+					font-size: 1.3em;
+				}
+				h2 {
+					font-size: 1.3em;
+				}
+			}
+		}
+	}
+}

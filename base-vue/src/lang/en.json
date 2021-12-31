@@ -1,0 +1,25 @@
+{
+  "app": {
+    "title": "Laravel"
+  },
+  "messages":{
+    "target_not_found" : "Target not found"
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "user": "User",
+    "order": "Orders",
+    "products": "Products",
+    "coupons": "Coupons",
+    "category": "Categories",
+    "settings": "Settings",
+    "customers": "Customers"
+  },
+  "pages": {
+    "auth" : {
+      "login" : {
+        "title" : "Login"
+      }
+    }
+  }
+}

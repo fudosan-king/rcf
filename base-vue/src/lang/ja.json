@@ -1,0 +1,94 @@
+{
+  "app": {
+    "title": "天然無垢材・自然素材のリノベーションマンション｜ログマンション"
+  },
+  "messages": {
+    "target_not_found": "対象が見つかりません",
+    "page_not_found": "ページが見つかりません"
+  },
+  "buttons": {
+    "delete": "削除",
+    "save": "保存",
+    "create": "作成",
+    "cancel": "キャンセル",
+    "return_login": "ログインに戻る"
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "user": "User",
+    "settings": "Settings",
+    "customers": "Customers"
+  },
+  "pages": {
+    "auth": {
+      "login": {
+        "title": "ログイン"
+      }
+    }
+  },
+  "frontend": {
+    "navbar": {
+      "register" : "新規会員登録",
+      "login" : "ログイン",
+      "transition" : {
+        "info": "お取引情報",
+        "fund_condition": "資産状況",
+        "portfolio": "ポートフォリオ",
+        "transaction_history": "取引履歴",
+        "document": "交付書面"
+      },
+      "customers":{
+        "title": "お客様情報",
+        "info":"会員情報",
+        "logout": "ログアウト"
+      },
+      "fund":{
+        "title": "ファンド情報",
+        "list": "ファンド一覧"
+      },
+      "use": {
+        "title": "快適にご利用いただくために",
+        "faq": "FAQ",
+        "contact" : "お問い合わせ"
+      }
+    },
+    "popup": {
+      "delete": {
+        "title": "削除",
+        "content": "削除してもよろしいですか？"
+      },
+      "ok" : "OK",
+      "cancel" : "キャンセル"
+    },
+    "auth": {
+      "login": "ログイン",
+      "register": "新規会員登録"
+    },
+    "home": {
+      "title": "天然無垢材・自然素材のリノベーションマンション｜ログマンション",
+      "email": "Eメール",
+      "password": "パスワード"
+    },
+    "first_time": {
+      "navbar": "はじめての方へ",
+      "title": "はじめての方へ - Rimawaru"
+    },
+    "fund": {
+      "navbar": "投資物件情報",
+      "title": "リマワル（第一号） - Rimawaru",
+      "fund_list": "投資物件情報一覧"
+    },
+    "flow": {
+      "navbar": "ご利用の流れ",
+      "title": "ご利用の流れ - Rimawaru"
+    },
+    "faq": {
+      "navbar": "よくあるご質問",
+      "title": "よくあるご質問 - Rimawaru"
+    },
+    "contact": {
+      "navbar": "お問い合わせ",
+      "title": "資料請求 - Rimawaru"
+    }
+  }
+}
