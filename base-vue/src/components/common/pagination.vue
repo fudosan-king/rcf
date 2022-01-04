@@ -9,7 +9,6 @@
                 </li>
                 <li class="page-item" :class="{' active': current === 1 }">
                     <a class="page-link no-bg-paginate"
-                
                        @click="changePage(1)">1</a>
                 </li>
                 <li class="page-item" v-if="pages  >= 4 && current >= 4">

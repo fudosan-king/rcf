@@ -6,6 +6,7 @@
                @focus="showOptions()"
                @blur="exit()"
                @keyup="keyMonitor"
+               ref="dropdown-keyword"
                v-model="searchFilter"
                :disabled="disabled"
                :placeholder="placeholder"/>

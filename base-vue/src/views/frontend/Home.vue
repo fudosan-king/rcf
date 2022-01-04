@@ -119,7 +119,7 @@
                     <div class="row">
                         <div class="col-12 col-lg-12">
                             <h1 class="title">投資物件情報</h1>
-                            <div class="box_property">
+                            <div class="box_property" @click="getFundDetails(1)">
                                 <h4>募集中！</h4>
                                 <div class="row flex-row-reverse">
                                     <div class="col-12 col-lg-6">
@@ -169,7 +169,9 @@
                             
                                 </div>
                             </div>
-                            <p class="text-center mb-0"><a href="property.php" class="btn btn_detail">投資物件詳細へ</a></p>
+                            <p class="text-center mb-0">
+                                <router-link :to="{name: 'FundList'}" class="btn btn_detail">投資物件詳細へ</router-link>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -200,6 +202,15 @@ export default {
       }
     }
   },
+    methods: {
+        getFundDetails(id) {
+            this.$router.push(
+                    {name: "FundDetail", params: {id}},
+                    () => {
+                    }
+            );
+        },
+  }
 }
 </script>
 
