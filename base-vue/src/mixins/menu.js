@@ -8,7 +8,7 @@ export default {
                     permissions: '',
                     children: [],
                     activeName: 'home',
-                        currentData: 'home',
+                    currentData: 'home',
                 },
                 {
                     title: this.$t('frontend.navbar.login'),
@@ -104,19 +104,19 @@ export default {
             menuRight: [
                 {
                     title: 'ファンド一覧',
-                    router: {name: 'Dashboard', path: '/home'},
+                    router: {name: 'FundList', path: '/fund'},
                 },
                 {
                     title: 'ご利用の流れ',
-                    router: {name: 'Dashboard', path: '/home'},
+                    router: {name: 'Flow', path: '/flow'},
                 },
                 {
                     title: 'FAQ',
-                    router: {name: 'Dashboard', path: '/home'},
+                    router: {name: 'Faq', path: '/faq'},
                 },
                 {
                     title: 'お問い合わせ',
-                    router: {name: 'Dashboard', path: '/home'},
+                    router: {name: 'Contact', path: '/contact'},
                 },
                 {
                     title: '金融商品勧誘方針',

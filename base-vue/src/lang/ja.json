@@ -27,29 +27,35 @@
     }
   },
   "frontend": {
+    "top": "TOP",
+    "buttons": {
+      "click_here": "詳細はこちら",
+      "agree": "上記に同意して確認画面へ"
+    },
+    "require": "必須",
     "navbar": {
-      "register" : "新規会員登録",
-      "login" : "ログイン",
-      "transition" : {
+      "register": "新規会員登録",
+      "login": "ログイン",
+      "transition": {
         "info": "お取引情報",
         "fund_condition": "資産状況",
         "portfolio": "ポートフォリオ",
         "transaction_history": "取引履歴",
         "document": "交付書面"
       },
-      "customers":{
+      "customers": {
         "title": "お客様情報",
-        "info":"会員情報",
+        "info": "会員情報",
         "logout": "ログアウト"
       },
-      "fund":{
+      "fund": {
         "title": "ファンド情報",
         "list": "ファンド一覧"
       },
       "use": {
         "title": "快適にご利用いただくために",
         "faq": "FAQ",
-        "contact" : "お問い合わせ"
+        "contact": "お問い合わせ"
       }
     },
     "popup": {
@@ -57,8 +63,8 @@
         "title": "削除",
         "content": "削除してもよろしいですか？"
       },
-      "ok" : "OK",
-      "cancel" : "キャンセル"
+      "ok": "OK",
+      "cancel": "キャンセル"
     },
     "auth": {
       "login": "ログイン",
@@ -80,15 +86,46 @@
     },
     "flow": {
       "navbar": "ご利用の流れ",
-      "title": "ご利用の流れ - Rimawaru"
+      "title": "ご利用の流れ - Rimawaru",
+      "flow_title": "ご利用の流れ"
     },
     "faq": {
       "navbar": "よくあるご質問",
-      "title": "よくあるご質問 - Rimawaru"
+      "title": "よくあるご質問 - Rimawaru",
+      "list": "よくあるご質問一覧"
     },
     "contact": {
       "navbar": "お問い合わせ",
-      "title": "資料請求 - Rimawaru"
+      "title": "資料請求 - Rimawaru",
+      "contact_title": "資料請求",
+      "agree": "同意する",
+      "notes": "フォームに必要事項をご入力ください。",
+      "fields": {
+        "name": {
+          "label": "お名前",
+          "placeholder": "例：山田 太郎"
+        },
+        "post_code": {
+          "label": "郵便番号",
+          "placeholder": "例：123-4567"
+        },
+        "prefectures": {
+          "label": "都道府県",
+          "placeholder": "例：東京都"
+        },
+        "address": {
+          "label": "住所",
+          "placeholder": "例：東京都渋谷区神宮前1-1-1"
+        },
+        "phone": {
+          "label": "ご連絡先電話番号  ",
+          "placeholder": "例：080-0000-0000"
+        },
+        "building_name": {
+          "label": "建物名・号室",
+          "placeholder": "例：渋谷ハイツ"
+        }
+      }
     }
   }
 }

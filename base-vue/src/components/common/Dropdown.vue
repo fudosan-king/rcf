@@ -164,13 +164,17 @@ export default {
             text-decoration: none;
             display: block;
             cursor: pointer;
+            font-size: .875em;
+
             &:hover {
                 background-color: #e7ecf5;
             }
         }
     }
-    .dropdown:hover .dropdowncontent {
-        display: block;
+    &:hover {
+        .dropdown-content {
+            display: block;
+        }
     }
 }
 </style>

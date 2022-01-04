@@ -202,14 +202,7 @@ export default {
     mixins: [common],
     data: function () {
         return {
-            prefectures: [
-                {id: 1, name: '愛知県'},
-                {id: 2, name: '秋田県'},
-                {id: 3, name: '東京都'},
-                {id: 4, name: '香川県'},
-                {id: 5, name: 'Hanoi'},
-                {id: 6, name: 'HoChiMinhCity'},
-            ]
+
         };
     },
     methods: {}

@@ -3,13 +3,28 @@ $directions: (top, right, bottom, left);
 
 $cl-black: #556170;
 $cl-white: #ffffff;
-$cl-brown:  #8C7D5E;
+$cl-brown: #8C7D5E;
 $cl-green: #73886B;
 $cl-red: #771116;
 $cl-black-light: #333333;
-$cl-gray-light:#F3F3F3;
+$cl-gray-light: #F3F3F3;
 $cl-shadow-black-25: rgba(0, 0, 0, 0.25);
-$cl-gray-medium:#828282;
+$cl-gray-medium: #828282;
 $cl-gray-white: #E0E0E0;
 $cl-gray-dark: #B3B3B3;
-$cl-gray-light-white-1:#EEEEEE;
+$cl-gray-light-white-1: #EEEEEE;
+
+$color-fe: (
+        "cl-black": $cl-black,
+        "cl-white": $cl-white,
+        "cl-brown": $cl-brown,
+        "cl-green": $cl-green,
+        "cl-red": $cl-red,
+        "cl-black-light": $cl-black-light,
+        "cl-gray-light": $cl-gray-light,
+        "cl-shadow-black-25": $cl-shadow-black-25,
+        "cl-gray-medium": $cl-gray-medium,
+        "cl-gray-white": $cl-gray-white,
+        "cl-gray-dark": $cl-gray-dark,
+        "cl-gray-light-white-1": $cl-gray-light-white-1
+)

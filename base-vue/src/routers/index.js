@@ -15,8 +15,9 @@ import fund from "./frontend/fund";
 import flow from "./frontend/flow";
 import faq from "./frontend/faq";
 import authUser from "./frontend/auth";
-import transaction from "./frontend/transaction";
 import customer from "./frontend/customer";
+import contact from "./frontend/contact";
+import transaction from "./frontend/transaction";
 
 
 Vue.use(VueToast, {
@@ -57,6 +58,7 @@ const routes = [
             ...faq,
             ...transaction,
             ...customer,
+            ...contact,
         ]
     }
 ]
