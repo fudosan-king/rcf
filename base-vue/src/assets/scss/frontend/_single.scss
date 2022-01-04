@@ -26,6 +26,7 @@
 	&:before{
 		content:'';
 		position: absolute;
+		background:url('../../../assets/images/svg/i-mail.svg') no-repeat;
 		width:22px;
 		height:16px;
 		left:0;
@@ -157,7 +158,6 @@
 	.col-lg-4{
 		@media(min-width:992px){
 			max-width: calc(100% - 705px);
-			width: 100%;
     		flex: unset;
     	}
 	}
@@ -518,7 +518,6 @@
 	p{
 		margin-bottom: 0;
 		text-align: justify;
-		color: #556170;
 	}
 
 	.table {
