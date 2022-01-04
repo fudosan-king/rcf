@@ -5,7 +5,7 @@
                 <li class="page-item">
                     <a class="page-link" @click="changePage(current - 1)" aria-label="Previous">
                         <i class="fa fa-angle-left"></i>
-                    </a>
+                       </a>
                 </li>
                 <li class="page-item" :class="{' active': current === 1 }">
                     <a class="page-link no-bg-paginate"

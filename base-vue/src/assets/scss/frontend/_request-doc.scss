@@ -127,6 +127,9 @@
 			position: relative;
 			top:-2px;
 		}
+		&:hover {
+			color: #73886B;
+		}
 	}
 
 	.custom-select{
@@ -161,8 +164,7 @@
 			-ms-user-select: none;
 			user-select: none;
 			text-align:center;
-			text-align: center;
-		    max-width: 112px;
+		    max-width: 112px !important;
 		    margin: 20px auto 10px;
 		    color: #000000;
 		    font-weight:300;
@@ -253,7 +255,6 @@
 	line-height: 21px;
 	color: #FFFFFF;
 	border-radius:0;
-	margin:0 auto;
 	width:100%;
 	max-width: 398px;	
 	height: 60px;

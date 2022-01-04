@@ -35,10 +35,13 @@
 		height: 36px;
 		text-align: center;
 		font-weight: 500;
+		&:hover{
+			color : $cl-green
+		}
 	}
 	&.active {
 		.page-link {
-			background: $cl-green;
+			background-color: $cl-green !important;
 			color: #fff;
 			border: none;
 		}

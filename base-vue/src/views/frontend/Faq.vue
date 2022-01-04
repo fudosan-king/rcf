@@ -3,12 +3,13 @@
         <nav aria-label="breadcrumb">
             <div class="container">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">{{ $t('frontend.top') }}</a></li>
+                    <li class="breadcrumb-item">
+                        <router-link :to="{name: 'home'}" class="homepage">{{ $t('frontend.top') }}</router-link>
+                    </li>
                     <li class="breadcrumb-item active" aria-current="page">{{ $t('frontend.faq.list') }}</li>
                 </ol>
             </div>
         </nav>
-        
         <div class="main_content">
             <section class="section_faq">
                 <div class="container">
