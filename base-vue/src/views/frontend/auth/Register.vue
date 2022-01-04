@@ -57,13 +57,13 @@
                                         <label>性別</label>
                                     </div>
                                     <div class="col-12 col-lg-9">
-                                        <div class="custom-control custom-radio custom-control-inline">
-                                            <input type="radio" name="customRadioInline" class="custom-control-input">
-                                            <label class="custom-control-label">男性</label>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                          <label class="form-check-label" for="inlineRadio1">男性</label>
                                         </div>
-                                        <div class="custom-control custom-radio custom-control-inline">
-                                            <input type="radio" class="custom-control-input" name="customRadioInline">
-                                            <label class="custom-control-label">女性</label>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                          <label class="form-check-label" for="inlineRadio2">女性</label>
                                         </div>
                                     </div>
                                 </div>
@@ -158,20 +158,23 @@
                                         <label>確認書面</label>
                                     </div>
                                     <div class="col-12 col-lg-9 align-self-center">
-                                        <div class="custom-control custom-checkbox mb-2">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                            <label class="custom-control-label"
-                                                   for="customCheck1">電子交付に関する同意</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="customCheck1">
+                                            <label class="form-check-label" for="customCheck1">
+                                                電子交付に関する同意
+                                            </label>
                                         </div>
-                                        <div class="custom-control custom-checkbox mb-2">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck2">
-                                            <label class="custom-control-label"
-                                                   for="customCheck2">反社勢力でない事の表明・確約に関する同意</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="customCheck2">
+                                            <label class="form-check-label" for="customCheck2">
+                                                反社勢力でない事の表明・確約に関する同意
+                                            </label>
                                         </div>
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck3">
-                                            <label class="custom-control-label"
-                                                   for="customCheck3">個人情報の取扱いに関する同意</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="customCheck3">
+                                            <label class="form-check-label" for="customCheck3">
+                                                個人情報の取扱いに関する同意
+                                            </label>
                                         </div>
                                     </div>
                                 </div>

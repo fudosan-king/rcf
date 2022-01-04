@@ -18,17 +18,38 @@ export default {
     },
     created() {
         this.$nextTick(() => {
-            this.toggleNavBar();
-            this.menuAnimationScroll();
+            this.init(); 
         });
     },
     methods: {
+
+        init() {
+            this.toggleNavBar();
+            window.addEventListener('scroll', () => {
+                this.menuAnimationScroll();    
+            });
+            const menuItems = document.querySelectorAll('.nav_menu-list ul:nth-child(2) li a');
+            menuItems.forEach( (ele) => {
+                ele.addEventListener('click', () => {
+                    this.menuCloseAll();
+                });
+            });  
+            
+
+        },
+
+
+
         toggleNavBar() {
+
             this.menuCloseAll();
             const jsMenu = document.querySelector(".js-menu");
             const navMenuList = document.querySelector('.nav_menu-list');
             const bgOverFlow = document.querySelector(".bg-overflow");
             const body = document.body;
+
+
+
             bgOverFlow.addEventListener("click", () => {
                 if (navMenuList.classList.contains("show")) {
                     this.menuCloseAll();
@@ -45,8 +66,9 @@ export default {
                 }
             });
         },
+
         menuCloseAll() {
-            const body = document.body;
+            const body = document.body; 
             body.classList.remove('menu-opening');
             body.classList.add('menu-closing');
             const jsMenu = document.querySelector(".js-menu");
@@ -58,12 +80,16 @@ export default {
                 jsMenu.classList.remove('open');
             }, 300)
         },
+
         menuAnimationScroll() {
+
             const header = document.querySelector('header');
             const heightHeader = header.offsetHeight;
             if (document.body.classList.contains('menu-opened')) return;
+
             if(window.outerHeight + 2 * heightHeader >= document.outerHeight) return;
-            if(window.scrollTop > heightHeader) {
+            
+            if( window.pageYOffset  > heightHeader) {
                 header.classList.add('menu-animation-scroll');
             } else {
                 header.classList.remove('menu-animation-scroll');

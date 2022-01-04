@@ -1,4 +1,13 @@
-@import "variables";
+#register-user{
+  &.show{
+    opacity: 0;
+    transition: all .5s ease;
+  }
+  &.fade{
+    opacity:1;
+    background: rgba(0,0,0,.3);
+  }
+}
 
 .section_template {
   padding-top: 60px;
@@ -44,9 +53,20 @@
           background-color: #73886B;
         }
       }
+      
+     
+      .form-check{
+        display:flex;
+        align-items:center;
+        width: max-content;
+        &.form-check-inline{
+          display:inline-flex;
+          align-items:center;
+        }
+      }
 
       input {
-        &.custom-control-input {
+        &.form-check-input {
           width: 16px;
           height: 16px;
           margin-right: 0.5rem;
@@ -68,7 +88,7 @@
         display: flex;
         font-size: 0.75em;
         text-decoration: none;
-
+        align-items:center;
         img {
           margin-right: .5rem;
         }

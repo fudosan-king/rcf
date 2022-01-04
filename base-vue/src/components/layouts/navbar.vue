@@ -38,7 +38,7 @@
         </div>
         <div class="bg-overflow"></div>
         <template>
-            <div class="modal fade" id="register-user" aria-hidden="true">
+            <div class="modal" id="register-user" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -52,7 +52,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="col-form-label">{{ $t('frontend.home.password') }}</label>
-                                <textarea class="form-control"></textarea>
+                                <input class="form-control">
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -102,7 +102,10 @@ export default {
         toggleModal(id) {
             this.$nextTick(() => {
                 if (this.$el.querySelector(`#${id}`)) {
-                    this.$el.querySelector(`#${id}`).classList.toggle('show')
+                    this.$el.querySelector(`#${id}`).classList.toggle('show');
+                    setTimeout(()=>{
+                        this.$el.querySelector(`#${id}`).classList.toggle('fade');    
+                    },200)
                 }
             })
         },
@@ -110,7 +113,10 @@ export default {
             if (this.modalOpened) {
                 this.$nextTick(() => {
                     if (this.$el.querySelector(`#${id}`)) {
-                        this.$el.querySelector(`#${id}`).classList.remove('show')
+                        this.$el.querySelector(`#${id}`).classList.toggle('fade');  
+                        setTimeout(()=>{
+                            this.$el.querySelector(`#${id}`).classList.remove('show');      
+                        },200)
                     }
                 })
                 setTimeout(() => {

@@ -35,17 +35,10 @@
 		height: 36px;
 		text-align: center;
 		font-weight: 500;
-		&:focus {
-			color: $cl-green
-		}
-
-		&:hover {
-			color: $cl-green
-		}
 	}
 	&.active {
 		.page-link {
-			background-color: $cl-green !important;
+			background: $cl-green;
 			color: #fff;
 			border: none;
 		}

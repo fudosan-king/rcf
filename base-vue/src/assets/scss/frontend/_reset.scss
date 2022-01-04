@@ -44,7 +44,7 @@ a,
 a:focus,
 a:active,
 a:hover {
-	//color:inherit;
+	color:inherit;
 	text-decoration: none;
 	cursor: pointer;
 }
@@ -55,7 +55,6 @@ button:active,
 button:hover {
 	outline: none;
 	box-shadow:none;
-	color: #FFF;
 }
 
 .btn.focus, 
@@ -74,78 +73,82 @@ button:hover {
 	margin-bottom: 60px;
 }
 
+// positions
+@each $d in $directions {
+	@for $i from 0 through 100 {
+		.m#{$d}--#{$i} {
+			margin-#{$d}: 1px * $i !important;
+		}
+		.m#{$d}-#{$i} {
+			margin-#{$d}: 0.25rem * $i !important;
+		}
+		.p#{$d}-#{$i} {
+			padding-#{$d}: 0.25rem * $i !important;
+		}
+		.m__#{$d}--#{$i} {
+			margin-#{$d}: 0.5rem * $i !important;
+		}
+		.p#{$d}--#{$i} {
+			padding-#{$d}: 1px * $i !important;
+		}
+		.p__#{$d}--#{$i} {
+			padding-#{$d}: 0.5rem * $i !important;
+		}
+		.m--#{$i} {
+			margin: 1px * $i !important;
+		}
+		.p--#{$i} {
+			padding: 1px * $i !important;
+		}
+		.w--#{$i} {
+			width: 1% * $i !important;
+		}
+		.h--#{$i} {
+			height: 1% * $i !important;
+		}
+		.w__vw--#{$i} {
+			width: 1vw * $i !important;
+		}
+		.h__vh--#{$i} {
+			height: 1vh * $i !important;
+		}
+		.py--#{$i} {
+			padding-top: 1px * $i !important;
+			padding-bottom: 1px * $i !important;
+		}
+		.px--#{$i} {
+			padding-left: 1px * $i !important;
+			padding-right: 1px * $i !important;
+		}
+		.width--#{$i} {
+			width: 1px * $i !important;
+		}
+		.font--#{$i} {
+			font-size: 1px * $i !important;
+		}
+		font-size-#{$i} {
+			font-size: 0.125rem * $i !important;
+		}
+		.border--#{$i} {
+			border-radius: 0.125rem * $i !important;
+		}
+		.border-width-#{$i} {
+			border-width: 1px * $i !important;
+		}
+	}
+}
+
 section {
 	padding: 60px 0;
 }
 
 @media (min-width: 1200px) {
 	.container {
-		max-width: 1235px;
+		max-width: 1030px !important;
 	}
 }
 
 input::placeholder {
 	font-size: 14px;
 	color: #BDBDBD;
-}
-.nav{
-	.nav-item{
-		.nav-link{
-			&:hover {
-				color: #73886B
-			}
-			&.active{
-				&:hover{
-					color: #FFFFFF
-				}
-			}
-		}
-	}
-}
-
-.multiselect{
-	.multiselect__tag{
-		background: #73886B;
-		.multiselect__tag-icon {
-			&:focus{
-				background: #73886B;
-			}
-			&:hover{
-				background: #73886B;
-			}
-			&:after {
-				content: "\D7";
-				color: #FFF;
-				font-size: 14px;
-			}
-		}
-	}
-	.multiselect__content-wrapper{
-		.multiselect__option--selected{
-			color: #c2c2c2;
-		}
-		.multiselect__content{
-			.multiselect__element{
-				.multiselect__option--selected{
-					background: #73886B;
-					&:after {
-						content: '';
-					}
-					&.multiselect__option--highlight{
-						color: #FFF;
-						background: #ff6a6a;
-						&:after {
-							content: '';
-						}
-					}
-				}
-				.multiselect__option--highlight{
-					background: #73886B;
-					&:after {
-						content: '';
-					}
-				}
-			}
-		}
-	}
 }
