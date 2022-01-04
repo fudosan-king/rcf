@@ -4,7 +4,7 @@
             <div class="container">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <router-link :to="{name: 'home'}">TOP</router-link>
+                        <router-link :to="{name: 'home'}">{{ $t('frontend.top') }}</router-link>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">{{ $t('frontend.fund.fund_list') }}</li>
                 </ol>
