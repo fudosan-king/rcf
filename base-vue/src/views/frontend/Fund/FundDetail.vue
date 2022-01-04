@@ -6,6 +6,7 @@
                     <li class="breadcrumb-item">
                         <router-link :to="{name: 'home'}">TOP</router-link>
                     </li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ $t('frontend.fund.fund_list') }}</li>
                 </ol>
             </div>
         </nav>
@@ -22,8 +23,6 @@
                             <div class="row row-sp">
                                 <div class="col-12 col-lg-12">
                                     <div class="single-property_box">
-                                        
-                                        
                                         <div class="single-property_box_img">
                                             <h4>募集中！</h4>
                                             <div class="img-bg"></div>
@@ -38,25 +37,16 @@
                                         
                                         <div class="row flex-column-reverse flex-lg-row js-single-sidebar-right">
                                             <div class="col-12 col-lg-8">
-                                                <ul class="nav single-property_tabs" role="tablist">
-                                                    
-                                                    <li class="nav-item" role="presentation">
-                                                        <a id="pills-home-tab" aria-controls="pills-home"
-                                                           aria-selected="true" class="nav-link active" data-toggle="pill"
-                                                           href="#pills-home" role="tab">ファンド情報</a>
+                                                <ul class="nav single-property_tabs">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" @click.prevent="setActive('home')" :class="{ active: isActive('home') }" href="#home">ファンド情報</a>
                                                     </li>
-                                                    
-                                                    <li class="nav-item" role="presentation">
-                                                        <a id="pills-profile-tab" aria-controls="pills-profile" aria-selected="false"
-                                                           class="nav-link" data-toggle="pill"
-                                                           href="#pills-profile" role="tab">エリア情報</a>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" @click.prevent="setActive('profile')" :class="{ active: isActive('profile') }" href="#profile">エリア情報</a>
                                                     </li>
-                                                
                                                 </ul>
-                                                <div id="pills-tabContent" class="tab-content">
-                                                    
-                                                    <div id="pills-home" aria-labelledby="pills-home-tab"
-                                                         class="tab-pane fade show active" role="tabpanel">
+                                                <div class="tab-content py-3" id="myTabContent">
+                                                    <div class="tab-pane fade" :class="{ 'active show': isActive('home') }" id="home">
                                                         <div class="single-property_ct">
                                                             <div class="single-property_ct_des">
                                                                 <p>
@@ -104,7 +94,7 @@
                                                                     </tbody>
                                                                 </table>
                                                             </div>
-                                                            
+
                                                             <h3>賃貸物件との契約概要</h3>
                                                             <div class="table">
                                                                 <table class="table">
@@ -127,22 +117,19 @@
                                                                     </tbody>
                                                                 </table>
                                                             </div>
-                                                            
+
                                                             <h3>当社グループ会社によるマスターリース（サブリース）契約</h3>
                                                             <p>
                                                                 出資者への配当は賃貸借契約者の賃料から得る利益を原資としているため、空室が続くと配当の原資が損なわれてしまいます。リマワルでは、出資元本の保全性を高めると同時に、出資者への配当をより確実なものとするために、運用期間における当社グループ会社によるマスターリース契約を締結しています。これにより、空室による無配当のリスクを抑制し、出資者の皆さまに安心して投資していただけるような商品を提供することができます。</p>
-                                                            
+
                                                             <div class="img">
                                                                 <img alt=""
                                                                      class="img-fluid"
                                                                      src="../../../assets/images/single-img-3.png">
                                                             </div>
                                                         </div>
-                                                    
                                                     </div>
-                                                    
-                                                    <div id="pills-profile" aria-labelledby="pills-profile-tab" class="tab-pane fade"
-                                                         role="tabpanel">
+                                                    <div id="profile" class="tab-pane fade" :class="{ 'active show': isActive('profile') }">
                                                         <div class="single-property_ct">
                                                             <h3>エリア情報</h3>
                                                             <div class="table">
@@ -197,7 +184,6 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                
                                                 </div>
                                             </div>
                                             <div class="col-12 col-lg-4">
@@ -213,7 +199,8 @@
                                                             <div class="bg-green-light single-box">
                                                                 <p class="title">募集期間</p>
                                                                 <p class="date">
-                                                                    <span>2021年3月16日 10:00 〜</span>
+                                                                    <span>2021年3月16日 10:00 </span>
+                                                                    <span class="text-center">〜</span>
                                                                     <span>2021年7月10日 18:00</span>
                                                                 </p>
                                                             </div>
@@ -272,8 +259,22 @@
 </template>
 
 <script>
+
 export default {
-    name: "FundDetail"
+    name: "FundDetail",
+    data() {
+        return {
+            activeItem: 'home'
+        }
+    },
+    methods:{
+        isActive (menuItem) {
+            return this.activeItem === menuItem
+        },
+        setActive (menuItem) {
+            this.activeItem = menuItem
+        }
+    }
 }
 </script>
 
@@ -282,6 +283,11 @@ export default {
 .single-property_box_img {
     .img-bg {
         background-image: url('../../../assets/images/single-img.jpg');
+    }
+}
+.i-mail{
+    &:before{
+        background:url('../../../assets/images/svg/i-mail.svg') no-repeat;
     }
 }
 

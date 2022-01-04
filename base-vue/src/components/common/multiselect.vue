@@ -1,21 +1,12 @@
 <template>
     <div>
-        <div class="dropdown w--100"
-             id="dropdown-multiple"
-             :class="{'is-up': isUp}"
+        <div class="dropdown w-100" id="dropdown-multiple" :class="{'is-up': isUp}"
              v-click-out="() => closeDropdown('dropdown-multiple')">
-            <div
-                    class="field is-grouped is-grouped-multiline align-items-center w--100 dropdown-trigger border-grey cursor-pointer br--10 p__right--35"
-                    :class="{'is-error': isInvalid || messageError, 'p__left--10': label}"
+            <div class="form-control line align-center w-100 dropdown-trigger"
+                    :class="{'is-error': isInvalid || messageError, 'pl-2': label}"
                     @click="toggleDropdown('dropdown-multiple')">
-                <span class="icon is-small" v-if="droppable">
-          <i class="fas fa-angle-down" aria-hidden="true"></i>
-        </span>
-                
                 <template>
-          <span v-if="label">
-            {{ this.label + ' ' }}
-          </span>
+                    <span v-if="label">{{ this.label + ' ' }}</span>
                     <div class="control m--5" v-if="stringPrefix">
                         <div class="tags has-addons">
                             <span class="tag">{{ stringPrefix }}</span>
@@ -39,29 +30,27 @@
                                v-click-out="clearKeyword"
                                @keyup.enter.stop="createNewItem()"
                                ref="dropdown-keyword"
-                               class="input is-transparent is-borderless is-shadowless">
+                               class="dropdown-input w-100 form-control">
                     </label>
                 </template>
             </div>
-            <div class="dropdown-menu w--100" role="menu">
+            <div class="dropdown-menu w-100" role="menu">
                 <div class="dropdown-content"
                      v-if="droppable && (!maxLength || (maxLength && keyword.length <= maxLength)) && (!isEmail || (isEmail && emailRegex.test(keyword)))">
                     <a @click="getSelected(e)"
                        v-for="(e, i) in listDataClone"
                        :key="'item-clone-' + i"
-                       :class="{'is-active': isSelected(e.id)}"
-                       class="dropdown-item">
+                       :class="{'show': isSelected(e.id)}"
+                       class="dropdown-item w-100">
                         {{ e[stringDisplay] }}
                         <span @click.stop="deleteItem(e)" v-if="removeItem" class="remove-item"><i
                                 class="fas fa-times"></i></span>
                     </a>
-                    <div class="dropdown-item" v-if="!listDataClone || !listDataClone.length">
-                        {{ $t('target_not_found') }}
+                    <div class="dropdown-item w-100" v-if="!listDataClone || !listDataClone.length">
+                        {{ $t('messages.target_not_found') }}
                     </div>
                 </div>
-                <span class="color-error" v-if="messageError">
-          {{ messageError }}
-        </span>
+                <span class="color-error" v-if="messageError">{{ messageError }}</span>
             </div>
         </div>
     </div>
@@ -219,14 +208,15 @@ export default {
         closeDropdown(id) {
             this.$nextTick(() => {
                 if (this.$el.querySelector(`#${id}`)) {
-                    this.$el.querySelector(`#${id}`).classList.remove('is-active')
+                    this.$el.querySelector(`#${id}`).classList.remove('show')
                 }
             })
         },
         toggleDropdown(id) {
             this.$nextTick(() => {
                 if (this.$el.querySelector(`#${id}`)) {
-                    this.$el.querySelector(`#${id}`).classList.toggle('is-active')
+                    console.log(this.$el.querySelector(`#${id}`))
+                    this.$el.querySelector(`#${id}`).classList.toggle('show')
                     this.$refs['dropdown-keyword'] && this.$refs['dropdown-keyword'].focus()
                 }
             })
@@ -360,95 +350,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.icon.is-small {
-    opacity: 0.7;
-}
 
 .dropdown {
     .dropdown-trigger {
-        min-height: 40px;
-        background-color: white;
-        border: 1px solid #dbdbdb;
-        border-radius: 4px;
-        color: #363636;
-        max-height: 110px;
-        overflow-y: auto;
-        
+        background: #fff url('../../assets/images/svg/arrow_down.svg') no-repeat right 0.75rem center/18px 20px;
         &:hover, &:focus {
             box-shadow: 0 0 5px #61C5FA;
         }
-        
         &.is-error {
             &:hover, &:focus {
                 box-shadow: 0 0 0 0.125em rgba(255, 102, 115, 0.35) !important;
             }
         }
-        
+
         label {
             width: 80%
         }
-        
-    }
-    
-    .dropdown-content {
-        max-height: 185px;
-        overflow-y: auto;
-    }
-    
-    .icon-angle-down {
-        position: absolute;
-        right: 12px;
-        top: 12px;
-        color: #808080;
-    }
-    
-    .placeholder-select {
-        color: #c2c2c2 !important;
-    }
-    
-    .remove-item {
-        position: absolute;
-        width: 30px;
-        right: 10px;
-        text-align: center;
-        
-        &:hover {
-            color: $danger;
-            transform: scale(1.2);
-            transition: all 0.3s ease-in-out;
-        }
-    }
-}
 
-input {
-    &.is-transparent {
-        &[disabled] {
-            background: transparent !important;
-            
-            &::placeholder {
-                color: #c2c2c2 !important
-            }
-            
-            cursor: text;
-        }
     }
-    
-}
-
-input:disabled::-webkit-input-placeholder { /* WebKit browsers */
-    color: #c2c2c2 !important;
-}
-
-input:disabled:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color: #c2c2c2 !important;
-    
-}
-
-input:disabled::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color: #c2c2c2 !important;
-}
-
-input:disabled:-ms-input-placeholder { /* Internet Explorer 10+ */
-    color: #c2c2c2 !important;
 }
 </style>
