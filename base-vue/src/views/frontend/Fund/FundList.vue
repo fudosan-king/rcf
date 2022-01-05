@@ -30,10 +30,9 @@
                                             :options="statusFunds"
                                             label="name"
                                             track-by="value"
-                                            taggable
-                                            @tag="addTag"
-                                            multiple
-                                    ></Multiselect>
+                                            placeholder="状態を選択">
+
+                                    </Multiselect>
                                 </div>
                             </div>
                         </div>
@@ -175,7 +174,6 @@ export default {
                     }
             );
         },
-
 
 
     }

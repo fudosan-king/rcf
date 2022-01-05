@@ -13,7 +13,8 @@
                                         <label>メールアドレス</label>
                                     </div>
                                     <div class="col-12 col-lg-9">
-                                        <input type="text" class="form-control" placeholder="◯◯◯◯◯◯@xxxxxxxx.jp">
+                                        <input type="text" class="form-control" placeholder="◯◯◯◯◯◯@xxxxxxxx.jp"
+                                               v-model="customers.email">
                                     </div>
                                 </div>
                             </div>
@@ -25,10 +26,12 @@
                                     <div class="col-12 col-lg-9">
                                         <div class="row">
                                             <div class="col-6 col-lg-6">
-                                                <input type="text" class="form-control mr-2" placeholder="山田">
+                                                <input type="text" class="form-control mr-2" placeholder="山田"
+                                                       v-model="customers.first_name">
                                             </div>
                                             <div class="col-6 col-lg-6">
-                                                <input type="text" class="form-control" placeholder="太郎">
+                                                <input type="text" class="form-control" placeholder="太郎"
+                                                       v-model="customers.last_name">
                                             </div>
                                         </div>
                                     </div>
@@ -42,10 +45,12 @@
                                     <div class="col-12 col-lg-9">
                                         <div class="row">
                                             <div class="col-6 col-lg-6">
-                                                <input type="text" class="form-control" placeholder="ヤマダ">
+                                                <input type="text" class="form-control" placeholder="ヤマダ"
+                                                       v-model="customers.kata_first_name">
                                             </div>
                                             <div class="col-6 col-lg-6">
-                                                <input type="text" class="form-control" placeholder="タロウ">
+                                                <input type="text" class="form-control" placeholder="タロウ"
+                                                       v-model="customers.kata_last_name">
                                             </div>
                                         </div>
                                     </div>
@@ -58,12 +63,17 @@
                                     </div>
                                     <div class="col-12 col-lg-9">
                                         <div class="form-check form-check-inline">
-                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                          <label class="form-check-label" for="inlineRadio1">男性</label>
+                                            <input class="form-check-input" type="radio" name="genders"
+                                                   :value="1"
+                                                   v-model="customers.genders"
+                                            >
+                                            <label class="form-check-label">男性</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                          <label class="form-check-label" for="inlineRadio2">女性</label>
+                                            <input class="form-check-input" type="radio" name="genders"
+                                                   :value="0"
+                                                   v-model="customers.genders">
+                                            <label class="form-check-label">女性</label>
                                         </div>
                                     </div>
                                 </div>
@@ -74,7 +84,8 @@
                                         <label>生年月日</label>
                                     </div>
                                     <div class="col-12 col-lg-9">
-                                        <input type="text" class="form-control" placeholder="数字8桁で入力（例：19800511）">
+                                        <input type="text" class="form-control" placeholder="数字8桁で入力（例：19800511）"
+                                               v-model="customers.birthday">
                                     </div>
                                 </div>
                             </div>
@@ -107,6 +118,7 @@
                                                   :disabled="false"
                                                   name="prefectures"
                                                   :maxItem="20"
+                                                  v-on:selected="validateSelection"
                                                   :placeholder="prefecturePlaceholder">
                                         </Dropdown>
                                     </div>
@@ -196,16 +208,64 @@
 
 <script>
 import common from "../../../mixins/common";
+import {email, maxLength, minLength, required} from "vuelidate/lib/validators";
+import {katakana} from "../../../helpers/utils";
 
 export default {
     name: "Register",
     mixins: [common],
     data: function () {
         return {
-
+            customers: {
+                email: "",
+                name: "",
+                full_name: "",
+                katakana_name: "",
+                genders: "",
+                birthday: "",
+                postal_code: "",
+                prefectures: "",
+                city: "",
+                area: "",
+                building: "",
+                phone: "",
+                inquiry: "",
+                first_name: "",
+                last_name: "",
+                kata_first_name: "",
+                kata_last_name: "",
+            }
         };
     },
-    methods: {}
+    validations: {
+        customers: {
+            name: {
+                required,
+                maxLength: maxLength(50)
+            },
+            full_name: {
+                maxLength: maxLength(30),
+            },
+            katakana_name: {
+                katakana: (val) => {
+                    return katakana(val)
+                },
+                maxLength: maxLength(50),
+            },
+            email: {
+                required, email
+            },
+            phone: {
+                maxLength: maxLength(13),
+                minLength: minLength(9),
+            },
+        }
+    },
+    methods: {
+        validateSelection(selection) {
+            this.selected = selection;
+        },
+    }
 }
 </script>
 

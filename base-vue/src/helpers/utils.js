@@ -23,10 +23,18 @@ const formatNumber = (number, places, thousand, decimal) => {
 
     return negative + (j ? i.substr(0, j) + thousand : '') + i.substr(j).replace(/(\d{3})(?=\d)/g, '$1' + thousand) + (places ? decimal + Math.abs(number - i).toFixed(places).slice(2) : '')
 }
+const katakana = (value) => {
+    const jaRegex = /[ァ-ン]/;
+    return !value || jaRegex.test(value);
+};
+const kanji = (value) => {
+    const jaRegex = /[一-龯]/;
+    return !value || jaRegex.test(value);
+};
 
 export {
     capitalize,
     upperCamelCaseToSnakeCase,
     milliseconds,
-    formatNumber
+    formatNumber, katakana, kanji
 };

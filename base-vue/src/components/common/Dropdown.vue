@@ -141,7 +141,7 @@ export default {
         font-size: .8em;
         padding: 6px 12px;
         background: #fff url('../../assets/images/svg/arrow_down.svg') no-repeat right 0.75rem center/18px 20px;
-        
+
     }
     input::placeholder {
         font-size: 14px;
@@ -156,7 +156,7 @@ export default {
         box-shadow: 0px -8px 34px 0px rgba(0, 0, 0, 0.05);
         overflow: auto;
         z-index: 1;
-    
+
         .dropdown-item {
             color: black;
             line-height: 1em;

@@ -1,5 +1,5 @@
 import i18n from "../../lang/i18n";
-import Contact from "../../views/frontend/Contact";
+import Contact from "../../views/frontend/Contact/Contact";
 
 export default [
     {

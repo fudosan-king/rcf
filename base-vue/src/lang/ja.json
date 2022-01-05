@@ -121,7 +121,7 @@
           "label": "ご連絡先電話番号  ",
           "placeholder": "例：080-0000-0000"
         },
-        "building_name": {
+        "number_room": {
           "label": "建物名・号室",
           "placeholder": "例：渋谷ハイツ"
         }

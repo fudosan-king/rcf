@@ -182,3 +182,49 @@ textarea::placeholder {
     font-size: 14px;
     color: #BDBDBD;
 }
+.multiselect{
+    .multiselect__tag{
+        background: #73886B;
+        .multiselect__tag-icon {
+            &:focus{
+                background: #73886B;
+            }
+            &:hover{
+                background: #73886B;
+            }
+            &:after {
+                content: "\D7";
+                color: #FFF;
+                font-size: 14px;
+            }
+        }
+    }
+    .multiselect__content-wrapper{
+        .multiselect__option--selected{
+            color: #c2c2c2;
+        }
+        .multiselect__content{
+            .multiselect__element{
+                .multiselect__option--selected{
+                    background: #73886B;
+                    &:after {
+                        content: '';
+                    }
+                    &.multiselect__option--highlight{
+                        color: #FFF;
+                        background: #ff6a6a;
+                        &:after {
+                            content: '';
+                        }
+                    }
+                }
+                .multiselect__option--highlight{
+                    background: #73886B;
+                    &:after {
+                        content: '';
+                    }
+                }
+            }
+        }
+    }
+}
