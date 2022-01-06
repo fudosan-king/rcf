@@ -71,12 +71,18 @@
                                                     </label>
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <Dropdown :options="this.prefectures"
-                                                              :disabled="false"
-                                                              :maxItem="20"
-                                                              v-on:selected="validateSelection"
-                                                              :placeholder="prefecturePlaceholder">
-                                                    </Dropdown>
+                                                    <!--                                                    <Dropdown :options="this.prefectures"-->
+                                                    <!--                                                              :disabled="false"-->
+                                                    <!--                                                              :maxItem="20"-->
+                                                    <!--                                                              v-on:selected="validateSelection"-->
+                                                    <!--                                                              :placeholder="prefecturePlaceholder">-->
+                                                    <!--                                                    </Dropdown>-->
+                                                    <Multiselect v-model="contact.prefectures"
+                                                                 :options="prefectures"
+                                                                 track-by="value"
+                                                                 :selected="contact.prefectures"
+                                                                 placeholder="状態を選択">
+                                                    </Multiselect>
 
                                                 </div>
                                             </div>
@@ -160,7 +166,8 @@
 
                                                         <div class="request-doc_custom-checkbox agree-privacy">
                                                             <label class="container">
-                                                                <input class="required" id="ck_agree" type="checkbox" @click="checkbox">
+                                                                <input class="required" id="ck_agree" type="checkbox"
+                                                                       @click="checkbox">
                                                                 <span class="checkmark"></span>
                                                                 {{ $t('frontend.contact.agree') }}
                                                             </label>
@@ -343,7 +350,7 @@ export default {
         validateSelection(selection) {
             this.selected = selection;
         },
-        checkbox(){
+        checkbox() {
             this.contact.checked = !this.contact.checked;
         },
         submit() {

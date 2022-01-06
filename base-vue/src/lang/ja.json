@@ -30,7 +30,8 @@
     "top": "TOP",
     "buttons": {
       "click_here": "詳細はこちら",
-      "agree": "上記に同意して確認画面へ"
+      "agree": "上記に同意して確認画面へ",
+      "confirm_info": "確認画面へ"
     },
     "require": "必須",
     "navbar": {
@@ -125,6 +126,48 @@
           "label": "建物名・号室",
           "placeholder": "例：渋谷ハイツ"
         }
+      }
+    },
+    "register": {
+      "title": "出資者基本情報登録",
+      "sub_title": "フォームに必要事項をご入力ください。",
+      "email": {
+        "label": "メールアドレス",
+        "placeholder": "◯◯◯◯◯◯@xxxxxxxx.jp"
+      },
+      "name": {
+        "label": "本名"
+      },
+      "katakana": "本名（カナ）",
+      "genders": {
+        "label": "性別",
+        "male": "男性",
+        "female": "女性"
+      },
+      "birthday": {
+        "label": "生年月日",
+        "placeholder": "数字8桁で入力（例：19800511）"
+      },
+      "post_code": {
+        "label": "郵便番号",
+        "placeholder": "1234567",
+        "auto_complete": "郵便番号から住所を自動的入力"
+      },
+      "prefectures": {
+        "label": "都道府県",
+        "placeholder": "都道府県を選択してください"
+      },
+      "locality": "市区町村",
+      "street": "番地",
+      "building": "建物名・号室",
+      "phone_number": {
+        "label": "電話番号"
+      },
+      "confirm_document": {
+        "label": "確認書面",
+        "value_1": "電子交付に関する同意",
+        "value_2": "反社勢力でない事の表明・確約に関する同意",
+        "value_3": "個人情報の取扱いに関する同意"
       }
     }
   }
