@@ -207,7 +207,7 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-12 col-lg-6 m-auto text-center">
-                                            <button @click="goToStep(2)" class="btn btn_confirm">
+                                            <button @click.prevent="nextStep" class="btn btn_confirm">
                                                 {{ $t('frontend.buttons.confirm_info') }}
                                             </button>
                                         </div>
@@ -343,10 +343,16 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-12 col-lg-4 offset-lg-2 text-center">
-                                            <button class="btn btn_cancel btn_gray"> 戻る</button>
+                                            <button class="btn btn_cancel btn_gray text-white bg-cl-gray-light-white-2 w-100 p--15"
+                                                    @click.prevent="prevStep">戻る
+                                            </button>
                                         </div>
-                                        <div class="col-12 col-lg-4 text-center">
-                                            <button class="btn btn_next"> 確認画面へ</button>
+                                        <div class="col-12 col-lg-4 text-center ml-3">
+                                            <button class="btn btn_next text-white bg-cl-green w-100 p--15"
+                                                    @click="nextStep()">
+                                                次へ
+                                                > 確認画面へ
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -354,7 +360,6 @@
                         </template>
                         <template v-if="currentStep === 3">
                             <h2 class="title">出資者基本情報確認</h2>
-
                             <div class="box_content px-lg-4">
                                 <div class="box_send_completely text-center">
                                     <h3>送信完了</h3>
@@ -362,7 +367,9 @@
                                         追って担当者よりご連絡させていただきます。<br>
                                         連絡がない場合はメールが届いていない可能性がありますので、お手数ですが再度お問合わせください。</p>
                                     <p>※当社指定日を挟んだ場合や、お見積り内容により、回答が数日かかる場合があります。予めご了承ください。</p>
-                                    <p class="text-center mt-5"><a href="#" class="btn btn_green">トップに戻る</a></p>
+                                    <p class="text-center mt-5">
+                                        <button href="#" class="btn btn_green bg-cl-green text-white">トップに戻る</button>
+                                    </p>
                                 </div>
                             </div>
                         </template>
@@ -408,6 +415,7 @@ export default {
                 kata_last_name: "",
             },
             currentStep: 1,
+            totalStep: 3,
         };
     },
     validations: {
@@ -453,10 +461,13 @@ export default {
                 this.customers.street = addr.street // 町域
             })
         },
-        goToStep(step) {
-            this.currentStep = step;
+        prevStep() {
+            this.currentStep--;
         },
-    }
+        nextStep() {
+            this.currentStep++;
+        },
+    },
 
 }
 </script>

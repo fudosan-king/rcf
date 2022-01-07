@@ -32868,10 +32868,6 @@ footer .footer_bottom p {
 .request-doc_form .form-group {
   margin-bottom: 40px;
 }
-.request-doc_form input, .request-doc_form select {
-  height: 40px;
-  border: 1px solid #828282;
-}
 .request-doc_form textarea {
   border: 1px solid #828282;
 }

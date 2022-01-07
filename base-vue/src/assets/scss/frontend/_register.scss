@@ -1,143 +1,164 @@
-#register-user{
-  &.show{
-    opacity: 0;
-    transition: all .5s ease;
-  }
-  &.fade{
-    opacity:1;
-    background: rgba(0,0,0,.3);
-  }
+#register-user {
+    &.show {
+        opacity: 0;
+        transition: all .5s ease;
+    }
+
+    &.fade {
+        opacity: 1;
+        background: rgba(0, 0, 0, .3);
+    }
 }
 
 .section_template {
-  padding-top: 60px;
-  margin-bottom: 100px;
-  background: rgba(115, 136, 107, 0.15);
+    padding-top: 60px;
+    margin-bottom: 100px;
+    background: rgba(115, 136, 107, 0.15);
 
-  .title {
-    margin-bottom: 40px;
-  }
-
-  .title_sub {
-    font-size: 1em;
-    text-align: center;
-    font-family: "Montserrat", sans-serif;
-    line-height: 1.8em;
-    margin-bottom: 30px;
-    font-weight: 500;
-  }
-
-  .box_content {
-    background: #fff;
-    padding: 60px 106px;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
-    border-radius: 2px;
-    font-size: 0.875rem;
-    color: #556170;
-
-    .form-group {
-      margin-bottom: 40px;
-
-      label {
-        font-weight: 600;
-        margin: 0.5rem auto;
-
-        &.custom-control-label {
-          font-weight: normal;
-
-        }
-
-        &:before {
-          box-shadow: none;
-          border-color: #73886B;
-          background-color: #73886B;
-        }
-      }
-      
-     
-      .form-check{
-        display:flex;
-        align-items:center;
-        width: max-content;
-        &.form-check-inline{
-          display:inline-flex;
-          align-items:center;
-        }
-      }
-
-      input {
-        &.form-check-input {
-          width: 16px;
-          height: 16px;
-          margin-right: 0.5rem;
-
-          &:focus {
-            box-shadow: none;
-          }
-
-          &:checked {
-            background-color: #73886B;
-            border-color: #73886B;
-          }
-        }
-      }
-
-      .zipcode_auto {
-        color: #73886B;
-        font-weight: 600;
-        display: flex;
-        font-size: 0.75em;
-        text-decoration: none;
-        align-items:center;
-        img {
-          margin-right: .5rem;
-        }
-      }
-
-      &:focus {
-        border-color: #73886B;
-      }
-
-      .btn_confirm {
-        background: #73886B;
-        color: #fff;
-        font-size: 1.125em;
-        min-width: 398px;
-        font-weight: 600;
-        padding: 15px;
-      }
-
+    .title {
+        margin-bottom: 40px;
     }
-  }
+
+    .title_sub {
+        font-size: 1em;
+        text-align: center;
+        font-family: "Montserrat", sans-serif;
+        line-height: 1.8em;
+        margin-bottom: 30px;
+        font-weight: 500;
+    }
+
+    .box_content {
+        background: #fff;
+        padding: 60px 106px;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+        border-radius: 2px;
+        font-size: 0.875rem;
+        color: #556170;
+
+        .form-group {
+            margin-bottom: 40px;
+
+            label {
+                font-weight: 600;
+                margin: 0.5rem auto;
+
+                &.custom-control-label {
+                    font-weight: normal;
+
+                }
+
+                &:before {
+                    box-shadow: none;
+                    border-color: #73886B;
+                    background-color: #73886B;
+                }
+            }
+
+
+            .form-check {
+                display: flex;
+                align-items: center;
+                width: max-content;
+
+                &.form-check-inline {
+                    display: inline-flex;
+                    align-items: center;
+                }
+            }
+
+            input {
+                &.form-check-input {
+                    width: 16px;
+                    height: 16px;
+                    margin-right: 0.5rem;
+
+                    &:focus {
+                        box-shadow: none;
+                    }
+
+                    &:checked {
+                        background-color: #73886B;
+                        border-color: #73886B;
+                    }
+                }
+            }
+
+            .zipcode_auto {
+                color: #73886B;
+                font-weight: 600;
+                display: flex;
+                font-size: 0.75em;
+                text-decoration: none;
+                align-items: center;
+
+                img {
+                    margin-right: .5rem;
+                }
+            }
+
+            &:focus {
+                border-color: #73886B;
+            }
+
+            .btn_confirm {
+                background: #73886B;
+                color: #fff;
+                font-size: 1.125em;
+                min-width: 398px;
+                font-weight: 600;
+                padding: 15px;
+            }
+
+        }
+    }
+
+    .box_send_completely {
+        h3 {
+            font-size: 1.5em;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(85, 97, 112, 0.2);
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+        }
+        .btn_green {
+            background: #73886B;
+            padding: 15px;
+            min-width: 295px;
+            font-size: 1.125em;
+            font-weight: 600;
+            color: #fff;
+        }
+    }
 }
 
 
 @media (max-width: 768px) {
-  .section_template {
-    margin-bottom: 0;
-    padding-top: 145px;
+    .section_template {
+        margin-bottom: 0;
+        padding-top: 145px;
 
-    .box_content {
-      padding: 30px;
-      margin-left: -15px;
-      margin-right: -15px;
+        .box_content {
+            padding: 30px;
+            margin-left: -15px;
+            margin-right: -15px;
 
-      .form-group {
-        margin-bottom: 20px;
+            .form-group {
+                margin-bottom: 20px;
 
-        label {
-          margin-top: 0
+                label {
+                    margin-top: 0
+                }
+
+                .btn_confirm {
+                    min-width: auto;
+                    width: 100%;
+                }
+            }
+
+            .card-body {
+                padding: 15px;
+            }
         }
-
-        .btn_confirm {
-          min-width: auto;
-          width: 100%;
-        }
-      }
-
-      .card-body {
-        padding: 15px;
-      }
     }
-  }
 }

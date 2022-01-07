@@ -16,7 +16,8 @@ import 'vue-toast-notification/dist/theme-sugar.css';
 import Mixins from './mixins';
 import Components from './components/common';
 import Directive from './directives';
-import Prototypes from './prototypes'
+import Prototypes from './prototypes';
+import Yubinbango from 'yubinbango-core';
 
 Vue.config.productionTip = false
 
@@ -31,6 +32,7 @@ Vue.use(VueToast, {
 Vue.use(Vuelidate);
 Vue.use(Prototypes)
 Vue.use(BootstrapVue)
+Vue.use(Yubinbango)
 
 Mixins(Vue);
 Components(Vue);

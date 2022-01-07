@@ -48,17 +48,18 @@
                                                 <div class="col-md-8">
                                                     <div class="row align-items-center">
                                                         <div class="col-12 col-lg-6">
-                                                            <input type="text" class="form-control postal-code"
-                                                                   v-model="contact.post_code"
-                                                                   name="postal" placeholder="例：1234567" maxlength="7">
+                                                            <input type="text" class="form-control"
+                                                                   :placeholder="$t('frontend.register.post_code.placeholder')"
+                                                                   v-on:keyup="getAddress"
+                                                                   v-model="contact.postal_code">
                                                         </div>
                                                         <div class="col-12 col-lg-6">
-                                                            <a class=" text-decoration-none"
-                                                               href="javascript:void(0)"><img
-                                                                    src="https://www.rimawaru.com/wp-content/themes/rimawaru/assets/images/svg/i-arrow-r.svg"
-                                                                    alt="" class="img-fluid mr-2"
-                                                                    width="20"> 郵便番号から住所を自動入力</a>
+                                                            <a class=" text-decoration-none">
+                                                                <img src="../../../assets/images/svg/arrow_right.svg"
+                                                                     alt="" class="img-fluid mr-2"
+                                                                     width="20"> 郵便番号から住所を自動入力</a>
                                                         </div>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -71,19 +72,11 @@
                                                     </label>
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <!--                                                    <Dropdown :options="this.prefectures"-->
-                                                    <!--                                                              :disabled="false"-->
-                                                    <!--                                                              :maxItem="20"-->
-                                                    <!--                                                              v-on:selected="validateSelection"-->
-                                                    <!--                                                              :placeholder="prefecturePlaceholder">-->
-                                                    <!--                                                    </Dropdown>-->
                                                     <Multiselect v-model="contact.prefectures"
                                                                  :options="prefectures"
-                                                                 track-by="value"
-                                                                 :selected="contact.prefectures"
-                                                                 placeholder="状態を選択">
+                                                                 :selected="validateSelection"
+                                                                 :placeholder="$t('frontend.register.prefectures.placeholder')">
                                                     </Multiselect>
-
                                                 </div>
                                             </div>
                                         </div>
@@ -107,7 +100,7 @@
                                                     <label>{{ $t('frontend.contact.fields.number_room.label') }}</label>
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <input class="form-control" v-model="contact.number_room"
+                                                    <input class="form-control" v-model="contact.building"
                                                            type="text">
                                                 </div>
                                             </div>
@@ -230,7 +223,7 @@
                                                     </label>
                                                 </div>
                                                 <div class="col-6">
-                                                    <span class="view_number_room">{{ contact.number_room }}</span>
+                                                    <span class="view_building">{{ contact.building }}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -305,9 +298,15 @@
 import common from "../../../mixins/common";
 import {required, maxLength, email} from "vuelidate/lib/validators";
 
+import {Core as YubinBangoCore} from 'yubinbango-core'
+import Multiselect from "vue-multiselect";
+
 export default {
     name: "Contact",
     mixins: [common],
+    components: {
+        Multiselect
+    },
     data() {
         return {
             currentStep: 1,
@@ -316,7 +315,7 @@ export default {
                 post_code: '',
                 prefectures: '',
                 address: '',
-                number_room: '',
+                building: '',
                 phone: '',
                 email: '',
                 inquiry: '',
@@ -358,7 +357,15 @@ export default {
             if (!this.vuelidate.$invalid && this.submitAvailable) {
                 this.submitAvailable = false
             }
-        }
+        },
+        getAddress() {
+            this.postalCode = this.contact.postal_code
+            new YubinBangoCore(this.postalCode, (addr) => {
+                console.log(addr);
+                this.contact.prefectures = addr.region // 都道府県
+                this.contact.address = addr.locality + ' ' + addr.street // 市区町村
+            })
+        },
     },
     mounted() {
         this.goToStep(1);
