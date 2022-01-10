@@ -177,6 +177,7 @@
             cursor: pointer;
             height: 0;
             width: 0;
+
         }
 
         /* Create a custom checkbox */
@@ -189,6 +190,7 @@
             background-color: transparent;
             border: 1px solid #828282;
         }
+
 
         /* When the checkbox is checked, add a blue background */
         .container input:checked ~ .checkmark {
@@ -219,6 +221,7 @@
             -ms-transform: rotate(45deg);
             transform: rotate(45deg);
         }
+
     }
 
     .agree-privacy {
@@ -226,6 +229,17 @@
             display: flex;
             justify-content: center;
             margin-bottom: 10px;
+        }
+
+        .invalid-feedback {
+            text-align: center;
+            margin-bottom: 10px
+        }
+
+        .is-invalid {
+            .checkmark {
+                border-color: #dc3545 !important;
+            }
         }
     }
 

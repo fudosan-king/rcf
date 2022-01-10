@@ -31,35 +31,53 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <input name="name_customer" class="form-control required"
+                                                           :class="{'is-invalid': ((!vuelidate.contact.name.required || !vuelidate.contact.name.maxLength) && vuelidate.$dirty)}"
                                                            v-model="contact.name"
                                                            type="text"
                                                            :placeholder="$t('frontend.contact.fields.name.placeholder')">
+                                                    <template v-if="vuelidate.$dirty">
+                                                        <div class="invalid-feedback"
+                                                             v-if="!vuelidate.contact.name.required && vuelidate.$dirty">
+                                                            {{ $t('frontend.contact.fields.name.required') }}
+                                                        </div>
+                                                        <div class="invalid-feedback"
+                                                             v-if="!vuelidate.contact.name.maxLength && vuelidate.$dirty">
+                                                            {{ $t('frontend.contact.fields.name.max') }}
+                                                        </div>
+                                                    </template>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class=" form-group">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label>{{ $t('frontend.contact.fields.post_code.label') }} <span
-                                                            class="i-required">{{
-                                                            $t('frontend.require')
-                                                        }}</span></label>
+                                                    <label>{{ $t('frontend.contact.fields.postal_code.label') }}
+                                                        <span class="i-required">{{ $t('frontend.require') }}</span>
+                                                    </label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="row align-items-center">
                                                         <div class="col-12 col-lg-6">
-                                                            <input type="text" class="form-control"
-                                                                   :placeholder="$t('frontend.register.post_code.placeholder')"
+                                                            <input type="text" class="form-control postal_code"
+                                                                   :placeholder="$t('frontend.contact.fields.postal_code.placeholder')"
+                                                                   :class="{'is-invalid': (!vuelidate.contact.postal_code.required && vuelidate.$dirty)}"
                                                                    v-on:keyup="getAddress"
                                                                    v-model="contact.postal_code">
+                                                            <template v-if="vuelidate.$dirty">
+                                                                <div class="invalid-feedback"
+                                                                     v-if="!vuelidate.contact.postal_code.required && vuelidate.$dirty">
+                                                                    {{
+                                                                        $t('frontend.contact.fields.postal_code.required')
+                                                                    }}
+                                                                </div>
+                                                            </template>
                                                         </div>
                                                         <div class="col-12 col-lg-6">
                                                             <a class=" text-decoration-none">
                                                                 <img src="../../../assets/images/svg/arrow_right.svg"
                                                                      alt="" class="img-fluid mr-2"
-                                                                     width="20"> 郵便番号から住所を自動入力</a>
+                                                                     width="20"> {{ $t('frontend.contact.import') }}</a>
                                                         </div>
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -73,10 +91,17 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <Multiselect v-model="contact.prefectures"
+                                                                 class="prefectures"
+                                                                 :class="{'is-invalid': (!vuelidate.contact.prefectures.required && vuelidate.$dirty)}"
                                                                  :options="prefectures"
-                                                                 :selected="validateSelection"
                                                                  :placeholder="$t('frontend.register.prefectures.placeholder')">
                                                     </Multiselect>
+                                                    <template v-if="vuelidate.$dirty">
+                                                        <div class="invalid-feedback"
+                                                             v-if="!vuelidate.contact.prefectures.required && vuelidate.$dirty">
+                                                            {{ $t('frontend.contact.fields.prefectures.required') }}
+                                                        </div>
+                                                    </template>
                                                 </div>
                                             </div>
                                         </div>
@@ -88,16 +113,23 @@
                                                     </label>
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <input class="form-control required" type="text"
+                                                    <input class="form-control required address" type="text"
                                                            v-model="contact.address"
+                                                           :class="{'is-invalid': (!vuelidate.contact.address.required && vuelidate.$dirty)}"
                                                            placeholder="">
+                                                    <template v-if="vuelidate.$dirty">
+                                                        <div class="invalid-feedback"
+                                                             v-if="!vuelidate.contact.address.required && vuelidate.$dirty">
+                                                            {{ $t('frontend.contact.fields.address.required') }}
+                                                        </div>
+                                                    </template>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label>{{ $t('frontend.contact.fields.number_room.label') }}</label>
+                                                    <label>{{ $t('frontend.contact.fields.building.label') }}</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <input class="form-control" v-model="contact.building"
@@ -113,30 +145,59 @@
                                                     </label>
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <input class="form-control phonenumber" name="phonenumber"
+                                                    <input class="form-control phone_number" name="phone"
                                                            type="text" v-model="contact.phone"
+                                                           :class="{'is-invalid': ((!vuelidate.contact.phone.required || !vuelidate.contact.phone.maxLength || !vuelidate.contact.phone.minLength ) && vuelidate.$dirty)}"
                                                            :placeholder="$t('frontend.contact.fields.phone.placeholder')">
+                                                    <template v-if="vuelidate.$dirty">
+                                                        <div class="invalid-feedback"
+                                                             v-if="!vuelidate.contact.phone.required && vuelidate.$dirty">
+                                                            {{ $t('frontend.contact.fields.phone.validate.required') }}
+                                                        </div>
+                                                        <div class="invalid-feedback"
+                                                             v-if="!vuelidate.contact.phone.maxLength && vuelidate.$dirty">
+                                                            {{ $t('frontend.contact.fields.phone.validate.maxLength') }}
+                                                        </div>
+                                                        <div class="invalid-feedback"
+                                                             v-if="!vuelidate.contact.phone.minLength && vuelidate.$dirty">
+                                                            {{ $t('frontend.contact.fields.phone.validate.minLength') }}
+                                                        </div>
+
+                                                    </template>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label>メールアドレス <span class="i-required">{{
-                                                            $t('frontend.require')
-                                                        }}</span>
+                                                    <label>{{ $t('frontend.contact.fields.email.label') }}
+                                                        <span class="i-required">{{ $t('frontend.require') }}</span>
                                                     </label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <input class="form-control email" type="email" name="email"
-                                                           v-model="contact.email" placeholder="例：◯◯◯◯◯◯@xxxxxxxx.jp">
+                                                           v-model="contact.email"
+                                                           :class="{'is-invalid': ((!vuelidate.contact.email.required || !vuelidate.contact.email.email) && vuelidate.$dirty)}"
+                                                           :placeholder="$t('frontend.contact.fields.email.placeholder')">
+                                                    <template v-if="vuelidate.$dirty">
+                                                        <div class="invalid-feedback"
+                                                             v-if="!vuelidate.contact.email.required && vuelidate.$dirty">
+                                                            {{ $t('frontend.contact.fields.email.validate.required') }}
+                                                        </div>
+                                                        <div class="invalid-feedback"
+                                                             v-if="!vuelidate.contact.email.email && vuelidate.$dirty">
+                                                            {{ $t('frontend.contact.fields.email.validate.maxLength') }}
+                                                        </div>
+                                                    </template>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <label class="mb-2">その他お問い合わせ</label>
+                                                    <label class="mb-2">{{
+                                                            $t('frontend.contact.fields.inquiry')
+                                                        }}</label>
                                                 </div>
                                                 <div class="col-md-12">
                                                 <textarea name="inquiry" class="form-control"
@@ -158,19 +219,30 @@
                                                         </p>
 
                                                         <div class="request-doc_custom-checkbox agree-privacy">
-                                                            <label class="container">
+                                                            <label class="container"
+                                                                   :class="{'is-invalid': (!contact.agree_privacy && vuelidate.$dirty)}">
                                                                 <input class="required" id="ck_agree" type="checkbox"
+                                                                       v-model="contact.agree_privacy"
                                                                        @click="checkbox">
                                                                 <span class="checkmark"></span>
                                                                 {{ $t('frontend.contact.agree') }}
+
                                                             </label>
+                                                            <template v-if="vuelidate.$dirty">
+                                                                <div class="invalid-feedback"
+                                                                     v-if="!contact.agree_privacy && vuelidate.$dirty">
+                                                                    {{
+                                                                        $t('frontend.contact.fields.checkbox.required')
+                                                                    }}
+                                                                </div>
+                                                            </template>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-lg-6 m-auto">
-                                                    <button type="button" @click.prevent=" goToStep(2)"
+                                                <div class="col-lg-6 col-8 m-auto">
+                                                    <button type="button" @click.prevent="nextStep"
                                                             class="btn btn-form-action bg-cl-green text-white js-submit-cfr"
                                                             id=""><span>{{ $t('frontend.buttons.agree') }}</span>
                                                     </button>
@@ -194,7 +266,7 @@
                                             <div class="row">
                                                 <div class="col-6">
                                                     <label>
-                                                        都道府県
+                                                        {{ $t('frontend.contact.fields.prefectures.label') }}
                                                     </label>
                                                 </div>
                                                 <div class="col-6">
@@ -206,7 +278,7 @@
                                             <div class="row">
                                                 <div class="col-6">
                                                     <label>
-                                                        住所
+                                                        {{ $t('frontend.contact.fields.address.label') }}
                                                     </label>
                                                 </div>
                                                 <div class="col-6">
@@ -219,7 +291,7 @@
                                             <div class="row">
                                                 <div class="col-6">
                                                     <label>
-                                                        建物名・号室
+                                                        {{ $t('frontend.contact.fields.building.label') }}
                                                     </label>
                                                 </div>
                                                 <div class="col-6">
@@ -231,7 +303,7 @@
                                             <div class="row">
                                                 <div class="col-6">
                                                     <label>
-                                                        ご連絡先電話番号
+                                                        {{ $t('frontend.contact.fields.phone.label') }}
                                                     </label>
                                                 </div>
                                                 <div class="col-6">
@@ -244,7 +316,7 @@
                                             <div class="row">
                                                 <div class="col-6">
                                                     <label>
-                                                        メールアドレス
+                                                        {{ $t('frontend.contact.fields.email.label') }}
                                                     </label>
                                                 </div>
                                                 <div class="col-6">
@@ -257,7 +329,7 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <label>
-                                                        その他お問い合わせ
+                                                        {{ $t('frontend.contact.fields.inquiry') }}
                                                     </label>
                                                 </div>
                                                 <div class="col-md-6">
@@ -272,7 +344,7 @@
                                                         <div class="action_back_submit">
                                                             <button type="button"
                                                                     class="btn btn-form-action text-white bg-cl-gray-light-white-2"
-                                                                    @click="goToStep(1)"><span>戻る</span></button>
+                                                                    @click="prevStep"><span>戻る</span></button>
 
                                                             <button type="button"
                                                                     class="btn btn-form-action bg-cl-green text-white"
@@ -296,7 +368,7 @@
 
 <script>
 import common from "../../../mixins/common";
-import {required, maxLength, email} from "vuelidate/lib/validators";
+import {required, maxLength, email, minLength} from "vuelidate/lib/validators";
 
 import {Core as YubinBangoCore} from 'yubinbango-core'
 import Multiselect from "vue-multiselect";
@@ -310,31 +382,36 @@ export default {
     data() {
         return {
             currentStep: 1,
+            
             contact: {
                 name: '',
-                post_code: '',
+                postal_code: '',
                 prefectures: '',
                 address: '',
                 building: '',
                 phone: '',
                 email: '',
                 inquiry: '',
-                checked: false,
+                agree_privacy: false,
             },
             selected: {name: null, id: null},
-            submitAvailable: true
+            submitAvailable: true,
+            error_server: {},
         }
     },
     validations: {
         contact: {
-            name: required,
-            post_code: required,
+            name: {
+                required,
+                maxLength: maxLength(50)
+            },
+            postal_code: required,
             prefectures: required,
             address: required,
             phone: {
                 required,
-                phone: value => /^[0-9]{2,4}-[0-9]{2,4}-[0-9]{3,4}$/.test(value),
-                maxLength: maxLength(15)
+                maxLength: maxLength(13),
+                minLength: minLength(9)
             },
             email: {
                 required, email
@@ -342,36 +419,43 @@ export default {
         }
     },
     methods: {
-        goToStep(step) {
-            this.contact.prefectures = this.selected.name;
-            this.currentStep = step;
+        prevStep() {
+            if (this.isFirstStep) return;
+            this.currentStep--;
         },
-        validateSelection(selection) {
-            this.selected = selection;
+        nextStep() {
+            console.log(this.currentStep)
+            this.vuelidate.$touch();
+            if (!this.vuelidate.$invalid && this.submitAvailable && this.contact.agree_privacy) {
+                this.submitAvailable = false
+                this.agree_privacy = true
+                this.currentStep++;
+            }
         },
         checkbox() {
-            this.contact.checked = !this.contact.checked;
-        },
-        submit() {
-            this.vuelidate.$touch();
-            if (!this.vuelidate.$invalid && this.submitAvailable) {
-                this.submitAvailable = false
-            }
+            this.contact.agree_privacy = !this.contact.agree_privacy;
+            console.log(this.contact.agree_privacy);
         },
         getAddress() {
             this.postalCode = this.contact.postal_code
             new YubinBangoCore(this.postalCode, (addr) => {
-                console.log(addr);
                 this.contact.prefectures = addr.region // 都道府県
                 this.contact.address = addr.locality + ' ' + addr.street // 市区町村
+                this.$el.querySelector('.postal_code').classList.remove('is-invalid')
+                this.$el.querySelector('.prefectures').classList.remove('is-invalid')
+                this.$el.querySelector('.address').classList.remove('is-invalid')
+
             })
         },
     },
     mounted() {
-        this.goToStep(1);
+        console.log(this.contact)
     },
-    watch: {}
-
+    watch: {
+        prefectures() {
+            this.$el.querySelector('.prefectures').classList.remove('is-invalid')
+        },
+    },
 }
 </script>
 

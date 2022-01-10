@@ -101,31 +101,56 @@
       "contact_title": "資料請求",
       "agree": "同意する",
       "notes": "フォームに必要事項をご入力ください。",
+      "import": "郵便番号から住所を自動入力",
       "fields": {
         "name": {
           "label": "お名前",
-          "placeholder": "例：山田 太郎"
+          "placeholder": "例：山田 太郎",
+          "required": "ユーザ名は必須です",
+          "max": "ユーザ名は50文字以内で入力してください"
         },
-        "post_code": {
+        "postal_code": {
           "label": "郵便番号",
-          "placeholder": "例：123-4567"
+          "placeholder": "例：123-4567",
+          "required": "郵便番号は必須です"
         },
         "prefectures": {
           "label": "都道府県",
-          "placeholder": "例：東京都"
+          "placeholder": "例：東京都",
+          "required": "都道府県は必須です"
         },
         "address": {
           "label": "住所",
-          "placeholder": "例：東京都渋谷区神宮前1-1-1"
+          "placeholder": "例：東京都渋谷区神宮前1-1-1",
+          "required": "住所は必須です"
         },
         "phone": {
           "label": "ご連絡先電話番号  ",
-          "placeholder": "例：080-0000-0000"
+          "placeholder": "例：080-0000-0000",
+          "validate": {
+            "required": "ご連絡先電話番号は必須です",
+            "maxLength": "電話番号は9～13文字で指定してください",
+            "minLength": "電話番号は9～13文字で指定してください"
+          }
         },
-        "number_room": {
+        "building": {
           "label": "建物名・号室",
           "placeholder": "例：渋谷ハイツ"
+        },
+        "email": {
+          "label": "メールアドレス",
+          "placeholder": "例：◯◯◯◯◯◯@xxxxxxxx.jp",
+          "validate": {
+            "email": "メールが無効です",
+            "required": "メールが必要です"
+          }
+        },
+        "inquiry": "その他お問い合わせ",
+        "checkbox" : {
+          "required" : "チェックボックスは必須です"
         }
+      },
+      "messages": {
       }
     },
     "register": {

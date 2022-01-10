@@ -186,16 +186,25 @@ textarea::placeholder {
 .multiselect {
     font-size: 14px;
 
+    &.is-invalid {
+        border: 1px solid #dc3545;
+        border-radius: 5px;
+    }
+    .multiselect__tags{
+        min-height: 38px ;
+        height: 33px;
+        padding: 5px 40px 0 8px;
+
+    }
+
     .multiselect__tag {
         background: #73886B;
 
         .multiselect__tag-icon {
             &:focus {
-                //background: #73886B;
             }
 
             &:hover {
-                //background: #73886B;
             }
 
             &:after {
