@@ -8,6 +8,8 @@ import { ApiService } from './services';
 import { BootstrapVue } from 'bootstrap-vue'
 import '@fortawesome/fontawesome-free/css/all.css'
 import '@fortawesome/fontawesome-free/js/all.js'
+import 'vue2-datepicker/scss/index.scss';
+import 'vue2-datepicker/locale/ja'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import "vue-multiselect/dist/vue-multiselect.min.css"
@@ -18,6 +20,7 @@ import Components from './components/common';
 import Directive from './directives';
 import Prototypes from './prototypes';
 import Yubinbango from 'yubinbango-core';
+import DatePicker from "vue2-datepicker";
 
 Vue.config.productionTip = false
 
@@ -33,6 +36,7 @@ Vue.use(Vuelidate);
 Vue.use(Prototypes)
 Vue.use(BootstrapVue)
 Vue.use(Yubinbango)
+Vue.use(DatePicker)
 
 Mixins(Vue);
 Components(Vue);

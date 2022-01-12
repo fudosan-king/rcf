@@ -382,7 +382,6 @@ export default {
     data() {
         return {
             currentStep: 1,
-            
             contact: {
                 name: '',
                 postal_code: '',
@@ -396,7 +395,6 @@ export default {
             },
             selected: {name: null, id: null},
             submitAvailable: true,
-            error_server: {},
         }
     },
     validations: {
@@ -420,11 +418,9 @@ export default {
     },
     methods: {
         prevStep() {
-            if (this.isFirstStep) return;
             this.currentStep--;
         },
         nextStep() {
-            console.log(this.currentStep)
             this.vuelidate.$touch();
             if (!this.vuelidate.$invalid && this.submitAvailable && this.contact.agree_privacy) {
                 this.submitAvailable = false
@@ -449,13 +445,12 @@ export default {
         },
     },
     mounted() {
-        console.log(this.contact)
     },
     watch: {
-        prefectures() {
-            this.$el.querySelector('.prefectures').classList.remove('is-invalid')
-        },
-    },
+        'contact.postal_code': function () {
+            this.getAddress()
+        }
+    }
 }
 </script>
 

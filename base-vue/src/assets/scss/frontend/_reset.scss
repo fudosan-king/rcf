@@ -183,13 +183,13 @@ textarea::placeholder {
     color: #BDBDBD;
 }
 
+.is-invalid {
+    border: 1px solid #dc3545;
+    border-radius: 5px;
+}
 .multiselect {
     font-size: 14px;
-
-    &.is-invalid {
-        border: 1px solid #dc3545;
-        border-radius: 5px;
-    }
+    min-height: 38px ;
     .multiselect__tags{
         min-height: 38px ;
         height: 33px;

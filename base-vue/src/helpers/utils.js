@@ -31,10 +31,14 @@ const kanji = (value) => {
     const jaRegex = /[一-龯]/;
     return !value || jaRegex.test(value);
 };
+const nameJapanese = (value) => {
+    const jaRegex = /^[a-z]+$/;
+    return !value || jaRegex.test(value);
+}
 
 export {
     capitalize,
     upperCamelCaseToSnakeCase,
     milliseconds,
-    formatNumber, katakana, kanji
+    formatNumber, katakana, kanji, nameJapanese
 };

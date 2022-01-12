@@ -31,7 +31,8 @@
     "buttons": {
       "click_here": "詳細はこちら",
       "agree": "上記に同意して確認画面へ",
-      "confirm_info": "確認画面へ"
+      "confirm_info": "確認画面へ",
+      "register": "出資者情報登録へ"
     },
     "require": "必須",
     "navbar": {
@@ -69,7 +70,13 @@
     },
     "auth": {
       "login": "ログイン",
-      "register": "新規会員登録"
+      "register": "新規会員登録",
+      "activation": {
+        "title": "LogKnot株式会社 - アタリマエをリノベーション",
+        "title_confirm": "会員登録完了。",
+        "content": "メールアドレスの確認とアカウントの登録が完了しました",
+        "next_register": "引き続き出資者情報の登録にお進みください。"
+      }
     },
     "home": {
       "title": "天然無垢材・自然素材のリノベーションマンション｜ログマンション",
@@ -146,8 +153,8 @@
           }
         },
         "inquiry": "その他お問い合わせ",
-        "checkbox" : {
-          "required" : "チェックボックスは必須です"
+        "checkbox": {
+          "required": "チェックボックスは必須です"
         }
       },
       "messages": {
@@ -158,12 +165,28 @@
       "sub_title": "フォームに必要事項をご入力ください。",
       "email": {
         "label": "メールアドレス",
-        "placeholder": "◯◯◯◯◯◯@xxxxxxxx.jp"
+        "placeholder": "◯◯◯◯◯◯@xxxxxxxx.jp",
+        "validation": {
+          "email": "メールが無効です",
+          "required": "メールが必要です"
+        }
       },
       "name": {
-        "label": "本名"
+        "label": "本名",
+        "validation": {
+          "maxLength": "本名は50文字以下で指定してください",
+          "name_jp": "数字と特殊文字を除く半幅文字を入力してください",
+          "required": "本名は必須です"
+        }
       },
-      "katakana": "本名（カナ）",
+      "katakana": {
+        "label": "本名（カナ）",
+        "validation": {
+          "maxLength": "本名（カナ）は50文字以下で指定してください",
+          "katakana": "全角カナで入力してください",
+          "required": "本名（カナ）は必須です "
+        }
+      },
       "genders": {
         "label": "性別",
         "male": "男性",
@@ -171,12 +194,19 @@
       },
       "birthday": {
         "label": "生年月日",
-        "placeholder": "数字8桁で入力（例：19800511）"
+        "placeholder": "数字8桁で入力（例：19800511）",
+        "validation": {
+          "required": "は必須ですc"
+        }
       },
-      "post_code": {
+      "postal_code": {
         "label": "郵便番号",
         "placeholder": "1234567",
-        "auto_complete": "郵便番号から住所を自動的入力"
+        "auto_complete": "郵便番号から住所を自動的入力",
+        "validation": {
+          "required": "郵便番号は必須です",
+          "maxLength": "郵便番号は10文字以下で指定してください"
+        }
       },
       "prefectures": {
         "label": "都道府県",
@@ -185,10 +215,16 @@
       "locality": "市区町村",
       "street": "番地",
       "building": "建物名・号室",
-      "phone_number": {
-        "label": "電話番号"
+      "phone": {
+        "label": "電話番号  ",
+        "placeholder": "例：080-0000-0000",
+        "validate": {
+          "required": "ご連絡先電話番号は必須です",
+          "maxLength": "電話番号は9～13文字で指定してください",
+          "minLength": "電話番号は9～13文字で指定してください"
+        }
       },
-      "confirm_document": {
+      "document": {
         "label": "確認書面",
         "value_1": "電子交付に関する同意",
         "value_2": "反社勢力でない事の表明・確約に関する同意",
