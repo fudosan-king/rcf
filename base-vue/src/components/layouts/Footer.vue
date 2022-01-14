@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col-12 col-lg-6 col-md-6">
                         <div class="d-none d-lg-block">
-                            <h3 class="font-size-10">運営会社 プロスタイル株式会社</h3>
+                            <h3 class="font-size-10">運営会社 株式会社プロスタイル</h3>
                             <p>〒107-0061<br>
                                 東京都港区北⻘⼭3-6-23<br>
                                 TEL <a href="tel:03-6897-8580">03-6897-8580</a><br>

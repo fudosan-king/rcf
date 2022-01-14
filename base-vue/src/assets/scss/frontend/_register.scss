@@ -73,8 +73,12 @@
 
             .birthday {
                 &.is-invalid {
-                    border-color: #dc3545;
+                    border-color: #dc3545 !important;
                     border-radius: 5px;
+
+                    input {
+                        border-color: #dc3545 !important;
+                    }
 
                     .mx-icon-calendar {
                         color: #dc3545;
@@ -158,9 +162,136 @@
         }
     }
 }
+
 .view_document {
     white-space: pre;
 }
+
+#registration {
+    .steps {
+        padding: 0;
+        margin: 0 150px 50px;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap;
+        position: relative;
+
+        &:after {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            left: 50px;
+            top: -25px;
+            bottom: 0;
+            margin: auto;
+            width: 80%;
+            height: 1px;
+            background: #BDC3C5;
+        }
+
+        li {
+            display: inline-block;
+            text-align: center;
+            width: 160px;
+            // flex: 1 1 auto;
+            &.active {
+                a {
+                    span {
+                        &:first-of-type {
+                            background: $cl-green;
+                        }
+
+                        &:last-of-type {
+                            color: $cl-green;
+                        }
+                    }
+                }
+            }
+
+            &.actived {
+                a {
+                    span {
+                        &:first-of-type {
+                            background: #EAEDE9;
+                            border: 2px solid $cl-green;
+                            color: $cl-green;
+                        }
+
+                        &:last-of-type {
+                            color: $cl-green;
+                        }
+                    }
+                }
+            }
+
+            a {
+                display: block;
+
+                span {
+                    position: relative;
+                    display: block;
+
+                    &:first-of-type {
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 100px;
+                        margin: auto;
+                        background: #BDC3C5;
+                        color: #fff;
+                        font-size: 1.875em;
+                        font-weight: 500;
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: nowrap;
+                        justify-content: center;
+                        align-items: center;
+                        align-content: stretch;
+                    }
+
+                    &:last-of-type {
+                        font-size: 0.75em;
+                        color: #BDC3C5;
+                        font-weight: 600;
+                        margin-top: 5px;
+                    }
+                }
+            }
+        }
+    }
+
+    .card {
+        .card-header {
+            border-radius: 0;
+            border: none;
+            background: #73886B;
+            color: #fff;
+            font-size: 1.5em;
+            font-weight: 700;
+        }
+
+        .card-body {
+            padding: 20px 100px;
+            color: #556170;
+            font-size: 0.875em;
+            .form-group {
+                margin-bottom: 20px;
+                label {
+                    font-weight: 700;
+                    margin-top: 0;
+                    justify-content: normal;
+                }
+
+                .btn_confirm {
+                    min-width: auto;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
 
 @media (max-width: 768px) {
     .section_template {

@@ -41,3 +41,6 @@ export function currentDateTime () {
 export function momentFormat(date, format = 'YYYY-MM-DD') {
     return moment(date).format(format)
 }
+export function dateJapanese (date, format = 'YYYY年MM月DD日') {
+    return moment(date).format(format)
+}

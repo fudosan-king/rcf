@@ -208,7 +208,7 @@
                                                             }}
                                                         </div>
                                                         <div class="invalid-feedback"
-                                                             v-if="!vuelidate.customers.postal_code.maxLength && vuelidate.$dirty">
+                                                             v-else-if="!vuelidate.customers.postal_code.maxLength && vuelidate.$dirty">
                                                             {{
                                                                 $t('frontend.register.postal_code.validation.maxLength')
                                                             }}
@@ -335,20 +335,47 @@
                                             </label>
                                         </div>
                                         <div class="col-12 col-lg-9 align-self-center">
-                                            <div class="form-check" v-for="(item, index) in customers.documents"
-                                                 :key="index">
-                                                <input class="form-check-input" type="checkbox" v-model="item.checked">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox"
+                                                       :value="$t('frontend.register.document.value_1')"
+                                                       :class="{'is-invalid': customers.documents.length === 0 }"
+                                                       v-model="customers.documents">
                                                 <label class="form-check-label">
-                                                    {{ item.document }}
+                                                    {{ $t('frontend.register.document.value_1') }}
                                                 </label>
                                             </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox"
+                                                       :class="{'is-invalid': customers.documents.length === 0}"
+                                                       :value="$t('frontend.register.document.value_2')"
+                                                       v-model="customers.documents">
+                                                <label class="form-check-label">
+                                                    {{ $t('frontend.register.document.value_2') }}
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox"
+                                                       :value="$t('frontend.register.document.value_3')"
+                                                       :class="{'is-invalid': customers.documents.length === 0}"
+                                                       v-model="customers.documents">
+                                                <label class="form-check-label">
+                                                    {{ $t('frontend.register.document.value_3') }}
+                                                </label>
+                                            </div>
+                                            <template v-if="customers.documents.length === 0">
+                                                <div class="invalid-feedback d-block"
+                                                     v-if="customers.documents.length === 0">
+                                                    {{ $t('frontend.register.document.validate') }}
+                                                </div>
+                                            </template>
+
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-12 col-lg-6 m-auto text-center">
-                                            <button @click.prevent="nextStep" class="btn btn_confirm">
+                                            <button @click="nextStep" class="btn btn_confirm">
                                                 {{ $t('frontend.buttons.confirm_info') }}
                                             </button>
                                         </div>
@@ -551,19 +578,9 @@ export default {
                 building: "",
                 phone: "",
                 documents: [
-                    {
-                        document: "電子交付に関する同意",
-                        checked: true
-                    },
-                    {
-                        document: "反社勢力でない事の表明・確約に関する同意",
-                        checked: true
-                    },
-                    {
-                        document: "個人情報の取扱いに関する同意",
-                        checked: true
-                    },
-
+                    "電子交付に関する同意",
+                    "反社勢力でない事の表明・確約に関する同意",
+                    "個人情報の取扱いに関する同意",
                 ],
                 first_name: "",
                 last_name: "",
@@ -646,27 +663,30 @@ export default {
             })
         },
         prevStep() {
+            this.vuelidate.$reset()
+            this.submitAvailable = true
             this.currentStep--;
         },
         nextStep() {
             this.vuelidate.$touch();
             if (this.currentStep === 1) {
-                if (!this.vuelidate.$invalid && this.submitAvailable) {
+                if (!this.vuelidate.$invalid && this.submitAvailable && this.customers.documents.length > 0) {
                     this.submitAvailable = false
                     this.customers.name = this.customers.first_name + " " + this.customers.last_name
                     this.customers.katakana_name = this.customers.first_name_kana + " " + this.customers.last_name_kana
-                    this.customers.documents = this.customers.documents.filter(item => item.checked).map(item => item.document)
                     this.currentStep++;
                 }
-            } else if (this.currentStep === 2) {
+            }
+            if (this.currentStep !== 1) {
                 this.currentStep++;
             }
-        },
+        }
     },
     mounted() {
         this.customers.name = this.customers.first_name + " " + this.customers.last_name
         this.customers.katakana_name = this.customers.first_name_kana + " " + this.customers.last_name_kana
-    }
+    },
+    computed: {}
 
 }
 </script>

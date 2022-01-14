@@ -46,6 +46,7 @@ ul {
 }
 
 a {
+    text-decoration: none !important;
     &:focus {
         text-decoration: none;
         cursor: pointer;
@@ -182,12 +183,12 @@ textarea::placeholder {
     font-size: 14px;
     color: #BDBDBD;
 }
-
-.is-invalid {
-    border: 1px solid #dc3545;
-    border-radius: 5px;
-}
 .multiselect {
+    &.is-invalid {
+        .multiselect__tags {
+            border-color: #dc3545;
+        }
+    }
     font-size: 14px;
     min-height: 38px ;
     .multiselect__tags{

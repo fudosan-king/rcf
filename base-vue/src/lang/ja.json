@@ -149,7 +149,7 @@
           "placeholder": "例：◯◯◯◯◯◯@xxxxxxxx.jp",
           "validate": {
             "email": "メールが無効です",
-            "required": "メールが必要です"
+            "required": "無効な形式です"
           }
         },
         "inquiry": "その他お問い合わせ",
@@ -168,7 +168,7 @@
         "placeholder": "◯◯◯◯◯◯@xxxxxxxx.jp",
         "validation": {
           "email": "メールが無効です",
-          "required": "メールが必要です"
+          "required": "無効な形式です"
         }
       },
       "name": {
@@ -196,7 +196,7 @@
         "label": "生年月日",
         "placeholder": "数字8桁で入力（例：19800511）",
         "validation": {
-          "required": "は必須ですc"
+          "required": "生年月日は必須です"
         }
       },
       "postal_code": {
@@ -214,6 +214,7 @@
       },
       "locality": "市区町村",
       "street": "番地",
+      "address" : "住所",
       "building": "建物名・号室",
       "phone": {
         "label": "電話番号  ",
@@ -228,7 +229,11 @@
         "label": "確認書面",
         "value_1": "電子交付に関する同意",
         "value_2": "反社勢力でない事の表明・確約に関する同意",
-        "value_3": "個人情報の取扱いに関する同意"
+        "value_3": "個人情報の取扱いに関する同意",
+        "validate": "確認書面は必須です"
+      },
+      "basic_info": {
+        "title": "出資者基本情報"
       }
     }
   }

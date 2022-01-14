@@ -58,16 +58,22 @@
                                                 <div class="col-md-8">
                                                     <div class="row align-items-center">
                                                         <div class="col-12 col-lg-6">
-                                                            <input type="text" class="form-control postal_code"
-                                                                   :placeholder="$t('frontend.contact.fields.postal_code.placeholder')"
-                                                                   :class="{'is-invalid': (!vuelidate.contact.postal_code.required && vuelidate.$dirty)}"
+                                                            <input type="text" class="form-control"
+                                                                   :placeholder="$t('frontend.register.postal_code.placeholder')"
                                                                    v-on:keyup="getAddress"
+                                                                   :class="{'is-invalid': ((!vuelidate.contact.postal_code.required || !vuelidate.contact.postal_code.maxLength ) && vuelidate.$dirty)}"
                                                                    v-model="contact.postal_code">
                                                             <template v-if="vuelidate.$dirty">
                                                                 <div class="invalid-feedback"
                                                                      v-if="!vuelidate.contact.postal_code.required && vuelidate.$dirty">
                                                                     {{
-                                                                        $t('frontend.contact.fields.postal_code.required')
+                                                                        $t('frontend.register.postal_code.validation.required')
+                                                                    }}
+                                                                </div>
+                                                                <div class="invalid-feedback"
+                                                                     v-if="!vuelidate.contact.postal_code.maxLength && vuelidate.$dirty">
+                                                                    {{
+                                                                        $t('frontend.register.postal_code.validation.maxLength')
                                                                     }}
                                                                 </div>
                                                             </template>
@@ -91,7 +97,6 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <Multiselect v-model="contact.prefectures"
-                                                                 class="prefectures"
                                                                  :class="{'is-invalid': (!vuelidate.contact.prefectures.required && vuelidate.$dirty)}"
                                                                  :options="prefectures"
                                                                  :placeholder="$t('frontend.register.prefectures.placeholder')">
@@ -186,7 +191,7 @@
                                                         </div>
                                                         <div class="invalid-feedback"
                                                              v-if="!vuelidate.contact.email.email && vuelidate.$dirty">
-                                                            {{ $t('frontend.contact.fields.email.validate.maxLength') }}
+                                                            {{ $t('frontend.contact.fields.email.validate.email') }}
                                                         </div>
                                                     </template>
                                                 </div>
@@ -286,7 +291,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-6">
@@ -311,7 +315,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-6">
@@ -324,7 +327,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-md-6">
@@ -346,7 +348,7 @@
                                                                     class="btn btn-form-action text-white bg-cl-gray-light-white-2"
                                                                     @click="prevStep"><span>戻る</span></button>
 
-                                                            <button type="button"
+                                                            <button type="button" @click="nextStep"
                                                                     class="btn btn-form-action bg-cl-green text-white"
                                                                     id="action_submit"><span>送信</span></button>
                                                         </div>
@@ -356,6 +358,22 @@
                                             </div>
                                         </div>
                                     </template>
+                                    <template id="form-thank-you" v-if="currentStep === 3">
+                                        <div class="thank-you">
+                                            <h3>送信完了</h3>
+                                            <p>
+                                                お問い合わせありがとうございます。送信内容を受け付けました。<br>
+                                                追って担当者よりご連絡させていただきます。<br>連絡がない場合はメールが届いていない可能性がありますので、お手数ですが再度お問合わせください。
+                                            </p>
+                                            <p>※当社指定日を挟んだ場合や、お見積り内容により、回答が数日かかる場合があります。予めご了承ください。</p>
+
+                                            <button type="button"
+                                                    class="btn btn-form-action bg-cl-green text-white">
+                                                <span>トップに戻る</span></button>
+                                        </div>
+
+                                    </template>
+
                                 </div>
                             </div>
                         </div>
@@ -403,9 +421,16 @@ export default {
                 required,
                 maxLength: maxLength(50)
             },
-            postal_code: required,
-            prefectures: required,
-            address: required,
+            postal_code: {
+                required,
+                maxLength: maxLength(10)
+            },
+            prefectures: {
+                required
+            },
+            address: {
+                required
+            },
             phone: {
                 required,
                 maxLength: maxLength(13),
@@ -419,27 +444,28 @@ export default {
     methods: {
         prevStep() {
             this.currentStep--;
+            this.submitAvailable = true
         },
         nextStep() {
             this.vuelidate.$touch();
-            if (!this.vuelidate.$invalid && this.submitAvailable && this.contact.agree_privacy) {
-                this.submitAvailable = false
-                this.agree_privacy = true
-                this.currentStep++;
+            if (this.currentStep === 1) {
+                if (!this.vuelidate.$invalid && this.submitAvailable && this.contact.agree_privacy) {
+                    this.submitAvailable = false
+                    this.agree_privacy = true
+                    this.currentStep++;
+                }
+            } else {
+                this.currentStep++
             }
         },
         checkbox() {
             this.contact.agree_privacy = !this.contact.agree_privacy;
-            console.log(this.contact.agree_privacy);
         },
         getAddress() {
             this.postalCode = this.contact.postal_code
             new YubinBangoCore(this.postalCode, (addr) => {
                 this.contact.prefectures = addr.region // 都道府県
                 this.contact.address = addr.locality + ' ' + addr.street // 市区町村
-                this.$el.querySelector('.postal_code').classList.remove('is-invalid')
-                this.$el.querySelector('.prefectures').classList.remove('is-invalid')
-                this.$el.querySelector('.address').classList.remove('is-invalid')
 
             })
         },
