@@ -21,6 +21,8 @@ import Directive from './directives';
 import Prototypes from './prototypes';
 import Yubinbango from 'yubinbango-core';
 import DatePicker from "vue2-datepicker";
+import vueDropzone from 'vue2-dropzone'
+import 'vue2-dropzone/dist/vue2Dropzone.min.css'
 
 Vue.config.productionTip = false
 
@@ -37,6 +39,7 @@ Vue.use(Prototypes)
 Vue.use(BootstrapVue)
 Vue.use(Yubinbango)
 Vue.use(DatePicker)
+Vue.use(vueDropzone)
 
 Mixins(Vue);
 Components(Vue);

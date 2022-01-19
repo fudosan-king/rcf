@@ -517,7 +517,7 @@
                                         </div>
                                         <div class="col-12 col-lg-4 text-center ml-3 mb-2">
                                             <button class="btn btn_next text-white bg-cl-green w-100 p--15"
-                                                    @click="nextStep()">
+                                                    @click="nextStep">
                                                 次へ> 確認画面へ
                                             </button>
                                         </div>
@@ -676,11 +676,13 @@ export default {
                     this.customers.katakana_name = this.customers.first_name_kana + " " + this.customers.last_name_kana
                     this.currentStep++;
                 }
+            } else {
+                this.currentStep++
             }
-            if (this.currentStep !== 1) {
-                this.currentStep++;
-            }
-        }
+        },
+        // gotoStep(step) {
+        //     this.currentStep = step
+        // }
     },
     mounted() {
         this.customers.name = this.customers.first_name + " " + this.customers.last_name

@@ -44,7 +44,7 @@ export default {
                             name: 'TransitionDocument',
                             path: '/document'
                         },
-                    
+
                     ],
                     activeName: 'transition',
                     currentData: 'transition',
@@ -148,24 +148,37 @@ export default {
                     title: '業務管理者名簿',
                     router: {name: 'Dashboard', path: '/home'},
                 },
+            ],
+            steps: [
+                {
+                    stepName: '投資家情報登録',
+                    numberStep: "1",
+                },
+                {
+                    stepName: '本人確認書類登録',
+                    numberStep: "2",
+                },
+                {
+                    stepName: '払戻し口座情報登録',
+                    numberStep: '3',
+                },
+                {
+                    stepName: '確認画面',
+                    numberStep: '4',
+                },
+                {
+                    stepName: '申請完了',
+                    numberStep: '5',
+                },
             ]
         }
     },
     watch: {
         userInfo(val) {
-            // this.setSidebarRoles(val)
             console.log(val)
         }
     },
     methods: {
-        // setSidebarRoles(user) {
-        //     if (user) {
-        //         this.menuShow = {}
-        //         this.menus.map((e) => {
-        //             this.$set(e, 'isShown', this.menuShow[e.activeName])
-        //         })
-        //     }
-        // }
     },
     created() {
         // this.setSidebarRoles(this.userInfo)

@@ -275,18 +275,138 @@
             padding: 20px 100px;
             color: #556170;
             font-size: 0.875em;
+
             .form-group {
                 margin-bottom: 20px;
+
                 label {
                     font-weight: 700;
-                    margin-top: 0;
-                    justify-content: normal;
+                    justify-content: space - between;
                 }
 
                 .btn_confirm {
                     min-width: auto;
                     width: 100%;
                 }
+
+                &.mb--40 {
+                    margin-bottom: 40px
+                }
+                .custom-checkbox {
+                    display: block;
+                    position: relative;
+                    padding-left: 30px;
+                    cursor: pointer;
+                    font-size: 0.875rem;
+                    line-height: 24px;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                    text-align: center;
+                    max-width: 375px !important;
+                    margin: 20px auto 10px;
+                    color: #000000;
+                    font-weight: 300;
+                    input {
+                        position: absolute;
+                        opacity: 0;
+                        cursor: pointer;
+                        height: 0;
+                        width: 0;
+
+                    }
+                    input:checked ~ .checkmark {
+                        background-color: #73886B;
+                    }
+                    input:checked ~ .checkmark:after {
+                        display: block;
+                    }
+                    .checkmark {
+                        position: absolute;
+                        top: 3px;
+                        left: 0;
+                        height: 20px;
+                        width: 20px;
+                        background-color: transparent;
+                        border: 1px solid #828282;
+                        &:after {
+                            content: "";
+                            position: absolute;
+                            display: none;
+                            left: 7px;
+                            top: 3px;
+                            width: 5px;
+                            height: 10px;
+                            border: solid white;
+                            border-width: 0 3px 3px 0;
+                            -webkit-transform: rotate(45deg);
+                            -ms-transform: rotate(45deg);
+                            transform: rotate(45deg);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .drop-zone {
+        max-width: 400px;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        align-content: space-around;
+        flex-wrap: wrap;
+        font-weight: 500;
+        cursor: pointer;
+        color: $green-color;
+        border: 1px dashed #828282;
+        border-radius: 8px;
+        background: #F2F2F2;
+
+        .drop-zone__input {
+            display: none;
+        }
+
+        .drop-zone__thumb {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #828282;
+            background-size: cover;
+            position: relative;
+
+            &:after {
+                content: attr(data-label);
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                padding: 5px 0;
+                color: #ffffff;
+                background: rgba(0, 0, 0, 0.75);
+                font-size: 14px;
+                text-align: center;
+            }
+        }
+
+        .drop-zone__prompt {
+            position: relative;
+            top: 30px;
+
+            &:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: -70px;
+                margin: auto;
+                width: 59px;
+                height: 60px;
             }
         }
     }
@@ -300,8 +420,8 @@
 
         .box_content {
             padding: 30px;
-            margin-left: -15px;
-            margin-right: -15px;
+            /*margin-left: -15px;
+            margin-right: -15px;*/
 
             .form-group {
                 margin-bottom: 20px;
@@ -319,6 +439,47 @@
 
             .card-body {
                 padding: 15px;
+            }
+        }
+    }
+    #registration {
+        .steps {
+            margin: 0 0 50px 0;
+            &:after {
+                top: -35px;
+            }
+
+            li {
+                a {
+                    span {
+                        &:last-of-type {
+                            line-height: 1.3em;
+                            min-height: 32px;
+                            font-size: .7em;
+                        }
+                    }
+                }
+            }
+        }
+
+        .card {
+            .card-body {
+                padding: 15px;
+
+                &.box_content {
+                    .form-group {
+                        margin-bottom: 20px;
+
+                        label {
+                            margin-bottom: 0.5rem
+                        }
+
+                        .btn_confirm {
+                            min-width: auto;
+                            width: 100%;
+                        }
+                    }
+                }
             }
         }
     }

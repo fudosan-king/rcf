@@ -6,6 +6,9 @@
     "target_not_found": "対象が見つかりません",
     "page_not_found": "ページが見つかりません"
   },
+  "placeholders": {
+    "select": "選択してください"
+  },
   "buttons": {
     "delete": "削除",
     "save": "保存",
@@ -32,7 +35,12 @@
       "click_here": "詳細はこちら",
       "agree": "上記に同意して確認画面へ",
       "confirm_info": "確認画面へ",
-      "register": "出資者情報登録へ"
+      "register": "出資者情報登録へ",
+      "back": "戻る",
+      "next_steps": "本人確認書類登録に進む",
+      "next_refund" : "払い戻し口座登録に進む",
+      "apply": "この内容で申請する",
+      "back_to_top": "マイページTOPへ"
     },
     "require": "必須",
     "navbar": {
@@ -214,7 +222,7 @@
       },
       "locality": "市区町村",
       "street": "番地",
-      "address" : "住所",
+      "address": "住所",
       "building": "建物名・号室",
       "phone": {
         "label": "電話番号  ",
@@ -231,6 +239,72 @@
         "value_2": "反社勢力でない事の表明・確約に関する同意",
         "value_3": "個人情報の取扱いに関する同意",
         "validate": "確認書面は必須です"
+      },
+      "register_investor": {
+        "title": "投資家情報登録",
+        "sub_title": "出資者情報をご入力ください。",
+        "investor_info": "出資者情報の登録",
+        "profession": {
+          "label": "ご職業"
+        },
+        "company": {
+          "label": "ご勤務先名",
+          "placeholder": "ご勤務先名"
+        },
+        "income": {
+          "label": "ご年収",
+          "placeholder": "ご年収"
+        },
+        "investment_purpose": {
+          "label": "投資目的"
+        },
+        "investment_method": {
+          "label": "投資方法"
+        },
+        "investment_experience": {
+          "label": "投資のご経験"
+        },
+        "investment_type": {
+          "label": "投資資金の種類"
+        }
+      },
+      "register_document": {
+        "title": "本人確認書類登録",
+        "sub_title": "本人確認の資料を登録ください",
+        "document_info": "本人確認書類の登録 ",
+        "doc_type": "書類タイプ",
+        "tap": "タップして表面を読み取る\n"
+      },
+      "register_refund": {
+        "title": "払戻し口座情報登録",
+        "sub_title": "払い戻し金の振込先をご登録ください。",
+        "info": "出資者基本情報",
+        "bank_name": "金融機関名",
+        "bank_branch_name": "支店名",
+        "bank_branch_number": "支店番号",
+        "account_type": "口座種類",
+        "account_number": "口座番号",
+        "account_name": "口座名義"
+      },
+      "register_confirmation": {
+        "title": "確認画面",
+        "sub_title": "まだ申請は完了しておりません。\nご記入内容に問題がないかご確認の上、申請するボタンをクリックしてください",
+        "investor_info": "出資者情報",
+        "profession": "職業",
+        "company": "勤務先",
+        "income": "年収",
+        "investment_method": "投資方針",
+        "investment_experience": "投資経験",
+        "document_info": "本人確認書類の登録 ",
+        "refund_info": "払い戻し口座情報の登録 ",
+        "bank_name": "金融機関名",
+        "bank_branch_name": "支店情報",
+        "account_name": "口座名義人",
+        "account_number": "口座情報",
+        "checkbox_confirm": "上記の内容は私の投資家情報として相違ありません"
+      },
+      "register_completed": {
+        "title": "投資家情報の申請受付を完了いたしました"
       },
       "basic_info": {
         "title": "出資者基本情報"

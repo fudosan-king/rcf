@@ -47,6 +47,7 @@ ul {
 
 a {
     text-decoration: none !important;
+
     &:focus {
         text-decoration: none;
         cursor: pointer;
@@ -183,16 +184,19 @@ textarea::placeholder {
     font-size: 14px;
     color: #BDBDBD;
 }
+
 .multiselect {
     &.is-invalid {
         .multiselect__tags {
             border-color: #dc3545;
         }
     }
+
     font-size: 14px;
-    min-height: 38px ;
-    .multiselect__tags{
-        min-height: 38px ;
+    min-height: 38px;
+
+    .multiselect__tags {
+        min-height: 38px;
         height: 33px;
         padding: 5px 40px 0 8px;
 
@@ -246,11 +250,79 @@ textarea::placeholder {
 
                 .multiselect__option--highlight {
                     background: #cccccc;
+
                     &:after {
                         content: '';
                     }
                 }
             }
+        }
+    }
+
+    .multiselect__select {
+        &:before {
+            content: none;
+        }
+    }
+}
+.white-space-pre{
+    white-space: pre;
+}
+
+@each $d in $directions {
+    @for $i from 0 through 100 {
+        .m#{$d}--#{$i} {
+            margin-#{$d}: 1px * $i !important;
+        }
+        .m__#{$d}--#{$i} {
+            margin-#{$d}: 0.5rem * $i !important;
+        }
+        .p#{$d}--#{$i} {
+            padding-#{$d}: 1px * $i !important;
+        }
+        .p__#{$d}--#{$i} {
+            padding-#{$d}: 0.5rem * $i !important;
+        }
+        .m--#{$i} {
+            margin: 1px * $i !important;
+        }
+        .p--#{$i} {
+            padding: 1px * $i !important;
+        }
+        .w--#{$i} {
+            width: 1% * $i !important;
+        }
+        .h--#{$i} {
+            height: 1% * $i !important;
+        }
+        .w__vw--#{$i} {
+            width: 1vw * $i !important;
+        }
+        .h__vh--#{$i} {
+            height: 1vh * $i !important;
+        }
+        .py--#{$i} {
+            padding-top: 1px * $i !important;
+            padding-bottom: 1px * $i !important;
+        }
+        .px--#{$i} {
+            padding-left: 1px * $i !important;
+            padding-right: 1px * $i !important;
+        }
+        .width--#{$i} {
+            width: 1px * $i !important;
+        }
+        .font--#{$i} {
+            font-size: 1px * $i !important;
+        }
+        font-size-#{$i} {
+            font-size: 0.125rem * $i !important;
+        }
+        .border--#{$i} {
+            border-radius: 0.125rem * $i !important;
+        }
+        .border-width-#{$i} {
+            border-width: 1px * $i !important;
         }
     }
 }
