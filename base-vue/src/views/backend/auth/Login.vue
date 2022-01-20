@@ -1,64 +1,88 @@
 <template>
-  <div class="row no-gutter vh-100">
-    <div class="col-md-6 col-lg-6 col-xl-6 bg-white">
-      <div class="login d-flex align-items-center vh-100">
+    <div class="padding-y--7 login-page">
         <div class="container">
-          <div class="row align-items-center justify-content-center">
-            <div class="col-md-7">
-              <h3>Login to <strong>Admin</strong></h3>
-              <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p>
-              <div class="form-group first">
-                <label for="username" class="mb-2">Username</label>
-                <input type="text" class="form-control" placeholder="your-email@gmail.com" id="username">
-              </div>
-              <div class="form-group last my-3">
-                <label for="password" class="mb-2">Password</label>
-                <input type="password" class="form-control" placeholder="Your Password" id="password">
-              </div>
-              <div class="d-flex mb-5 align-items-center">
-                <label class="ckbox">
-                  <input checked="" type="checkbox"><span>Remember me</span>
-                </label>
-                <span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password?</a></span>
-              </div>
-              <input type="submit" value="Log In" class="btn btn-block btn-primary w-100">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5">
+                    <a class="logo">
+                        <img src="../../../assets/svgs/logo/logo-green.svg" alt="">
+                    </a>
+                </div>
             </div>
-          </div>
+            <div class="row justify-content-center">
+                <div class="column col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-group mb-3">
+                                <label class="col-form-label">Username or Email</label>
+                                <input type="text" class="form-control" placeholder="Email ...">
+                            </div>
+                            <div class="form-group mb-5">
+                                <label>Password</label>
+                                <div class="input-group" id="show_hide_password">
+                                    <input v-if="showPassword" type="text" class="form-control" v-model="password"/>
+                                    <input v-else type="password" class="form-control" v-model="password">
+                                    <div class="input-group-addon p-0">
+                                        <button class="btn" @click="toggleShow">
+                                            <i class="fa"
+                                               :class="{ 'fa-eye-slash': showPassword, 'fa-eye': !showPassword }"
+                                               aria-hidden="true"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mb-4">
+                                <router-link :to="{name: 'homeAdmin'}"
+                                             class="form-control btn bg-cl-green text-white rounded submit px-3">Sign In
+                                </router-link>
+                            </div>
+                            <div class="form-group d-md-flex">
+                                <div class="w-50 text-left">
+                                    <label class="text-center custom-checkbox">
+                                        <input class="required" id="ck_agree" type="checkbox">
+                                        <span class="checkmark"></span>
+                                        Remember Me
+                                    </label>
+                                </div>
+                                <div class="w-50 text-right">
+                                    <a href="#">Forgot Password</a>
+                                </div>
+                            </div>
+                            <div class="form-group d-md-flex mt-5">
+                                <div class="w-100 text-center">
+                                    <a href="#">Back to Rimawaru</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-    <div class="col-md-6 col-lg-6 col-xl-6 d-none d-md-flex bg-primary-transparent">
-      <img src="../../../assets/images/img.png" class="img-fluid " alt="">
-      alt="logo">
-    </div>
-  </div>
 </template>
 
 <script>
 export default {
-  name: "Login"
+    name: "Login",
+    data() {
+        return {
+            username: '',
+            showPassword: false,
+            password: null
+        };
+    },
+    computed: {
+        buttonLabel() {
+            return (this.showPassword) ? "Hide" : "Show";
+        }
+    },
+    methods: {
+        toggleShow() {
+            this.showPassword = !this.showPassword;
+        }
+    }
 }
 </script>
 
-<style lang="scss" scoped>
-:root {
-  overflow-x: hidden;
-}
-.ckbox {
-  span {
-    padding-left: 10px;
-    vertical-align: text-bottom;
-  }
-}
-.forgot-pass{
-  text-decoration: none;
-  color: #14122d;
-  font-weight: 700;
-  &:hover{
-    color: #0162e8
-  }
-  &:focus{
-    color: #0162e8
-  }
-}
+<style lang="scss">
+@import "../../../assets/scss/index.scss";
+@import "../../../assets/scss/main.scss";
 </style>

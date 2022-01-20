@@ -1,11 +1,11 @@
 import i18n from "../../lang/i18n";
-import Login from "../../views/backend/auth/Login";
+import Home from "../../views/backend/Home";
 
 export default [
     {
         path: '/admin',
-        name: 'loginAdmin',
-        component: Login,
+        name: 'homeAdmin',
+        component: Home,
         meta: {
             title: i18n.t('pages.auth.login.title'),
         }

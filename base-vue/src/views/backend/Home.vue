@@ -6,10 +6,9 @@
 
 <script>
 export default {
-    name: "navbarAdmin"
+    name: "Home"
 }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>;
 </style>

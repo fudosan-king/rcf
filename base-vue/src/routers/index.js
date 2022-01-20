@@ -18,6 +18,8 @@ import authUser from "./frontend/auth";
 import customer from "./frontend/customer";
 import contact from "./frontend/contact";
 import transaction from "./frontend/transaction";
+import homeAdmin from "./backend/home";
+
 
 
 Vue.use(VueToast, {
@@ -40,6 +42,7 @@ const routes = [
         },
         children: [
             // route modules
+            ...homeAdmin
         ]
     },
     {
