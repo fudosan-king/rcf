@@ -1,5 +1,5 @@
 <template>
-    <div class="main-body app sidebar-mini">
+    <div id="app" class="main-body app sidebar-mini">
         <Loading :loading="isLoading"/>
         <router-view/>
     </div>
@@ -8,12 +8,14 @@
 <script>
 
 import Loading from "./components/common/Loading";
+
 import  { mapGetters } from "vuex";
 
 export default {
     name: 'App',
     components: {
-        Loading
+        Loading,
+      
     },
     computed: {
         ...mapGetters({
@@ -24,12 +26,5 @@ export default {
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>

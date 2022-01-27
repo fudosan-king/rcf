@@ -18,6 +18,7 @@ import authUser from "./frontend/auth";
 import customer from "./frontend/customer";
 import contact from "./frontend/contact";
 import transaction from "./frontend/transaction";
+import member from "./frontend/member";
 import homeAdmin from "./backend/home";
 
 
@@ -62,6 +63,7 @@ const routes = [
             ...transaction,
             ...customer,
             ...contact,
+            ...member,
         ]
     }
 ]
