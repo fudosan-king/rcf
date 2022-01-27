@@ -1,0 +1,18 @@
+.btn-link{
+	background: #73886B;
+    color: #fff;
+    border-radius: 10px;
+    &:hover{
+        color:#73886B;
+        border:1px solid #73886B;
+        background:#fff;
+    }
+    @media (max-width:767px){
+        font-size: 0.75rem;
+    }
+}
+
+.btn-form-action{
+    margin-right:auto;
+    margin-left:auto;
+}
