@@ -38,8 +38,6 @@ export default {
 
         },
 
-
-
         toggleNavBar() {
 
             this.menuCloseAll();

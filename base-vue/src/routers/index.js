@@ -38,7 +38,7 @@ const routes = [
         path: 'admin',
         component: LayoutAdmin,
         meta: {
-            requiresAuth: true
+            // requiresAuth: true
         },
         children: [
             // route modules
