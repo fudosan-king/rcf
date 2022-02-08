@@ -18,6 +18,7 @@
 import sidebarAdmin from "./sidebarAdmin";
 import navbarAdmin from "./navbarAdmin";
 
+
 export default {
     name: "LayoutAdmin",
     components: {
@@ -29,22 +30,34 @@ export default {
             isRouterAlive: true
         }
     },
+    created() {
+        this.$nextTick(() => {
+            this.init(); 
+
+        });
+    },
     methods: {
+
         refresh() {
             this.isRouterAlive = false
             setTimeout(() => {
                 this.isRouterAlive = true
             })
         },
+
         toggleSidebar() {
             this.check = !this.check
-        }
+        },
+
+        init() {
+            
+        },
     }
+  
 }
 </script>
 
 <style lang="scss" scoped>
-@import "../../assets/css/main.css";
+@import "../../assets/plugins/feather/feather.css";    
 @import "../../assets/scss/index.scss";
-@import "../../assets/scss/main.scss";
 </style>
