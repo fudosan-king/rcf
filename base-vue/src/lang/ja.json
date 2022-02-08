@@ -18,15 +18,54 @@
   },
   "sidebar": {
     "dashboard": "Dashboard",
-    "user": "User",
+    "user": {
+      "title": "ユーザー",
+      "list": "ユーザー一覧",
+      "create": "ユーザー作成",
+      "permissions": "権限"
+    },
     "settings": "Settings",
-    "customers": "Customers"
+    "customers": "Customers",
+    "transactions": {
+      "title": "Transactions",
+      "list": "List Transactions",
+      "create": "Create Transaction"
+    },
+    "fund": {
+      "title": "Fund",
+      "list": "List Fund",
+      "create": "Create Fund"
+    },
+    "document": "Document",
+    "faq": {
+      "title": "FAQ",
+      "create": "Create FAQ",
+      "list": "List FAQ"
+    },
+    "contract": {
+      "title": "Contract",
+      "create": "Create Contract",
+      "list": "List Contract"
+    },
+    "admin_management": {
+      "list": "Users List",
+      "role": "Permissions"
+    },
+    "setting": "Setting"
   },
   "pages": {
     "auth": {
       "login": {
         "title": "ログイン"
       }
+    },
+    "dashboard": {
+      "title": "ダッシュボード"
+    },
+    "transactions": {
+      "title": "トランザクション",
+      "create": "トランザクション作成",
+      "edit": "トランザクション編集"
     }
   },
   "frontend": {
