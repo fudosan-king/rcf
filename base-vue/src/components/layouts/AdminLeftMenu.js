@@ -1,16 +1,12 @@
 export default function admin_left_menu() {
 	const slideMenu = document.querySelector('.side-menu');
-	
-	const _SideBars = document.querySelectorAll('[data-toggle=sidebar]');
-	console.log(_SideBars);
-	_SideBars.forEach( ele => {
-		ele.addEventListener('click', (event) => {
-			event.preventDefault();
-			console.log(123);
-			// console.log(document.querySelector('.app'));
-			document.querySelector('.app').classList.toggle('sidenav-toggled');
-		});	
-	})	
+	// const _SideBars = document.querySelectorAll('[data-toggle=sidebar]');
+	// _SideBars.forEach( ele => {
+	// 	ele.addEventListener('click', (event) => {
+	// 		event.preventDefault();
+	// 		document.querySelector('.app').classList.toggle('sidenav-toggled');
+	// 	});
+	// })
 	
 
 	// Activate sidebar slide toggle
@@ -65,23 +61,23 @@ export default function admin_left_menu() {
 		}
 	});
 
-	const toggleSidebar = () => {
-		const body = document.querySelector('body');
-		if ( window.outerWidth <= 1024 ){
-			body.classList.add('sidebar-gone');
-			body.addEventListener('click', event => {
-				event.preventDefault();
-				if( event.target.classList.contains('sidebar-show') || event.target.classList.contains('search-show') ){
-					body.classList.remove('sidebar-show');
-					body.classList.add('sidebar-gone');
-					body.classList.remove('search-show');
-				}
-			})
-		} else {
-			body.classList.remove('sidebar-gone');
-		}
-	}
-	toggleSidebar();
-	window.addEventListener('resize',toggleSidebar);
+	// const toggleSidebar = () => {
+	// 	const body = document.querySelector('body');
+	// 	if ( window.outerWidth <= 1024 ){
+	// 		body.classList.add('sidebar-gone');
+	// 		body.addEventListener('click', event => {
+	// 			event.preventDefault();
+	// 			if( event.target.classList.contains('sidebar-show') || event.target.classList.contains('search-show') ){
+	// 				body.classList.remove('sidebar-show');
+	// 				body.classList.add('sidebar-gone');
+	// 				body.classList.remove('search-show');
+	// 			}
+	// 		})
+	// 	} else {
+	// 		body.classList.remove('sidebar-gone');
+	// 	}
+	// }
+	// toggleSidebar();
+	// window.addEventListener('resize',toggleSidebar);
 
-}	
+}

@@ -140,10 +140,10 @@
     left: 0;
     max-height: 100%;
     position: fixed;
-    top: 0;
+    top: 0 !important;
     transition: left .3s ease, width .3s ease;
     width: 240px;
-    z-index: 1024;
+    z-index: 1029 !important;
 
     .main-sidebar-header {
         background: #fff;

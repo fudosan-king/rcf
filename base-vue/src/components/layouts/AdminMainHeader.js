@@ -11,14 +11,10 @@ export default function admin_main_header() {
             for (let sibling of ele.parentNode.children) {
                 if (sibling !== ele) sibling.classList.remove('show');
             }
-            // ele.querySelector('.drop-flag').classList.remove('show');
         })
     })
-
-
     document.addEventListener('click',close_menu);
     document.addEventListener('touchstart',close_menu);
-
 }
 
 //Close dropdown menu of header menu

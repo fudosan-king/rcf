@@ -172,7 +172,6 @@ export default {
         }
     },
     mounted() {
-        console.log(this.faqList.faqs)
     }
 }
 </script>

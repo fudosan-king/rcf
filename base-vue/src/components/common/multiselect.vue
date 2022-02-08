@@ -215,7 +215,6 @@ export default {
         toggleDropdown(id) {
             this.$nextTick(() => {
                 if (this.$el.querySelector(`#${id}`)) {
-                    console.log(this.$el.querySelector(`#${id}`))
                     this.$el.querySelector(`#${id}`).classList.toggle('show')
                     this.$refs['dropdown-keyword'] && this.$refs['dropdown-keyword'].focus()
                 }

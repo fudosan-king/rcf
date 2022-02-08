@@ -137,7 +137,6 @@ export default {
                     activeName: 'settings',
                     currentData: 'settings',
                 }
-
             ],
         }
     },
