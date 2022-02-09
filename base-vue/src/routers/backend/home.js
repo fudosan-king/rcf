@@ -1,13 +1,13 @@
 import i18n from "../../lang/i18n";
-import Home from "../../views/backend/Home";
-
+import Dashboard from "../../views/backend/Dashboard";
 export default [
     {
         path: '/admin',
-        name: 'homeAdmin',
-        component: Home,
+        name: 'Dashboard',
+        component: Dashboard,
         meta: {
+            // requiresAuth: true,
             title: i18n.t('pages.auth.login.title'),
-        }
+        },
     },
 ]

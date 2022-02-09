@@ -9,10 +9,6 @@
                         <a href="index.html"><img src="../../../assets/svgs/logo/logo.svg" class="dark-logo-1"
                                                   alt="logo"></a>
                     </div>
-                    <div class="app-sidebar__toggle" data-toggle="sidebar">
-                        <a class="open-toggle"><i class="header-icon fe fe-align-left"></i></a>
-                        <a class="close-toggle"><i class="header-icons fe fe-x"></i></a>
-                    </div>
                 </div>
                 <div class="main-header-right">
                     <div class="nav nav-item  navbar-nav-right ml-auto">
@@ -42,18 +38,13 @@
 </template>
 <script>
 
-import AdminMainHeader from "../AdminMainHeader";
 import {mapGetters} from "vuex";
 
 export default {
     name: "navbarAdmin",
     methods: {
-        init() {
-            new AdminMainHeader;
-        },
     },
     mounted() {
-        this.init();
     },
     computed: {
         ...mapGetters({

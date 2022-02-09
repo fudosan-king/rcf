@@ -3,7 +3,7 @@ import Login from "../../views/backend/auth/Login";
 
 export default [
     {
-        path: '/admin',
+        path: '/admin/login',
         name: 'loginAdmin',
         component: Login,
         meta: {

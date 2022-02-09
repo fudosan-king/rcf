@@ -170,9 +170,10 @@
         margin-top: 70px;
         overflow: hidden;
         overflow-y: auto;
-        @media (max-width:767px){
-            margin-top:0;
+        @media (max-width: 767px) {
+            margin-top: 0;
         }
+
         .app-sidebar__user {
             align-items: center;
             background-position: 0;
@@ -250,15 +251,21 @@
                 text-transform: uppercase;
             }
 
-            .is-expanded {
-                .side-menu__item {
-                    border-radius: 0;
-                    margin: 0;
-                    padding: 10px 20px 10px 22px;
+            .side-menu__item {
+                border-radius: 0;
+                margin: 0;
+                padding: 10px 20px 10px 22px;
+
+                .side-menu__image {
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 10px;
                 }
+
             }
         }
     }
 }
+
 
 
