@@ -4,8 +4,9 @@
         <sidebarAdmin @refresh="refresh"></sidebarAdmin>
         <div class="main-content app-content">
             <navbarAdmin></navbarAdmin>
+            <div class="jumps-prevent padding__top-63"></div>
             <div class="container-fluid">
-                <router-view v-if="isRouterAlive"></router-view>
+                <router-view v-if="isRouterAlive" class="margin__top-20"></router-view>
             </div>
         </div>
     </div>
@@ -72,6 +73,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../../assets/plugins/feather/feather.css";
+//@import "../../../assets/plugins/feather/feather.css";
 @import "../../../assets/scss/index";
 </style>

@@ -23,28 +23,23 @@
                 </div>
             </div>
             <ul class="side-menu" id="menu-list-sidebar">
-                <div class="has-text-centered"></div>
+                <li class="slide"><a href="#"></a></li>
                 <template v-for="(menu, index) in menus">
-                    <li :key="'menu-' + index" class="slide" @click="toggleSlideMenu" :class="{'active': menu.activeName === activeSidebar}">
+                    <li :key="'menu-' + index" class="slide"
+                        :class="{'active': menu.activeName === activeSidebar}">
                         <a class="side-menu__item" data-toggle="slide"
                            @click="goTo(menu.router, menu.currentData, menu.activeName)"
                            @mouseover="hoverSidebar(index + 1)" @mouseleave="leaveSidebar()"
                         >
-                            <img :src="menu.path_svg" class="side-menu__image">
-                            <span class="side-menu__label" id="bg-side-text">{{ menu.title }}</span>
+                            <img :src="menu.path_svg_dark" class="side-menu__image">
+                            <span class="side-menu__label">{{ menu.title }}</span>
                             <i class="angle fe fe-chevron-down"
                                v-if="(menu.type === 'sub') && menu.children.length"></i>
                         </a>
-                        <ul class="slide-menu" v-if="(menu.type === 'sub') && menu.children.length">
-                            <template v-for="(menuItem, i) in menu.children">
-                                <li :key="'menuItem-' + i">
-                                    <a @click="goTo({name: menuItem.name})" class="slide-item">{{ menuItem.title }}</a>
-                                </li>
-                            </template>
-                        </ul>
                     </li>
                 </template>
-                <li class="slide">
+                <li class="">
+                    <a class="bottom-sidebar"></a>
                 </li>
             </ul>
         </div>

@@ -18,8 +18,16 @@ import authUser from "./frontend/auth";
 import customer from "./frontend/customer";
 import contact from "./frontend/contact";
 import transaction from "./frontend/transaction";
-import homeAdmin from "./backend/home";
 
+
+import homeAdmin from "./backend/home";
+import fundAdmin from "./backend/fund";
+import transactionAdmin from "./backend/transaction";
+// import fundAdmin from "./backend/fund";
+import customerAdmin from "./backend/customer";
+import userAdmin from "./backend/userAdmin";
+import faqAdmin from "./backend/faq";
+import setting from "./backend/setting";
 
 
 Vue.use(VueToast, {
@@ -42,7 +50,14 @@ const routes = [
         },
         children: [
             // route modules
-            ...homeAdmin
+            ...homeAdmin,
+            ...transactionAdmin,
+            ...fundAdmin,
+            ...customerAdmin,
+            ...userAdmin,
+            ...faqAdmin,
+            ...setting
+
         ]
     },
     {

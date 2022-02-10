@@ -1,6 +1,6 @@
 @import "variables";
 
-/* ######## BOOTSTRAP ######## */ 
+/* ######## BOOTSTRAP ######## */
 @import "bootstrap/custom";
 @import "bootstrap/accordion";
 @import "bootstrap/alerts";
@@ -23,22 +23,15 @@
 @import "bootstrap/tooltip";
 @import "bootstrap/tabs";
 
-/* ######## BOOTSTRAP ######## */ 
+/* ######## BOOTSTRAP ######## */
 @import "common";
 
 
-@import 'sidemenu1';
+@import 'sidemenu';
 
 @import 'custom-styles';
 @import 'navbar';
-
-
-
-
-@import "horizontal-menu";
-
 @import 'header';
 @import 'profile';
-@import 'sidebar';
 
 

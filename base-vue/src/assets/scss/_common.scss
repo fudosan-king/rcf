@@ -1,142 +1,145 @@
 // colors
 @each $s, $i in $color {
-  .background__#{$s} {
-    background-color: #{$i} !important;
-    &:not([disabled]) {
-      &.hoverable:hover {
-        filter: brightness(110%);
-        transition: all 0.1s ease-in-out;
-      }
-      &.focusable:focus {
-        filter: brightness(110%);
-      }
+    .background__#{$s} {
+        background-color: #{$i} !important;
+
+        &:not([disabled]) {
+            &.hoverable:hover {
+                filter: brightness(110%);
+                transition: all 0.1s ease-in-out;
+            }
+
+            &.focusable:focus {
+                filter: brightness(110%);
+            }
+        }
     }
-  }
-  .color__#{$s} {
-    color: #{$i} !important;
-    &.hoverable:hover {
-      color: lighten($i, 20%) !important;
-      cursor: pointer;
+    .color__#{$s} {
+        color: #{$i} !important;
+
+        &.hoverable:hover {
+            color: lighten($i, 20%) !important;
+            cursor: pointer;
+        }
     }
-  }
-  .border__#{$s} {
-    border-color: #{$i} !important;
-  }
-  @each $d in $directions {
-    .bg_gradient__#{$d}--#{$s} {
-      background-image: linear-gradient(
-                      to $d,
-                      darken($i, 20%),
-                      lighten($i, 20%)
-      );
+    .border__#{$s} {
+        border-color: #{$i} !important;
     }
-  }
+    @each $d in $directions {
+        .bg_gradient__#{$d}--#{$s} {
+            background-image: linear-gradient(
+                            to $d,
+                            darken($i, 20%),
+                            lighten($i, 20%)
+            );
+        }
+    }
 }
 
 // positions
 @each $d in $directions {
-  @for $i from 0 through 100 {
-    .m#{$d}--#{$i} {
-      margin-#{$d}: 1px * $i !important;
+    @for $i from 0 through 100 {
+        .margin__#{$d}-#{$i} {
+            margin-#{$d}: 1px * $i !important;
+        }
+        .m__#{$d}--#{$i} {
+            margin-#{$d}: 0.5rem * $i !important;
+        }
+        .padding__#{$d}-#{$i} {
+            padding-#{$d}: 1px * $i !important;
+        }
+        .p__#{$d}--#{$i} {
+            padding-#{$d}: 0.5rem * $i !important;
+        }
+        .m--#{$i} {
+            margin: 1px * $i !important;
+        }
+        .p--#{$i} {
+            padding: 1px * $i !important;
+        }
+        .w--#{$i} {
+            width: 1% * $i !important;
+        }
+        .h--#{$i} {
+            height: 1% * $i !important;
+        }
+        .w__vw--#{$i} {
+            width: 1vw * $i !important;
+        }
+        .h__vh--#{$i} {
+            height: 1vh * $i !important;
+        }
+        .py--#{$i} {
+            padding-top: 1px * $i !important;
+            padding-bottom: 1px * $i !important;
+        }
+        .px--#{$i} {
+            padding-left: 1px * $i !important;
+            padding-right: 1px * $i !important;
+        }
+        .width--#{$i} {
+            width: 1px * $i !important;
+        }
+        .tx-#{$i} {
+            font-size: 1px * $i !important;
+        }
+        font-size-#{$i} {
+            font-size: 0.125rem * $i !important;
+        }
+        .border--#{$i} {
+            border-radius: 0.125rem * $i !important;
+        }
+        .border-width-#{$i} {
+            border-width: 1px * $i !important;
+        }
+        .padding-y--#{$i} {
+            padding-top: 1rem * $i !important;
+            padding-bottom: 1rem * $i !important;
+        }
     }
-    .m__#{$d}--#{$i} {
-      margin-#{$d}: 0.5rem * $i !important;
-    }
-    .p#{$d}--#{$i} {
-      padding-#{$d}: 1px * $i !important;
-    }
-    .p__#{$d}--#{$i} {
-      padding-#{$d}: 0.5rem * $i !important;
-    }
-    .m--#{$i} {
-      margin: 1px * $i !important;
-    }
-    .p--#{$i} {
-      padding: 1px * $i !important;
-    }
-    .w--#{$i} {
-      width: 1% * $i !important;
-    }
-    .h--#{$i} {
-      height: 1% * $i !important;
-    }
-    .w__vw--#{$i} {
-      width: 1vw * $i !important;
-    }
-    .h__vh--#{$i} {
-      height: 1vh * $i !important;
-    }
-    .py--#{$i} {
-      padding-top: 1px * $i !important;
-      padding-bottom: 1px * $i !important;
-    }
-    .px--#{$i} {
-      padding-left: 1px * $i !important;
-      padding-right: 1px * $i !important;
-    }
-    .width--#{$i} {
-      width: 1px * $i !important;
-    }
-    .font--#{$i} {
-      font-size: 1px * $i !important;
-    }
-    font-size-#{$i} {
-      font-size: 0.125rem * $i !important;
-    }
-    .border--#{$i} {
-      border-radius: 0.125rem * $i !important;
-    }
-    .border-width-#{$i} {
-      border-width: 1px * $i !important;
-    }
-    .padding-y--#{$i} {
-      padding-top: 1rem * $i !important;
-      padding-bottom: 1rem * $i !important;
-    }
-  }
 }
 
 ::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  border-radius: 5px;
-  background-color: $light;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    background-color: $light;
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-  border-radius: 5px;
-  background-color: $light;
+    width: 5px;
+    height: 5px;
+    border-radius: 5px;
+    background-color: $light;
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 5px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: $purple-focus;
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: $purple-focus;
 }
 
 // custom
 
 .has-relative {
-  position: relative;
+    position: relative;
 }
 
 .d-flex {
-  display: flex !important;
+    display: flex !important;
 }
 
 .align-items-center {
-  align-items: center;
+    align-items: center;
 }
 
 .align-self-center {
-  align-self: center;
+    align-self: center;
 }
 
 // Background colors
 
 @each $color, $value in $theme-gradient-colors {
-  .bg-gradient-#{$color} {
-    background: $value;
-  }
+    .bg-#{$color}-gradient {
+        background: $value !important;
+    }
 }

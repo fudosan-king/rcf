@@ -77,12 +77,12 @@ $purple-focus: #750a81;
 $directions: (top, right, bottom, left);
 
 $theme-gradient-colors: (
-        primary: linear-gradient(230deg, #759bff, #843cf6),
+        primary: linear-gradient(to left, #0db2de 0%, #005bea 100%),
         secondary: linear-gradient(to right, #e7ebf0, #868e96),
-        success: linear-gradient(45deg, #7bffce, #30c93e),
+        success: linear-gradient(to left, #48d6a8 0%, #029666 100%),
         info: linear-gradient(to bottom, #0e4cfd, #6a8eff),
-        warning: linear-gradient(135deg, #ffc480, #ff763b),
-        danger: linear-gradient(316deg, #fc5286, #fbaaa2),
+        warning: linear-gradient(to left, #efa65f, #f76a2d),
+        danger: linear-gradient(45deg, #f93a5a, #f7778c),
         light: linear-gradient(to right, #cfd9df 0%, #e2ebf0 100%),
         dark: linear-gradient(316deg, #7d7979 0%, #000000 100%)
 );
