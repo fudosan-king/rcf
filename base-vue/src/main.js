@@ -14,6 +14,8 @@ import 'vue2-datepicker/locale/ja'
 import "vue-multiselect/dist/vue-multiselect.min.css"
 import VueToast from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-sugar.css';
+import "./assets/css/style.css";
+import "./assets/scss/frontend/style.scss";
 import Mixins from './mixins';
 import Components from './components/common';
 import Directive from './directives';

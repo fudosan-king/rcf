@@ -100,4 +100,5 @@ export default {
 <style lang="scss">
 @import "../../../assets/css/style.css";
 @import "../../../assets/scss/frontend/style";
+
 </style>

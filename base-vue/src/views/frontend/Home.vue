@@ -19,7 +19,7 @@
                 <img src="../../assets/images/svg/logo_white.svg" alt="" class="img-fluid" width="613">
             </div>
         </section>
-        <div class="box_main_page">
+        <div class="box_main_page bg-white">
             <section class="section_limawar">
                 <div class="container">
                     <div class="row">

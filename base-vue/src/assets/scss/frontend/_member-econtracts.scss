@@ -1,0 +1,83 @@
+.e-contracts{
+	.document{
+		width:100%;
+	}
+	.confirm{
+		max-width: 800px;
+		margin-bottom:30px;
+		.form-check{
+			margin-bottom:30px;
+			text-align: left;
+    		padding-left: 60px;
+		}
+		p{
+			margin-bottom:0;
+		}
+	}
+	.box-line{
+		max-width:800px;
+		border: 1px solid #6D8764;
+		padding:15px;
+		margin:30px auto;
+		display: flex;
+		flex-flow: wrap;
+		align-items:center;
+		.action{
+			width: 20%;
+			text-align: center;
+			a{
+				width: 100%;;
+				max-width: 100px;
+			}
+		}
+		p{
+			margin-bottom:0;
+		}		
+	}
+	.document{
+		padding:30px;
+		@media (max-width:767px){
+			padding:15px;
+		}
+		.document_pdf{
+			position: relative;
+			height: 600px;
+			overflow-y: auto;
+			span{
+				margin-bottom:30px;
+				&:last-child{
+					margin-bottom: 0;
+				}
+			}
+			@media (max-width:767px){
+				height: 200px;
+			}
+		}
+		table{
+			width: 100%;
+			max-width:600px;
+			margin:0 auto;
+			tr{
+				th{
+					text-align: center;
+					@media (max-width:767px){
+						font-size:0.875rem;
+					}
+				}
+				td{
+					padding: 10px 0;
+					text-align:center;
+					.btn-link{
+						max-width:160px;
+						width: 100%;
+					}
+					.date{
+						@media (max-width:767px){
+							font-size:0.75rem;
+						}
+					}
+				}
+			}
+		}
+	}
+}
