@@ -99,39 +99,52 @@
             </div>
         </div>
         <div class="row row-sm">
-            <div class="col-md-12 col-lg-12 col-xl-7">
+            <div class="col-md-12 col-lg-12 col-xl-12">
                 <div class="card">
                     <div class="card-header bg-transparent pd-b-0 pd-t-20 bd-b-0">
                         <div class="d-flex justify-content-between">
                             <h4 class="card-title mb-0">Order status</h4>
                             <i class="mdi mdi-dots-horizontal text-gray"></i>
                         </div>
-                        <p class="tx-12 text-muted mb-0">Order Status and Tracking. Track your order from ship date to
-                            arrival. To begin, enter your order number.</p>
                     </div>
-                    <div class="card-body" style="position: relative;">
-                        <div class="total-revenue">
-                            <div>
-                                <h4>120,750</h4>
-                                <label><span class="bg-primary"></span>success</label>
-                            </div>
-                            <div>
-                                <h4>56,108</h4>
-                                <label><span class="bg-danger"></span>Pending</label>
-                            </div>
-                            <div>
-                                <h4>32,895</h4>
-                                <label><span class="bg-warning"></span>Failed</label>
-                            </div>
+                    <div class="card-body">
+                        <div class="mt-5 pt-5">
+                            <bar-chart :height="249"></bar-chart>
                         </div>
-                        <div id="bar" class="sales-bar mt-4" style="min-height: 264px;">
-                        </div>
-                        <div class="resize-triggers">
-                            <div class="expand-trigger">
-                                <div style="width: 945px; height: 314px;"></div>
-                            </div>
-                            <div class="contract-trigger"></div>
-                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-sm row-deck">
+            <div class="col-md-12 col-lg-12 col-xl-12">
+                <div class="card card-table-two">
+                    <div class="d-flex justify-content-between">
+                        <h4 class="card-title mb-1">Your Most Recent Earnings</h4>
+                        <i class="mdi mdi-dots-horizontal text-gray"></i>
+                    </div>
+                    <div class="table-responsive country-table mt-2">
+                        <table class="table table-striped table-bordered mb-0 text-sm-nowrap text-lg-nowrap text-xl-nowrap">
+                            <thead>
+                            <tr>
+                                <th class="wd-lg-25p">Date</th>
+                                <th class="wd-lg-25p tx-right">Sales Count</th>
+                                <th class="wd-lg-25p tx-right">Earnings</th>
+                                <th class="wd-lg-25p tx-right">Tax Witheld</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr v-for="(e, i) in dataTables" :key="'earning' + i">
+                                <td class="date">{{ momentFormat(e.updated_at) }}</td>
+                                <td class="sale-count tx-right">{{ e.sale_count }}</td>
+                                <td class="earnings tx-right">{{ formatCurrency(e.earnings) }}</td>
+                                <td class="tax-witheld tx-right "
+                                    :class="( e.tax_witheld >0 ) ? ( 'text-success' ) : ( 'text-danger' )"
+                                >{{ formatCurrency(e.tax_witheld) }}
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -140,12 +153,76 @@
 </template>
 
 <script>
-import {ACTION_SET_ACTIVE_SIDEBAR, ACTION_SET_PAGE_TITLE,} from "../../stores/common/actions";
+import {ACTION_SET_ACTIVE_SIDEBAR, ACTION_SET_PAGE_TITLE,} from "../../../stores/common/actions";
+
+import BarChart from "./chart/BarChart";
+import {jpyFormat, dateJapanese} from "../../../filters";
 
 export default {
     name: "Dashboard",
+    components: {
+        BarChart,
+    },
+    data() {
+        return {
+            pageTitle: 'Dashboard',
+            activeSidebar: 'dashboard',
+            dataTables: [
+                {
+                    "id": 5,
+                    "sale_count": 34,
+                    "earnings": 658.20,
+                    "tax_witheld": 45.10,
+                    "created_at": "2021-12-06 07:48:38",
+                    "updated_at": "2021-12-06 07:48:38"
+                },
+                {
+                    "id": 4,
+                    "sale_count": 234,
+                    "earnings": 453.25,
+                    "tax_witheld": 156.20,
+                    "created_at": "2021-12-06 07:48:38",
+                    "updated_at": "2021-12-06 07:48:38"
+                },
+                {
+                    "id": 3,
+                    "sale_count": 36,
+                    "earnings": 3424,
+                    "tax_witheld": 13.45,
+                    "created_at": "2021-12-06 07:48:38",
+                    "updated_at": "2021-12-06 07:48:38"
+                },
+                {
+                    "id": 2,
+                    "sale_count": 54,
+                    "earnings": 12341,
+                    "tax_witheld": -123.45,
+                    "created_at": "2021-12-06 07:48:38",
+                    "updated_at": "2021-12-06 07:48:38"
+                },
+                {
+                    "id": 1,
+                    "sale_count": 76,
+                    "earnings": 42341,
+                    "tax_witheld": 45.10,
+                    "created_at": "2021-12-06 07:48:38",
+                    "updated_at": "2021-12-09 04:51:48"
+                }
+            ],
+
+        }
+    },
+    methods: {
+        momentFormat(date, format = 'YYYY年MM月DD日') {
+            return dateJapanese(date, format)
+        },
+        formatCurrency(value) {
+            return jpyFormat(value)
+        },
+    },
+
     created() {
-        this.$store.dispatch(ACTION_SET_ACTIVE_SIDEBAR, "dashboard");
+        this.$store.dispatch(ACTION_SET_ACTIVE_SIDEBAR, "home");
         this.$store.dispatch(ACTION_SET_PAGE_TITLE, "Dashboard");
     },
 }

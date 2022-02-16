@@ -77,6 +77,14 @@
             padding-left: 1px * $i !important;
             padding-right: 1px * $i !important;
         }
+        .mx--#{$i} {
+             margin-left: 1px * $i !important;
+             margin-right: 1px * $i !important;
+         }
+        .my--#{$i} {
+            margin-top: 1px * $i !important;
+            margin-bottom: 1px * $i !important;
+        }
         .width--#{$i} {
             width: 1px * $i !important;
         }
@@ -95,6 +103,12 @@
         .padding-y--#{$i} {
             padding-top: 1rem * $i !important;
             padding-bottom: 1rem * $i !important;
+        }
+        .tx-#{$d} {
+            text-align: $d !important;
+        }
+        .wd-lg-#{$i} {
+            width: $i * 1% !important;
         }
     }
 }

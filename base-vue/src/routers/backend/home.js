@@ -1,9 +1,9 @@
 import i18n from "../../lang/i18n";
-import Dashboard from "../../views/backend/Dashboard";
+import Dashboard from "../../views/backend/dashboard/Dashboard";
 
 export default [
     {
-        path: '/admin/dashboard',
+        path: '/admin',
         name: 'Dashboard',
         component: Dashboard,
         meta: {

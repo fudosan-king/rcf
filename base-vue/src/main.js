@@ -3,7 +3,7 @@ import App from './App.vue';
 import Vuelidate from 'vuelidate';
 import i18n from './lang/i18n';
 import store from './stores';
-import { ApiService } from './services';
+import {ApiService} from './services';
 // import { BootstrapVue } from 'bootstrap-vue'
 import '@fortawesome/fontawesome-free/css/all.css'
 import '@fortawesome/fontawesome-free/js/all.js'
@@ -22,14 +22,17 @@ import Yubinbango from 'yubinbango-core';
 import DatePicker from "vue2-datepicker";
 import vueDropzone from 'vue2-dropzone'
 import 'vue2-dropzone/dist/vue2Dropzone.min.css'
-
 import router from './routers';
+import VueApexCharts from 'vue-apexcharts'
+
+
+Vue.use(VueApexCharts)
 
 Vue.config.productionTip = false
 
 ApiService.init()
 ApiService.setHeader()
-
+Vue.component('apexchart', VueApexCharts)
 Vue.use(VueToast, {
     "position": 'top-right',
     "singleton": true,

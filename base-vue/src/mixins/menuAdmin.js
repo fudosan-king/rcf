@@ -6,10 +6,10 @@ export default {
                     path_svg: require('../assets/svgs/icons/ic_chart_bar_active.svg'),
                     path_svg_dark: require('../assets/svgs/icons/ic_chart_bar.svg'),
                     title: this.$t('sidebar.dashboard'),
-                    router: {name: 'Dashboard', path: '/admin/dashboard'},
+                    router: {name: 'Dashboard', path: '/admin'},
                     permissions: '',
                     children: [],
-                    activeName: 'dashboard',
+                    activeName: 'home',
                     currentData: 'dashboard',
                 },
                 {
@@ -115,14 +115,14 @@ export default {
                 }
             })
         },
-        setSidebarRoles(user) {
-            console.log(user)
-        }
+        // setSidebarRoles(user) {
+        //     console.log(user)
+        // }
     },
     created() {
-        this.setSidebarRoles(this.userInfo)
+        // this.setSidebarRoles(this.userInfo)
     },
     mounted() {
-        this.setSidebarRoles(this.userInfo)
+        // this.setSidebarRoles(this.userInfo)
     }
 }

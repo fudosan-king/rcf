@@ -62,7 +62,7 @@ export default {
             if (this.userInfo && this.userInfo.profile && this.userInfo.profile.avatar) {
                 return this.userInfo.profile.avatar
             }
-            return require('../../../assets/svgs/ic_ava.svg')
+            return require('../../../assets/svgs/icons/ic_ava.svg')
         }
     },
     created() {
