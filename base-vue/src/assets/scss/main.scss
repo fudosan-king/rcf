@@ -339,5 +339,13 @@ body {
         border: 1px solid #dde2ef !important;
     }
 }
+.modal {
+    &.show{
+        display: block;
+        .modal-content{
+            z-index: 99999 !important;
+        }
+    }
+}
 
 

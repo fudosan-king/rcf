@@ -80,6 +80,21 @@
           "delete_success": "ユーザーを削除しました",
           "delete_failed": "ユーザーの削除に失敗しました"
         }
+      },
+      "role": {
+        "title": "ロール設定",
+        "label": "ロール"
+      },
+      "status": {
+        "title": "ステータス設定",
+        "label": "ステータス",
+        "content": "ステータスを設定しますか？",
+        "active": "有効",
+        "deactivate": "無効",
+        "choose": "保存"
+      },
+      "message": {
+        "change_status_success": "ユーザのステータスが変更されました"
       }
     }
   },
