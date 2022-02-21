@@ -12,9 +12,14 @@
   "buttons": {
     "delete": "削除",
     "save": "保存",
+    "add": "追加",
     "create": "作成",
     "cancel": "キャンセル",
     "return_login": "ログインに戻る"
+  },
+  "page": {
+    "title": "やさしい手 文書管理システム",
+    "page-range": "表示件数"
   },
   "sidebar": {
     "dashboard": "Dashboard",
@@ -71,6 +76,7 @@
       "title": "ユーザー",
       "manage": "ユーザー管理",
       "list": "ユーザー一覧",
+      "add": "ユーザー追加",
       "delete": {
         "title": "ユーザー削除",
         "content": "ユーザーを削除しますか？",
@@ -81,9 +87,22 @@
           "delete_failed": "ユーザーの削除に失敗しました"
         }
       },
+      "name":{
+        "label": "ユーザー名",
+        "placeholder": "ユーザー名を入力してください"
+      },
+      "email":{
+        "label": "メールアドレス",
+        "placeholder": "メールアドレスを入力してください"
+      },
       "role": {
         "title": "ロール設定",
-        "label": "ロール"
+        "label": "ロール",
+        "placeholder": "ロールを選択してください"
+      },
+      "full_name": {
+        "label": "フルネーム",
+        "placeholder": "フルネームを入力してください"
       },
       "status": {
         "title": "ステータス設定",

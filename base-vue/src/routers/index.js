@@ -43,7 +43,7 @@ const routes = [
         component: PageNotFound,
     },
     {
-        path: 'admin',
+        path: '/admin',
         component: LayoutAdmin,
         meta: {
             // requiresAuth: true

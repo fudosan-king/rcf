@@ -322,30 +322,95 @@ body {
     }
 
     thead {
-        th {
-            padding: 10px 15px;
+        background: #73886b;
+
+        tr {
+            th {
+                color: #fff;
+                border-left: 1px solid #FFFFFF;
+            }
         }
-    }
-
-    &.table-bordered, .table-bordered td, .table-bordered th {
-        border: 1px solid #b7b7b7 !important;
-    }
-
-    &.table-striped tbody tr:nth-of-type(odd) {
-        background-color: #ecf0fa;
-    }
-
-    &.table-bordered th, .table-bordered td {
-        border: 1px solid #dde2ef !important;
+    ;
     }
 }
+
 .modal {
-    &.show{
+    &.show {
         display: block;
-        .modal-content{
+
+        .modal-content {
             z-index: 99999 !important;
         }
     }
 }
 
+.btn {
+    &.action {
+        width: 34px;
+        height: 34px;
+        margin-right: 10px;
+        padding: 0;
+    }
+
+    &.btn-success {
+        background-color: #73886b;
+        color: #fff;
+    }
+
+    &.action-success {
+        color: #48c774;
+        border: 1px solid #48c774;
+
+        &:hover {
+            color: #fff !important;
+            background-color: #48c774;
+            transition: all .2s ease-in-out;
+            border: 1px solid #48c774 !important;
+        }
+    }
+
+    &.action-change {
+        color: #73886b;
+        border: 1px solid #73886b;
+
+        &:hover {
+            color: #fff !important;
+            background-color: #73886b;
+            transition: all .2s ease-in-out;
+            border: 1px solid #73886b !important;
+        }
+    }
+
+    &.action-danger {
+        color: #ff3860;
+        border: 1px solid #ff3860;
+
+        &:hover {
+            color: #fff !important;
+            background-color: #ff3860;
+            transition: all .2s ease-in-out;
+            border: 1px solid #ff3860 !important;
+        }
+    }
+    &.dropdown-toggle{
+        border: 1px solid #ced4da;
+    }
+}
+
+.breadcrumb-header {
+    .content-title {
+        color: #73886b;
+    }
+}
+
+.main-content {
+    .page-main {
+        border-radius: 20px;
+        padding: 2rem;
+        .required-note{
+            color: #ff3860;
+            font-size: 16px;
+        }
+    }
+}
 

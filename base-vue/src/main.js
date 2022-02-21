@@ -9,8 +9,8 @@ import '@fortawesome/fontawesome-free/css/all.css'
 import '@fortawesome/fontawesome-free/js/all.js'
 import 'vue2-datepicker/scss/index.scss';
 import 'vue2-datepicker/locale/ja'
-// import 'bootstrap/dist/css/bootstrap.css'
-// import 'bootstrap-vue/dist/bootstrap-vue.css'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 import "vue-multiselect/dist/vue-multiselect.min.css"
 import VueToast from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-sugar.css';
@@ -44,6 +44,7 @@ Vue.use(Prototypes)
 Vue.use(Yubinbango)
 Vue.use(DatePicker)
 Vue.use(vueDropzone)
+
 
 Mixins(Vue);
 Components(Vue);
