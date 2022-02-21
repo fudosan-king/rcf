@@ -9,7 +9,7 @@
                 <h1 class="u-error__title  text-center m__bottom--4">404</h1>
                 <h2 class="u-error__sub-title m__bottom--3 text-center">{{$t('messages.page_not_found')}}</h2>
                 <h4 class="font-weight-semi-bold  text-center mb-0">
-                    <router-link :to="{name: 'loginAdmin'}" class="forgot-password-link">
+                    <router-link :to="{name: 'login.admin'}" class="forgot-password-link">
                         {{ $t('buttons.return_login') }}
                     </router-link>
                 </h4>

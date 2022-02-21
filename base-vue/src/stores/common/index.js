@@ -10,9 +10,9 @@ import {
     ACTION_CLEAR_MESS,
     ACTION_SET_PAGE_TITLE,
     ACTION_SET_ACTIVE_SIDEBAR,
-    ACTION_SET_SEARCH_PARAMS,
     ACTION_CLEAR_SEARCH_PARAMS,
-    ACTION_SET_SPECIAL_LOADING, ACTION_SET_DATA_LOADED,
+    ACTION_SET_SPECIAL_LOADING,
+    ACTION_SET_DATA_LOADED,
 } from './actions'
 
 import {
@@ -25,7 +25,6 @@ import {
     CLEAR_MESSAGE,
     SET_PAGE_TITLE,
     SET_ACTIVE_SIDEBAR,
-    SET_SEARCH_PARAMS,
     CLEAR_SEARCH_PARAMS,
     SET_SPECIAL_LOADING, SET_DATA_LOADED,
 } from './mutations'
@@ -94,9 +93,7 @@ const actions = {
     [ACTION_CLEAR_SEARCH_PARAMS](context, params) {
         context.commit(CLEAR_SEARCH_PARAMS, params)
     },
-    [ACTION_SET_SEARCH_PARAMS](context, params) {
-        context.commit(SET_SEARCH_PARAMS, params)
-    },
+
 }
 
 const mutations = {
@@ -144,13 +141,10 @@ const mutations = {
     },
     [CLEAR_SEARCH_PARAMS](state, params) {
         Object.keys(state.searchParams).map((e) => {
-            if(e !== params) {
+            if (e !== params) {
                 state.searchParams[e] = {}
             }
         })
-    },
-    [SET_SEARCH_PARAMS](state, params) {
-        state.searchParams[params.key] = params.data
     },
 }
 

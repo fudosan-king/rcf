@@ -9,7 +9,7 @@ export default {
                     router: {name: 'Dashboard', path: '/admin'},
                     permissions: '',
                     children: [],
-                    activeName: 'home',
+                    activeName: 'dashboard',
                     currentData: 'dashboard',
                 },
                 {
@@ -58,6 +58,7 @@ export default {
                     title: this.$t('sidebar.faq.title'),
                     router: {name: 'AdminFaq', path: '/admin/faqs'},
                     children: [],
+                    permissions: '',
                     activeName: 'faqs',
                     currentData: 'faqs',
                 },
@@ -72,6 +73,15 @@ export default {
                     currentData: 'settings',
                 }
             ],
+            menuShow: {
+                dashboard: true,
+                transactions: true,
+                funds: true,
+                customers: true,
+                users: true,
+                faqs: true,
+                settings: true,
+            }
         }
     },
     watch: {
@@ -115,14 +125,27 @@ export default {
                 }
             })
         },
-        // setSidebarRoles(user) {
-        //     console.log(user)
-        // }
+        setSidebarRoles(user) {
+            if (user) {
+                this.menuShow = {
+                    dashboard: true,
+                    transactions: true,
+                    funds: true,
+                    customers: true,
+                    faqs: true,
+                    settings: true,
+                    users: user.role_id === 1 || user.role_id === 2,
+                }
+                this.menus.map((e) => {
+                    this.$set(e, 'isShown', this.menuShow[e.activeName])
+                })
+            }
+        }
     },
     created() {
-        // this.setSidebarRoles(this.userInfo)
+        this.setSidebarRoles(this.userInfo)
     },
     mounted() {
-        // this.setSidebarRoles(this.userInfo)
+        this.setSidebarRoles(this.userInfo)
     }
 }

@@ -5,14 +5,14 @@
                 <li class="page-item">
                     <a class="page-link" @click="changePage(current - 1)" aria-label="Previous">
                         <i class="fa fa-angle-left"></i>
-                       </a>
+                    </a>
                 </li>
                 <li class="page-item" :class="{' active': current === 1 }">
                     <a class="page-link no-bg-paginate"
                        @click="changePage(1)">1</a>
                 </li>
-                <li class="page-item" v-if="pages  >= 4 && current >= 4">
-                    <span>...</span>
+                <li class="page-item width--36 margin__right-10 text-center " v-if="pages  >= 4 && current >= 4">
+                    <img src="../../assets/svgs/icons/ic_three_dot.svg" alt="">
                 </li>
                 <li class="page-item" v-if="current - 1 > 1">
                     <a class="page-link no-bg-paginate"
@@ -26,8 +26,8 @@
                     <a class="page-link no-bg-paginate"
                        @click="changePage(current + 1)">{{ current + 1 }}</a>
                 </li>
-                <li class="page-item" v-if="pages >= 4 && current <= pages - 3">
-                    <span>...</span>
+                <li class="page-item width--36 margin__right-10 text-center" v-if="pages >= 4 && current <= pages - 3">
+                    <img src="../../assets/svgs/icons/ic_three_dot.svg" alt="">
                 </li>
                 <li class="page-item" v-if="pages > 1">
                     <a class="page-link no-bg-paginate"
@@ -82,4 +82,35 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.page-item {
+    .page-link {
+        color: #73886B;
+        font-size: 0.875em;
+        margin-right: 10px;
+        width: 36px !important;
+        height: 36px;
+        text-align: center;
+        font-weight: 500;
+
+        &:hover {
+            color: #fff;
+            background-color: #73886B !important;
+            border: none !important;
+        }
+    }
+
+    &.active {
+        .page-link {
+            background-color: #73886B !important;
+            color: #fff;
+            border: none;
+        }
+    }
+
+    &:first-child, &:last-child {
+        .page-link {
+            border-radius: 4px;
+        }
+    }
+}
 </style>

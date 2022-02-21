@@ -180,10 +180,4 @@ export default {
     },
     methods: {
     },
-    created() {
-        // this.setSidebarRoles(this.userInfo)
-    },
-    mounted() {
-        // this.setSidebarRoles(this.userInfo)
-    }
 }

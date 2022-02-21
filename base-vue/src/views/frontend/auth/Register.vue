@@ -95,38 +95,38 @@
                                             <div class="row">
                                                 <div class="col-6 col-lg-6">
                                                     <input type="text" class="form-control" placeholder="ヤマダ"
-                                                           :class="{'is-invalid': (( !vuelidate.customers.first_name_kana.required||!vuelidate.customers.first_name_kana.katakana || !vuelidate.customers.first_name_kana.maxLength) && vuelidate.$dirty)}"
-                                                           v-model="customers.first_name_kana">
+                                                           :class="{'is-invalid': (( !vuelidate.customers.kana_first_name.required||!vuelidate.customers.kana_first_name.katakana || !vuelidate.customers.kana_first_name.maxLength) && vuelidate.$dirty)}"
+                                                           v-model="customers.kana_first_name">
                                                 </div>
                                                 <div class="col-6 col-lg-6">
                                                     <input type="text" class="form-control" placeholder="タロウ"
-                                                           :class="{'is-invalid': ((!vuelidate.customers.last_name_kana.required||!vuelidate.customers.last_name_kana.katakana || !vuelidate.customers.last_name_kana.maxLength) && vuelidate.$dirty)}"
-                                                           v-model="customers.last_name_kana">
+                                                           :class="{'is-invalid': ((!vuelidate.customers.kana_last_name.required||!vuelidate.customers.kana_last_name.katakana || !vuelidate.customers.kana_last_name.maxLength) && vuelidate.$dirty)}"
+                                                           v-model="customers.kana_last_name">
                                                 </div>
                                             </div>
                                             <template v-if="vuelidate.$dirty">
                                                 <div class="invalid-feedback d-block"
-                                                     v-if="!vuelidate.customers.first_name_kana.required && vuelidate.$dirty">
+                                                     v-if="!vuelidate.customers.kana_first_name.required && vuelidate.$dirty">
                                                     {{ $t('frontend.register.katakana.validation.required') }}
                                                 </div>
                                                 <div class="invalid-feedback d-block"
-                                                     v-else-if="!vuelidate.customers.first_name_kana.katakana && vuelidate.$dirty">
+                                                     v-else-if="!vuelidate.customers.kana_first_name.katakana && vuelidate.$dirty">
                                                     {{ $t('frontend.register.katakana.validation.katakana') }}
                                                 </div>
                                                 <div class="invalid-feedback d-block"
-                                                     v-else-if="!vuelidate.customers.first_name_kana.maxLength && vuelidate.$dirty">
+                                                     v-else-if="!vuelidate.customers.kana_first_name.maxLength && vuelidate.$dirty">
                                                     {{ $t('frontend.register.katakana.validation.maxLength') }}
                                                 </div>
                                                 <div class="invalid-feedback d-block"
-                                                     v-else-if="!vuelidate.customers.last_name_kana.required && vuelidate.$dirty">
+                                                     v-else-if="!vuelidate.customers.kana_last_name.required && vuelidate.$dirty">
                                                     {{ $t('frontend.register.katakana.validation.required') }}
                                                 </div>
                                                 <div class="invalid-feedback d-block"
-                                                     v-else-if="!vuelidate.customers.last_name_kana.katakana && vuelidate.$dirty">
+                                                     v-else-if="!vuelidate.customers.kana_last_name.katakana && vuelidate.$dirty">
                                                     {{ $t('frontend.register.katakana.validation.katakana') }}
                                                 </div>
                                                 <div class="invalid-feedback d-block"
-                                                     v-else-if="!vuelidate.customers.last_name_kana.maxLength && vuelidate.$dirty">
+                                                     v-else-if="!vuelidate.customers.kana_last_name.maxLength && vuelidate.$dirty">
                                                     {{ $t('frontend.register.katakana.validation.maxLength') }}
                                                 </div>
                                             </template>
@@ -584,8 +584,8 @@ export default {
                 ],
                 first_name: "",
                 last_name: "",
-                first_name_kana: "",
-                last_name_kana: "",
+                kana_first_name: "",
+                kana_last_name: "",
             },
             currentStep: 1,
             submitAvailable: true,
@@ -623,14 +623,14 @@ export default {
             street: {
                 required,
             },
-            first_name_kana: {
+            kana_first_name: {
                 required,
                 katakana: (val) => {
                     return katakana(val)
                 },
                 maxLength: maxLength(50),
             },
-            last_name_kana: {
+            kana_last_name: {
                 required,
                 katakana: (val) => {
                     return katakana(val)
@@ -673,7 +673,7 @@ export default {
                 if (!this.vuelidate.$invalid && this.submitAvailable && this.customers.documents.length > 0) {
                     this.submitAvailable = false
                     this.customers.name = this.customers.first_name + " " + this.customers.last_name
-                    this.customers.katakana_name = this.customers.first_name_kana + " " + this.customers.last_name_kana
+                    this.customers.katakana_name = this.customers.kana_first_name + " " + this.customers.kana_last_name
                     this.currentStep++;
                 }
             } else {
@@ -686,7 +686,7 @@ export default {
     },
     mounted() {
         this.customers.name = this.customers.first_name + " " + this.customers.last_name
-        this.customers.katakana_name = this.customers.first_name_kana + " " + this.customers.last_name_kana
+        this.customers.katakana_name = this.customers.kana_first_name + " " + this.customers.kana_last_name
     },
     computed: {}
 

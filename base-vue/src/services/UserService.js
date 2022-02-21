@@ -25,6 +25,9 @@ const UserService = {
     changeRole(data) {
         return ApiService.post('users/setting-role', data)
     },
+    changePassword(data) {
+        return ApiService.post('users/change-password', data)
+    },
 }
 
 export default UserService;

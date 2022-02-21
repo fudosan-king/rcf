@@ -191,24 +191,25 @@ export default {
 
         }
     },
-    watch: {
-        userInfo(val) {
-            console.log(val)
-        }
-    },
+    watch: {},
     methods: {
         closeDropdown(id) {
             this.$nextTick(() => {
-                if (this.$el.querySelector(`#${id}`)) {
-                    this.$el.querySelector(`#${id}`).classList.remove('show')
+                let dropdown = this.$el.querySelector(`#${id}`)
+                if (dropdown) {
+                    dropdown.classList.remove('show')
+                    let dropdownItem = dropdown.lastChild
+                    dropdownItem.classList.remove('show')
                 }
             })
         },
         toggleDropdown(id) {
             this.$nextTick(() => {
-                if (this.$el.querySelector(`#${id}`)) {
-                    this.$el.querySelector(`#${id}`).classList.toggle('show')
-                    // this.$refs['dropdown-keyword'] && this.$refs['dropdown-keyword'].focus()
+                let dropdown = this.$el.querySelector(`#${id}`)
+                if (dropdown) {
+                    dropdown.classList.toggle('show');
+                    let dropdownItem = dropdown.lastChild
+                    dropdownItem.classList.toggle('show')
                 }
             })
         },
@@ -239,6 +240,26 @@ export default {
                 }
             })
             return name
+        },
+        toggleDropPageRange(id) {
+            this.$nextTick(() => {
+                let dropdown = this.$el.querySelector(`#${id}`)
+                if (dropdown) {
+                    dropdown.classList.toggle('show');
+                    let dropdownItem = dropdown.lastChild
+                    dropdownItem.classList.toggle('show')
+                }
+            })
+        },
+        closeDropPageRange(id) {
+            this.$nextTick(() => {
+                let dropdown = this.$el.querySelector(`#${id}`)
+                if (dropdown) {
+                    dropdown.classList.remove('show')
+                    let dropdownItem = dropdown.lastChild
+                    dropdownItem.classList.remove('show')
+                }
+            })
         },
     },
     created() {

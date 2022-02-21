@@ -72,7 +72,6 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-//@import "../../../assets/plugins/feather/feather.css";
+<style lang="scss">
 @import "../../../assets/scss/index";
 </style>

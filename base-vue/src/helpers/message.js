@@ -1,9 +1,10 @@
 const NO_INTERNET = "NO INTERNET RETRY"
-const UNAUTHENTICATED = "Unauthenticated"
-const FORBIDDEN = "No permission"
-const LOGIN_FAILED = "Login failed"
-const SERVER_ERROR = "Server error"
-const INVALID_INPUT = "invalid input";
+const UNAUTHENTICATED = "セッションタイムアウトが発生しました。再度ログインしてください"
+const FORBIDDEN = "アクセス権がありません"
+const LOGIN_FAILED = "IDまたはパスワードが違います"
+const SERVER_ERROR = "サーバーエラーもう一度やり直してください"
+const INVALID_INPUT = "ファイルのデータが不正です"
+const NOT_FOUND = "404 Not Found"
 
 
 export {
@@ -12,5 +13,6 @@ export {
     FORBIDDEN,
     LOGIN_FAILED,
     SERVER_ERROR,
-    INVALID_INPUT
+    INVALID_INPUT,
+    NOT_FOUND
 }

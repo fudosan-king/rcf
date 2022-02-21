@@ -15,17 +15,21 @@ export default {
     methods: {
         closeDropdown(id) {
             this.$nextTick(() => {
-                if (this.$el.querySelector(`#${id}`)) {
-                    this.$el.querySelector(`#${id}`).classList.remove('show')
-                    this.$el.querySelector('.dropdown-menu').classList.remove('show')
+                let dropdown = this.$el.querySelector(`#${id}`)
+                if (dropdown) {
+                    dropdown.classList.remove('show')
+                    let dropdownItem = dropdown.lastChild
+                    dropdownItem.classList.remove('show')
                 }
             })
         },
         toggleDropdown(id) {
             this.$nextTick(() => {
-                if (this.$el.querySelector(`#${id}`)) {
-                    this.$el.querySelector(`#${id}`).classList.toggle('show')
-                    this.$el.querySelector('.dropdown-menu').classList.toggle('show')
+                let dropdown = this.$el.querySelector(`#${id}`)
+                if (dropdown) {
+                    dropdown.classList.toggle('show');
+                    let dropdownItem = dropdown.lastChild
+                    dropdownItem.classList.toggle('show')
                 }
             })
         },

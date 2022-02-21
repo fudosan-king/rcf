@@ -108,7 +108,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <div class="mt-5 pt-5">
+                        <div class="">
                             <bar-chart :height="249"></bar-chart>
                         </div>
 
@@ -153,10 +153,10 @@
 </template>
 
 <script>
-import {ACTION_SET_ACTIVE_SIDEBAR, ACTION_SET_PAGE_TITLE,} from "../../../stores/common/actions";
+import {ACTION_SET_ACTIVE_SIDEBAR, ACTION_SET_PAGE_TITLE,} from "@/stores/common/actions";
 
 import BarChart from "./chart/BarChart";
-import {jpyFormat, dateJapanese} from "../../../filters";
+import {jpyFormat, dateJapanese} from "@/filters";
 
 export default {
     name: "Dashboard",
@@ -222,7 +222,7 @@ export default {
     },
 
     created() {
-        this.$store.dispatch(ACTION_SET_ACTIVE_SIDEBAR, "home");
+        this.$store.dispatch(ACTION_SET_ACTIVE_SIDEBAR, "dashboard");
         this.$store.dispatch(ACTION_SET_PAGE_TITLE, "Dashboard");
     },
 }
