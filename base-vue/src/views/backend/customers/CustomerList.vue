@@ -3,8 +3,10 @@
         <div class="breadcrumb-header justify-content-between">
             <div class="my-auto">
                 <div class="d-flex">
-                    <h4 class="content-title mb-0 my-auto">Advanced ui</h4><span
-                        class="text-muted mt-1 tx-13 ml-2 mb-0">/ Userlist</span>
+                    <router-link :to="{name: 'UserAdmin'}" class="content-title mb-0 my-auto tx-21 font-weight-bold">
+                        {{ $t('pages.users.manage') }}
+                    </router-link>
+                    <span class="text-muted mt-1 tx-13 ml-2 mb-0">/ {{ $t('pages.users.list') }}</span>
                 </div>
             </div>
         </div>
@@ -18,8 +20,8 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive border-top userlist-table">
-                            <table class="table card-table table-striped table-vcenter text-nowrap mb-0">
+                        <div class="table-responsive border-top customer-list-table">
+                            <table class="table card-table text-nowrap mb-0">
                                 <thead>
                                 <tr>
                                     <th class="input-title text-center p--12 col-checkbox wd-lg-5">

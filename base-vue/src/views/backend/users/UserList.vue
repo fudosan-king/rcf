@@ -38,9 +38,8 @@
                                         <button class="btn dropdown-toggle w-100 text-end" type="button"
                                                 data-toggle="dropdown"
                                                 @click="toggleDropPageRange('dropdown-pagination')">
-                                            <span class="w--80 has-text-right p__right--2">{{
-                                                    pagination.perPage
-                                                }} 件</span>
+                                            <span class="w--80 has-text-right p__right--2">
+                                                {{ pagination.perPage }} 件</span>
                                         </button>
                                         <div class="dropdown-menu w-100" role="menu">
                                             <a @click="changePageRange(e)"
@@ -133,7 +132,7 @@
                     <template @keyup="submitChangeStatus" v-if="isChangeStatus">
                         <div class="modal-header">
                             <h5 class="modal-title">{{ titleChange }}</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                            <button type="button" class="close btn" data-dismiss="modal" aria-label="Close"
                                     @click="closeModal('modal-change-user')">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -172,7 +171,7 @@
                     <template @keyup="submitChangeRole" v-if=" !isChangeStatus">
                         <div class="modal-header">
                             <h5 class="modal-title">{{ titleChange }}</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                            <button type="button" class="close btn" data-dismiss="modal" aria-label="Close"
                                     @click="closeModal('modal-change-user')">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -233,7 +232,7 @@ import {momentFormat} from "../../../filters";
 import {UserService} from "../../../services";
 import User from "../../../mixins/user";
 import common from "../../../mixins/common";
-
+import userData from "../../../components/data/users.json"
 
 export default {
     name: "UserList",
@@ -242,116 +241,15 @@ export default {
         return {
             pageTitle: "",
             activeSidebar: "",
-            listUsers: [
-                {
-                    "id": 5,
-                    "role": {
-                        "id": 1,
-                        "name": "Super Admin",
-                        "code": "1",
-                        "description": "",
-                        "deleted_at": null,
-                        "created_at": "2021-12-06T07:48:38.000000Z",
-                        "updated_at": "2021-12-06T07:48:38.000000Z"
-                    },
-                    "name": "Mrs. Viola Halvorson",
-                    "full_name": "Rozella",
-                    "avatar": null,
-                    "email": "user4@gmail.com",
-                    "phone": "0123456789",
-                    "status": 1,
-                    "created_at": "2021-12-06 07:48:38",
-                    "updated_at": "2021-12-06 07:48:38"
-                },
-                {
-                    "id": 4,
-                    "role": {
-                        "id": 1,
-                        "name": "Super Admin",
-                        "code": "1",
-                        "description": "",
-                        "deleted_at": null,
-                        "created_at": "2021-12-06T07:48:38.000000Z",
-                        "updated_at": "2021-12-06T07:48:38.000000Z"
-                    },
-                    "name": "Mrs. Viola Halvorson",
-                    "full_name": "Rozella",
-                    "avatar": null,
-                    "email": "user4@gmail.com",
-                    "phone": "0123456789",
-                    "status": 0,
-                    "created_at": "2021-12-06 07:48:38",
-                    "updated_at": "2021-12-06 07:48:38"
-                },
-                {
-                    "id": 3,
-                    "role": {
-                        "id": 1,
-                        "name": "Super Admin",
-                        "code": "1",
-                        "description": "",
-                        "deleted_at": null,
-                        "created_at": "2021-12-06T07:48:38.000000Z",
-                        "updated_at": "2021-12-06T07:48:38.000000Z"
-                    },
-                    "name": "Mrs. Viola Halvorson",
-                    "full_name": "Rozella",
-                    "avatar": null,
-                    "email": "user4@gmail.com",
-                    "phone": "0123456789",
-                    "status": 0,
-                    "created_at": "2021-12-06 07:48:38",
-                    "updated_at": "2021-12-06 07:48:38"
-                },
-                {
-                    "id": 2,
-                    "role": {
-                        "id": 1,
-                        "name": "Super Admin",
-                        "code": "1",
-                        "description": "",
-                        "deleted_at": null,
-                        "created_at": "2021-12-06T07:48:38.000000Z",
-                        "updated_at": "2021-12-06T07:48:38.000000Z"
-                    },
-                    "name": "Mrs. Viola Halvorson",
-                    "full_name": "Rozella",
-                    "avatar": null,
-                    "email": "user4@gmail.com",
-                    "phone": "0123456789",
-                    "status": 1,
-                    "created_at": "2021-12-06 07:48:38",
-                    "updated_at": "2021-12-06 07:48:38"
-                },
-                {
-                    "id": 1,
-                    "role": {
-                        "id": 1,
-                        "name": "Super Admin",
-                        "code": "1",
-                        "description": "",
-                        "deleted_at": null,
-                        "created_at": "2021-12-06T07:48:38.000000Z",
-                        "updated_at": "2021-12-06T07:48:38.000000Z"
-                    },
-                    "name": "Mrs. Viola Halvorson",
-                    "full_name": "Rozella",
-                    "avatar": null,
-                    "email": "user4@gmail.com",
-                    "phone": "0123456789",
-                    "status": 0,
-                    "created_at": "2021-12-06 07:48:38",
-                    "updated_at": "2021-12-06 07:48:38"
-                },
-            ],
+            listUsers: userData.users,
             checkAll: false,
             hasChecked: false,
             pushItem: [],
             pagination: {
-                current_page: 1,
-                last_page: 1,
-                per_page: 10,
-                total: 0
+                current_page: userData.current_page,
+                last_page: userData.last_page,
+                perPage: userData.per_page,
+                total: userData.total,
             },
             pageRanges: [10, 20, 50, 100],
             titleChange: '',

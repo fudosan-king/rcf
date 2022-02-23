@@ -115,6 +115,46 @@
       "message": {
         "change_status_success": "ユーザのステータスが変更されました"
       }
+    },
+    "customers": {
+      "title": "顧客",
+      "list": "顧客一覧",
+      "add": "顧客追加",
+      "edit": "顧客編集",
+      "delete": {
+        "title": "顧客削除",
+        "content": "顧客を削除しますか？",
+        "ok": "削除",
+        "cancel": "キャンセル",
+        "message": {
+          "delete_success": "顧客を削除しました",
+          "delete_failed": "顧客の削除に失敗しました"
+        }
+      },
+      "name":{
+        "label": "顧客名",
+        "placeholder": "顧客名を入力してください"
+      },
+      "email":{
+        "label": "メールアドレス",
+        "placeholder": "メールアドレスを入力してください"
+      },
+      "phone":{
+        "label": "電話番号",
+        "placeholder": "電話番号を入力してください"
+      },
+      "address":{
+        "label": "住所",
+        "placeholder": "住所を入力してください"
+      },
+      "status": {
+        "title": "ステータス設定",
+        "label": "ステータス",
+        "content": "ステータスを設定しますか？",
+        "active": "有効",
+        "deactivate": "無効",
+        "choose": "保存"
+      }
     }
   },
   "frontend": {

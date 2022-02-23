@@ -3,8 +3,6 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content tx-size-sm">
                 <div class="modal-body text-center pxy--20 px--20">
-                    <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
-                            aria-hidden="true">&times;</span></button>
                     <img src="../assets/svgs/icons/ic_close.svg" alt=""
                          class="img-fluid width--85 margin__top-20 margin__bottom-20">
                     <h4 class="text-danger margin__bottom-20">{{ title }}</h4>

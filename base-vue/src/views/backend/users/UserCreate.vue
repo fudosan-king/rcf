@@ -92,14 +92,11 @@
                             </div>
                         </div>
                         <div class="row text-end">
-                            <div class="col-lg-9">
-                                <button type="submit" class="btn background__green w--10 m__right--2 text-white">
+                            <div class="col-lg-9 pt-3">
+                                <button class="btn background__green m__right--2 text-white">
                                     {{ $t('buttons.add') }}
                                 </button>
-                                <button type="submit" class="btn btn-secondary w--10">{{
-                                        $t('buttons.cancel')
-                                    }}
-                                </button>
+                                <button class="btn btn-secondary">{{ $t('buttons.cancel') }}</button>
                             </div>
                         </div>
                     </div>
