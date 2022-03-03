@@ -17,10 +17,10 @@
                         <div class="d-flex my-auto right-content">
                             <button type="button" class="btn btn-success  m__right--2 btn-b"
                                     @click="createUser">
-                                <i class="fas fa-plus  m__right--1"></i> Add User
+                                <i class="fas fa-plus  m__right--1"></i> {{ $t('pages.users.add') }}
                             </button>
                             <button type="button" class="btn btn-danger mr-2" v-if="hasChecked" @click="deleteAll">
-                                <i class="fas fa-trash  m__right--1"></i> Delete All User
+                                <i class="fas fa-trash  m__right--1"></i> {{ $t('buttons.delete') }}
                             </button>
                         </div>
                         <div class="d-flex pt-3">
@@ -108,24 +108,32 @@
                                         <button @click="updateUser(e.id)"
                                                 class="btn action action-success"
                                                 :disabled="userInfo.id === e.id"
+                                                v-tooltip.hover="{ customClass: 'tooltip-success' }"
+                                                :title="$t('tooltip.edit')"
                                         >
                                             <i class="fas fa-edit"></i>
                                         </button>
                                         <button @click="actionChange('role', e, false)"
                                                 class="btn action action-change"
                                                 :disabled="userInfo.id === e.id"
+                                                v-tooltip.hover="{ customClass: 'tooltip-green' }"
+                                                :title="$t('tooltip.role')"
                                         >
                                             <i class="fas fa-sync"></i>
                                         </button>
                                         <button @click="actionChange('status', e, true)"
                                                 class="btn action action-change"
                                                 :disabled="userInfo.id === e.id"
+                                                v-tooltip.hover="{ customClass: 'tooltip-green' }"
+                                                :title="$t('tooltip.status')"
                                         >
                                             <i class="fas fa-eye"></i>
                                         </button>
 
                                         <button @click="deleteUser(e.id)"
                                                 :disabled="userInfo.id === e.id"
+                                                v-tooltip.hover="{ customClass: 'tooltip-danger' }"
+                                                :title="$t('tooltip.delete')"
                                                 class="btn action-danger action">
                                             <i class="fas fa-trash"></i>
                                         </button>
@@ -297,7 +305,6 @@ export default {
             UserService.list(page, limit)
                     .then((res) => {
                         if (res && res.data) {
-                            console.log(res.data)
                             this.listUsers = res.data.users.map((e) => {
                                 e.checked = false
                                 return e
@@ -526,11 +533,6 @@ export default {
         this.$store.dispatch(ACTION_SET_PAGE_TITLE, "Users");
         this.pagination.currentPage = 1
         this.pagination.perPage = 10
-        let params = this.$store.getters['searchParams'].mailTemplates
-        if (params && Object.keys(params).length) {
-            this.pagination.currentPage = params.page
-            this.pagination.perPage = params.limit
-        }
         this.getUsers(this.pagination.currentPage, this.pagination.perPage)
     },
 }

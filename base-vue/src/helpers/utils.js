@@ -35,10 +35,26 @@ const nameJapanese = (value) => {
     const jaRegex = /^[a-z]+$/;
     return !value || jaRegex.test(value);
 }
+const fileSizeValidation = (value) => {
+    if (!value) {
+        return true
+    }
+    return (value.size < 1024 * 1024)
+}
+const extension = (extensions) =>
+    (value) => {
+        if (value === undefined || value === null || value.length === 0) {
+            return true
+        }
+
+        const ext = value.name.split('.').pop()
+        return extensions.indexOf(ext.toLowerCase()) !== -1
+    }
 
 export {
     capitalize,
     upperCamelCaseToSnakeCase,
     milliseconds,
-    formatNumber, katakana, kanji, nameJapanese
+    extension,
+    formatNumber, katakana, kanji, nameJapanese, fileSizeValidation
 };

@@ -26,6 +26,7 @@ import userAdmin from "./backend/userAdmin";
 import faqAdmin from "./backend/faq";
 import setting from "./backend/setting";
 import {FORBIDDEN} from "@/helpers/message";
+import profile from "@/routers/backend/profile";
 
 
 Vue.use(VueToast, {
@@ -62,7 +63,8 @@ const routes = [
             ...customerAdmin,
             ...userAdmin,
             ...faqAdmin,
-            ...setting
+            ...setting,
+            ...profile
 
         ]
     },

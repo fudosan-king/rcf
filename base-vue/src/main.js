@@ -28,7 +28,6 @@ import Toasted from 'vue-toasted';
 import VueNestable from 'vue-nestable'
 
 
-
 Vue.use(VueApexCharts)
 
 Vue.config.productionTip = false
@@ -45,8 +44,6 @@ Vue.use(Toasted, {
     singleton: true,
 });
 Vue.use(VueNestable)
-
-
 // Vue.use(BootstrapVue)
 Vue.use(Vuelidate);
 Vue.use(Prototypes)

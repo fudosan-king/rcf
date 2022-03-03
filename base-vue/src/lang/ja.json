@@ -18,6 +18,13 @@
         "cancel": "キャンセル",
         "return_login": "ログインに戻る"
     },
+    "tooltip": {
+        "required": "要件",
+        "edit": "編集",
+        "delete": "削除",
+        "role": "ロール",
+        "status": "ユーザステータス変更"
+    },
     "page": {
         "title": "やさしい手 文書管理システム",
         "page-range": "表示件数"
@@ -123,7 +130,7 @@
                 "title": "ロール設定",
                 "label": "ロール",
                 "placeholder": "ロールを選択してください",
-                "required" : "役割が必要です"
+                "required": "役割が必要です"
             },
             "full_name": {
                 "label": "フルネーム",
@@ -185,6 +192,88 @@
                 "active": "有効",
                 "deactivate": "無効",
                 "choose": "保存"
+            }
+        },
+        "profile": {
+            "title": "プロフィール",
+            "buttons": {
+                "save": "保存",
+                "reset": "リセット"
+            },
+            "input_field": {
+                "name": {
+                    "label": "アカウント名",
+                    "placeholder": "アカウント名を入力してください"
+                },
+                "email": {
+                    "label": "メールアドレス",
+                    "placeholder": "メールアドレスを入力してください"
+                },
+                "password": {
+                    "label": "パスワード",
+                    "placeholder": "パスワードを入力してください"
+                },
+                "new_password": {
+                    "label": "新しいパスワード",
+                    "placeholder": "新しいパスワードを入力してください"
+                },
+                "password_confirm": {
+                    "label": "新パスワード(確認用)",
+                    "placeholder": "新パスワード(確認用)を入力してください"
+                },
+                "position": {
+                    "label": "役職",
+                    "placeholder": "役職"
+                },
+                "phone": {
+                    "label": "電話番号",
+                    "placeholder": "電話番号を入力してください"
+                },
+                "full_name": {
+                    "label": "従業員名",
+                    "placeholder": "従業員名を入力してください"
+                },
+                "katakana_name": {
+                    "label": "従業員名（カナ）",
+                    "placeholder": "従業員名（カナ）を入力してください"
+                }
+            },
+            "messages": {
+                "update_success": "プロフィールが保存されました",
+                "validation": {
+                    "employee_id_required": "従業員IDが必要です",
+                    "organization_required": "組織が必要です",
+                    "name_required": "ユーザ名を入力してください",
+                    "name_maxlength": "ユーザ名は50文字以下で指定してください",
+                    "position_required": "位置が必要です",
+                    "email_required": "メールアドレスを入力してください",
+                    "email_invalid": "メールアドレスのフォーマットが正しくありません",
+                    "role_required": "役割が必要です",
+                    "phone_required": "電話が必要です",
+                    "old_password_required": "パスワードを入力してください",
+                    "old_password_wrong": "パスワードが違います",
+                    "old_password_minlength": "パスワードは8文字以上で指定してください",
+                    "old_password_maxlength": "パスワードは255文字以下で指定してください",
+                    "password_required": "新しいパスワードを入力してください",
+                    "new_password_required": "新しいパスワードを入力してください",
+                    "new_password_minlength": "パスワードは8文字以上で指定してください",
+                    "new_password_maxlength": "パスワードは16文字以下で指定してください",
+                    "password_confirm_required": "パスワード確認を入力してください",
+                    "password_confirm_minlength": "パスワードは8文字以上で指定してください",
+                    "password_confirm_maxlength": "パスワードは文字以下で指定してください",
+                    "password_confirm_not_match": "新しいパスワードと一致しません",
+                    "kanji_valid": "全角カナで入力してください",
+                    "katakana_valid": "全角カナで入力してください",
+                    "katakana_maxlength": "従業員名（カナ）は50文字以下で指定してください",
+                    "phone_maxlength": "電話番号は9～13文字で指定してください",
+                    "phone_minlength": "電話番号は9～13文字で指定してください",
+                    "full_name_maxlength": "従業員名は50文字以下で指定してください",
+                    "avatar": {
+                        "file_size": "１ＭＢ以下のファイルを指定してください",
+                        "format": "画像のファイルを選択してください",
+                        "format_invalid": ".jpg/.jpeg/.png/.gifのファイルを選択してください"
+                    }
+                }
             }
         }
     },

@@ -251,9 +251,9 @@ export default {
                 }
             })
         },
-        closeDropPageRange(id) {
+        closeDropPageRange() {
             this.$nextTick(() => {
-                let dropdown = this.$el.querySelector(`#${id}`)
+                let dropdown = this.$el.querySelector(`#dropdown-pagination`)
                 if (dropdown) {
                     dropdown.classList.remove('show')
                     let dropdownItem = dropdown.lastChild

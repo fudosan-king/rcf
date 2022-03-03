@@ -26,14 +26,14 @@
                                     <div class="main-img-user text-center">
                                         <img :src="avatar" alt=""></div>
                                     <div class="m__left--2 my-auto">
-                                        <h6>{{ userInfo && (userInfo.profile && userInfo.profile.full_name || userInfo.first_name + userInfo.last_name) }} </h6>
+                                        <h6>{{
+                                                userInfo && (userInfo.profile && userInfo.profile.full_name || userInfo.first_name + userInfo.last_name)
+                                            }} </h6>
                                         <span> {{ userInfo && (userInfo.role && userInfo.role.name) }}</span>
                                     </div>
                                 </div>
                             </div>
                             <a class="dropdown-item" @click="profile"><i class="bx bx-user-circle"></i>Profile</a>
-                            <a class="dropdown-item" href=""><i class="bx bx-cog"></i> Edit Profile</a>
-                            <a class="dropdown-item" href=""><i class="bx bx-slider-alt"></i> Account Settings</a>
                             <a class="dropdown-item" @click="logout()"><i class="bx bx-log-out"></i> Sign Out</a>
                         </div>
                     </div>

@@ -18,7 +18,10 @@
                             <div class="col-lg-3">
                                 <div class="form-group mg-b-0">
                                     <label class="">{{ $t('pages.users.name.label') }}</label>
-                                    <i class="required-note">*</i>
+                                    <i class="required-note"
+                                       v-tooltip.right="{ customClass: 'tooltip-danger' }"
+                                       :title="$t('tooltip.required')"
+                                    >*</i>
                                 </div>
                             </div>
                             <div class="col-lg-6 mg-t-20 mg-lg-t-0">
@@ -27,8 +30,9 @@
                                            :class="{'parsley-error': (!vuelidate.user.username.maxLength || !vuelidate.user.username.minLength || !vuelidate.user.username.required) && vuelidate.$dirty}"
                                            v-model.trim="user.username"
                                            type="text">
-                                    <span class="is-error pt-1" v-if="error_server.name && error_server.name.length">
-                                        {{ error_server.name[0] }}
+                                    <span class="is-error pt-1"
+                                          v-if="error_server.username && error_server.username.length">
+                                        {{ error_server.username[0] }}
                                     </span>
                                     <template v-else-if="vuelidate.$dirty">
                                         <span class="is-error pt-1" v-if="!vuelidate.user.username.required">
@@ -72,7 +76,9 @@
                             <div class="col-lg-3">
                                 <div class="form-group mg-b-0">
                                     <label class="">{{ $t('pages.users.email.label') }}</label>
-                                    <i class="required-note">*</i>
+                                    <i class="required-note"
+                                       v-tooltip.right="{ customClass: 'tooltip-danger' }"
+                                       :title="$t('tooltip.required')">*</i>
                                 </div>
                             </div>
                             <div class="col-lg-6 mg-t-20 mg-lg-t-0">
@@ -99,20 +105,23 @@
                             <div class="col-lg-3">
                                 <div class="form-group mg-b-0">
                                     <label class="">{{ $t('pages.users.role.label') }}</label>
-                                    <i class="required-note">*</i>
+                                    <i class="required-note"
+                                       v-tooltip.right="{ customClass: 'tooltip-danger' }"
+                                       :title="$t('tooltip.required')"
+                                    >*</i>
                                 </div>
                             </div>
                             <div class="col-lg-6 mg-t-20 mg-lg-t-0">
                                 <div class="dropdown w-100 text-end"
-                                     id="dropdown-change"
-                                     v-click-out="()=>closeDropdown('dropdown-change')">
+                                     id="dropdown-role"
+                                     v-click-out="()=>closeDropdown('dropdown-role')">
                                     <button class="btn dropdown-toggle w-100 text-end" type="button"
                                             :class="{'parsley-error': (!vuelidate.user.role_id.required && vuelidate.$dirty)  || (error_server.role_id && error_server.role_id.length)}  "
                                             data-toggle="dropdown"
-                                            @click="toggleDropdown('dropdown-change')">
-                                        <span :class="{'placeholder-select': !dropDisplay(roles, user.role_id)}">{{
-                                                dropDisplay(roles, user.role_id)
-                                            }}</span>
+                                            @click="toggleDropdown('dropdown-role')">
+                                        <span :class="{'placeholder-select': !dropDisplay(roles, user.role_id)}">
+                                            {{ dropDisplay(roles, user.role_id) }}
+                                        </span>
                                     </button>
                                     <div class="dropdown-menu w-100" role="menu">
                                         <template v-for="(e, i) in roles">
@@ -154,7 +163,7 @@
 </template>
 
 <script>
-import {ACTION_SET_ACTIVE_SIDEBAR,} from "@/stores/common/actions";
+import {ACTION_SET_ACTIVE_SIDEBAR, ACTION_SET_PAGE_TITLE,} from "@/stores/common/actions";
 import User from "@/mixins/user";
 import i18n from "@/lang/i18n";
 import {email, maxLength, minLength, required} from "vuelidate/lib/validators";
@@ -204,25 +213,19 @@ export default {
         getUserInformation(value, key, el = '') {
             if (this.user[key] !== value.id) {
                 this.user[key] = value.id
-                if(!this.isUpdate) {
-                    this.user.role_id = value.role ? value.role.id : 2
-                }
+                // if (!this.isUpdate) {
+                //     this.user.role_id = value.role ? value.role.id : 2
+                // }
             }
             el && this.closeDropdown(el)
         },
         submit() {
             this.error_server = {}
             this.vuelidate.$touch();
-            let data = {
-                email: this.user.email,
-                name: this.user.username,
-                full_name: this.user.full_name,
-                role_id: this.user.role_id,
-            }
             if (!this.vuelidate.$invalid && this.submitAvailable) {
                 this.submitAvailable = false
                 if (this.isUpdate) {
-                    UserService.update(this.user.id, data)
+                    UserService.update(this.user.id, this.user)
                             .then(() => {
                                 this.submitAvailable = true
                                 this.$toast.success(i18n.t('pages.users.message.update_success'))
@@ -234,7 +237,7 @@ export default {
                                 this.error_server = err.data.errors
                             })
                 } else {
-                    UserService.create(data)
+                    UserService.create(this.user)
                             .then(() => {
                                 this.submitAvailable = true
                                 this.$toast.success(this.$t('pages.users.message.create_success'))
@@ -243,7 +246,7 @@ export default {
                             })
                             .catch((err) => {
                                 this.submitAvailable = true
-                                this.$toast.error(err.data.errors)
+                                // this.$toast.error(err.data.errors)
                                 this.error_server = err.data.errors
                             })
                 }
@@ -256,17 +259,24 @@ export default {
                 this.user = {...val}
                 this.isUpdate = true
                 this.$nextTick(() => {
-                   this.user = {...val}
+                    this.user = {...val}
                     this.$set(this.user, 'role_id', this.user.role ? this.user.role.id : null)
                 })
             } else {
                 this.isUpdate = false
             }
-        }
+        },
     },
 
     created() {
         this.$store.dispatch(ACTION_SET_ACTIVE_SIDEBAR, "users");
+    },
+    mounted() {
+        if (this.title) {
+            this.$store.dispatch(ACTION_SET_PAGE_TITLE, this.title)
+        } else {
+            this.$store.dispatch(ACTION_SET_PAGE_TITLE, this.$t('pages.users.add'))
+        }
     },
     props: {
         userUpdate: {
