@@ -201,7 +201,7 @@
                 "reset": "リセット"
             },
             "input_field": {
-                "name": {
+                "username": {
                     "label": "アカウント名",
                     "placeholder": "アカウント名を入力してください"
                 },
