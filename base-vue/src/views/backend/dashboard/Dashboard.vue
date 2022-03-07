@@ -116,38 +116,42 @@
                 </div>
             </div>
         </div>
-        <div class="row row-sm row-deck">
-            <div class="col-md-12 col-lg-12 col-xl-12">
-                <div class="card card-table-two">
-                    <div class="d-flex justify-content-between">
-                        <h4 class="card-title mb-1">Your Most Recent Earnings</h4>
-                        <i class="mdi mdi-dots-horizontal text-gray"></i>
+        <div class="row row-sm">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 grid-margin">
+                <div class="card">
+                    <div class="card-header pb-0 border-0 pt-3">
+                        <div class="d-flex my-auto right-content">
+                            <h4 class="card-title mb-1">Your Most Recent Earnings</h4>
+                            <i class="mdi mdi-dots-horizontal text-gray"></i>
+                        </div>
                     </div>
-                    <div class="table-responsive country-table mt-2">
-                        <table class="table table-striped table-bordered mb-0 text-sm-nowrap text-lg-nowrap text-xl-nowrap">
-                            <thead>
-                            <tr>
-                                <th class="wd-lg-25p">Date</th>
-                                <th class="wd-lg-25p tx-right">Sales Count</th>
-                                <th class="wd-lg-25p tx-right">Earnings</th>
-                                <th class="wd-lg-25p tx-right">Tax Witheld</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr v-for="(e, i) in dataTables" :key="'earning' + i">
-                                <td class="date">{{ momentFormat(e.updated_at) }}</td>
-                                <td class="sale-count tx-right">{{ e.sale_count }}</td>
-                                <td class="earnings tx-right">{{ formatCurrency(e.earnings) }}</td>
-                                <td class="tax-witheld tx-right "
-                                    :class="( e.tax_witheld >0 ) ? ( 'text-success' ) : ( 'text-danger' )"
-                                >{{ formatCurrency(e.tax_witheld) }}
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+                    <div class="card-body">
+                        <div class="table-responsive border-top userlist-table">
+                            <table class="table card-table text-nowrap mb-0">
+                                <thead>
+                                <tr>
+                                    <th class="p--12 text-center">Date</th>
+                                    <th class="input-title text-center">Sales Count</th>
+                                    <th class=" input-title text-center">Earnings</th>
+                                    <th class=" input-title text-center">Tax Witheld</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr v-for="(e, i) in dataTables" :key="'earning' + i">
+                                    <td class="date">{{ momentFormat(e.updated_at) }}</td>
+                                    <td class="sale-count tx-right">{{ e.sale_count }}</td>
+                                    <td class="earnings tx-right">{{ formatCurrency(e.earnings) }}</td>
+                                    <td class="tax-witheld tx-right "
+                                        :class="( e.tax_witheld >0 ) ? ( 'text-success' ) : ( 'text-danger' )"
+                                    >{{ formatCurrency(e.tax_witheld) }}
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </div><!-- COL END -->
         </div>
     </div>
 </template>

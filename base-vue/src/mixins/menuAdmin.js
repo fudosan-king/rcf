@@ -140,7 +140,7 @@ export default {
                     this.$set(e, 'isShown', this.menuShow[e.activeName])
                 })
             }
-        }
+        },
     },
     created() {
         this.setSidebarRoles(this.userInfo)

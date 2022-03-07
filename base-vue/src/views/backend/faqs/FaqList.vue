@@ -4,7 +4,7 @@
             <div class="my-auto">
                 <div class="d-flex">
                     <router-link :to="{name: 'UserAdmin'}" class="content-title mb-0 my-auto tx-21 font-weight-bold">
-                        {{ $t('pages.users.manage') }}
+                        {{ $t('pages.faqs.title') }}
                     </router-link>
                     <span class="text-muted mt-1 tx-13 ml-2 mb-0">/ {{ $t('pages.users.list') }}</span>
                 </div>
@@ -15,12 +15,12 @@
                 <div class="card">
                     <div class="card-header pb-0 border-0 pt-3">
                         <div class="d-flex my-auto right-content">
+                            <button type="button" class="btn btn-success  m__right--2 btn-b" @click="openCategory">
+                                {{ $t('pages.faqs.category') }}
+                            </button>
                             <button type="button" class="btn btn-success  m__right--2 btn-b">
                                 <i class="fas fa-plus  m__right--1"></i> Add User
                             </button>
-                            <!--                            <button type="button" class="btn btn-danger mr-2">-->
-                            <!--                                <i class="fas fa-trash  m__right&#45;&#45;1"></i> Delete All User-->
-                            <!--                            </button>-->
                         </div>
                     </div>
                     <div class="card-body">
@@ -52,14 +52,60 @@
                 </div>
             </div><!-- COL END -->
         </div>
+        <div class="modal fade" id="modal-create-category">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content" v-click-out="() =>{closeModal('modal-create-category')} ">
+                    <template>
+                        <div class="modal-header">
+                            <h5 class="modal-title">Category</h5>
+                            <button type="button" class="close btn" data-dismiss="modal" aria-label="Close"
+                                    @click="closeModal('modal-create-category')">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row row-xs align-items-center mg-b-20">
+                                <label class="form-label mg-b-0">Question</label>
+
+                            </div>
+                            <div class="row text-center mt-3 justify-content-center">
+                                <div class="col-md-3 p-0">
+                                    <label class="radio pr-4">
+                                        <input type="radio" name="status">
+                                        <span class="pleft--10">{{ $t('pages.users.status.active') }}</span>
+                                    </label>
+                                </div>
+                                <div class="col-md-3 p-0">
+                                    <label class="radio">
+                                        <input type="radio" name="status">
+                                        <span class="pleft--10">{{ $t('pages.users.status.deactivate') }}</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary">
+                                {{ $t('pages.users.status.choose') }}
+                            </button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                    @click="closeModal('modal-create-category');">{{ $t('buttons.cancel') }}
+                            </button>
+                        </div>
+                    </template>
+                </div>
+                <div class="modal-backdrop"></div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
 import {ACTION_SET_ACTIVE_SIDEBAR, ACTION_SET_PAGE_TITLE,} from "@/stores/common/actions";
+import common from "@/mixins/common";
 
 export default {
     name: "FaqList",
+    mixins: [common],
     created() {
         this.$store.dispatch(ACTION_SET_ACTIVE_SIDEBAR, 'faqs');
         this.$store.dispatch(ACTION_SET_PAGE_TITLE, 'FAQs');
@@ -70,6 +116,9 @@ export default {
         },
         updateQuestion(id) {
             this.$store.dispatch('updateQuestion', id);
+        },
+        openCategory() {
+            this.toggleModal('modal-create-category')
         },
     },
 

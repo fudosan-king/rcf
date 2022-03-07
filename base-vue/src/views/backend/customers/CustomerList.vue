@@ -13,10 +13,44 @@
         <div class="row row-sm">
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 grid-margin">
                 <div class="card">
-                    <div class="card-header pb-0">
-                        <div class="d-flex justify-content-between">
-                            <h4 class="card-title mg-b-0">USERS TABLE</h4>
-                            <i class="mdi mdi-dots-horizontal text-gray"></i>
+                    <div class="card-header pb-0 border-0 pt-3">
+                        <div class="d-flex my-auto right-content">
+                            <button type="button" class="btn btn-success  m__right--2 btn-b">
+                                <i class="fas fa-plus  m__right--1"></i> {{ $t('pages.users.add') }}
+                            </button>
+                            <button type="button" class="btn btn-danger mr-2" v-if="hasChecked" @click="deleteAll">
+                                <i class="fas fa-trash  m__right--1"></i> {{ $t('buttons.delete') }}
+                            </button>
+                        </div>
+                        <div class="d-flex pt-3">
+                            <div class="col-md-6 my-auto">
+                                <span class="">全{{ pagination.total || 0 }}件</span>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex">
+                                    <span class="w-75 ml-auto text-end padding__right-10 my-auto">{{
+                                            $t('page.page-range')
+                                        }}</span>
+                                    <div class="dropdown w-25 mr-0 ml-auto"
+                                         id="dropdown-pagination"
+                                         v-click-out="()=>closeDropPageRange('dropdown-pagination')">
+                                        <button class="btn dropdown-toggle w-100 text-end" type="button"
+                                                data-toggle="dropdown"
+                                                @click="toggleDropPageRange('dropdown-pagination')">
+                                            <span class="w--80 has-text-right p__right--2">
+                                                {{ pagination.perPage }} 件</span>
+                                        </button>
+                                        <div class="dropdown-menu w-100" role="menu">
+                                            <a @click="changePageRange(e)"
+                                               v-for="(e, i) in pageRanges"
+                                               :key="'page-range-' + i"
+                                               class="dropdown-item tx-right font-16">
+                                                {{ e }} 件
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="card-body">
@@ -27,41 +61,69 @@
                                     <th class="input-title text-center p--12 col-checkbox wd-lg-5">
                                         <label class="checkbox">
                                             <input @change="toggleCheckAll()"
-                                                    type="checkbox"
-                                                    class="is-radiusless"
-                                                    v-model="checkAll"
+                                                   type="checkbox"
+                                                   class="is-radiusless"
+                                                   v-model="checkAll"
                                             />
                                         </label>
                                     </th>
-                                    <th class="wd-lg-8 text-center"><span>User</span></th>
-                                    <th class="wd-lg-20 text-center"><span>Created</span></th>
-                                    <th class="wd-lg-20 text-center"><span>Status</span></th>
-                                    <th class="wd-lg-20 text-center"><span>Email</span></th>
-                                    <th class="wd-lg-10 text-center">Action</th>
+                                    <th class="wd-lg-8 text-center">
+                                        <span>{{ $t('pages.customers.name.label') }}</span>
+                                    </th>
+                                    <th class="wd-lg-20 text-center">
+                                        <span>{{ $t('pages.customers.email.label') }}</span>
+                                    </th>
+                                    <th class="wd-lg-20 text-center">
+                                        <span>{{ $t('pages.customers.phone.label') }}</span>
+                                    </th>
+                                    <th class="wd-lg-20 text-center">
+                                        <span>{{ $t('pages.customers.address.label') }}</span>
+                                    </th>
+                                    <th class="wd-lg-20 text-center">
+                                        <span>{{ $t('pages.customers.document.label') }}</span>
+                                    </th>
+                                    <th class="wd-lg-20 text-center">
+                                        <span>{{ $t('pages.customers.status.label') }}</span>
+                                    </th>
+                                    <th class="wd-lg-10 text-center">
+                                        <span> {{ $t('pages.customers.actions') }}</span>
+                                    </th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for="(e, i) in customers" :key="'earning' + i">
+                                <tr v-for="(e, i) in listCustomers" :key="'earning' + i">
                                     <td class="text-center">
                                         <label class="checkbox">
                                             <input @change="checkItem(e)" type="checkbox" class="is-radiusless"
                                                    v-model="e.checked">
                                         </label>
                                     </td>
-                                    <td class="name">{{ e.name }}</td>
-                                    <td class="created_at tx-right">{{ momentFormat(e.created_at) }}</td>
+                                    <td class="name">{{ e.first_name + ' ' + e.last_name }}</td>
+                                    <td class="email">{{ e.email }}</td>
+                                    <td class="phone text-center">{{ e.phone }}</td>
+                                    <td class="postal text-center">
+                                        {{
+                                            e.prefectures + ' ' + e.locality + ' ' + e.street + ''
+                                            + (e.address ? e.address : '') + ' ' + (e.building ? e.building : '')
+                                        }}
+                                    </td>
+                                    <td class="text-center">
+                                        {{ e.document ? e.document : '-' }}
+                                    </td>
                                     <td class="status text-center"
                                         :class="e.status === 1 ? 'text-success' : 'text-danger'">{{ status(e.status) }}
                                     </td>
-                                    <td class="email">{{ e.email }}</td>
                                     <td class="action text-center">
-                                        <button @click="updateCustomer(e.id)"
-                                                class="btn btn-sm btn-primary"
+                                        <button class="btn action action-change"
+                                                v-tooltip.hover="{ customClass: 'tooltip-green' }"
+                                                :title="$t('tooltip.status')"
                                         >
-                                            <i class="fas fa-edit"></i>
-                                        </button>
+                                            <i class="fas fa-eye"></i>
+                                         </button>
                                         <button @click="deleteCustomer(e.id)"
-                                                class="btn btn-sm btn-danger">
+                                                v-tooltip.hover="{ customClass: 'tooltip-danger' }"
+                                                :title="$t('tooltip.delete')"
+                                                class="btn action-danger action">
                                             <i class="fas fa-trash"></i>
                                         </button>
                                     </td>
@@ -84,126 +146,29 @@
 </template>
 
 <script>
-import {ACTION_SET_ACTIVE_SIDEBAR, ACTION_SET_PAGE_TITLE,} from "../../../stores/common/actions";
-import {momentFormat} from "../../../filters";
-// import findIndex from "lodash/findIndex";
+import {ACTION_SET_ACTIVE_SIDEBAR, ACTION_SET_PAGE_TITLE,} from "@/stores/common/actions";
+import {momentFormat} from "@/filters";
+import CustomerService from "@/services/CustomerService";
+import common from "@/mixins/common";
+
 
 export default {
     name: "CustomerList",
+    mixins: [common],
     data() {
         return {
             pageTitle: "",
             activeSidebar: "",
-            customers: [
-                {
-                    "id": 5,
-                    "role": {
-                        "id": 1,
-                        "name": "Super Admin",
-                        "code": "1",
-                        "description": "",
-                        "deleted_at": null,
-                        "created_at": "2021-12-06T07:48:38.000000Z",
-                        "updated_at": "2021-12-06T07:48:38.000000Z"
-                    },
-                    "name": "Mrs. Viola Halvorson",
-                    "full_name": "Rozella",
-                    "avatar": null,
-                    "email": "user4@gmail.com",
-                    "phone": "0123456789",
-                    "status": 1,
-                    "created_at": "2021-12-06 07:48:38",
-                    "updated_at": "2021-12-06 07:48:38"
-                },
-                {
-                    "id": 4,
-                    "role": {
-                        "id": 1,
-                        "name": "Super Admin",
-                        "code": "1",
-                        "description": "",
-                        "deleted_at": null,
-                        "created_at": "2021-12-06T07:48:38.000000Z",
-                        "updated_at": "2021-12-06T07:48:38.000000Z"
-                    },
-                    "name": "Mrs. Viola Halvorson",
-                    "full_name": "Rozella",
-                    "avatar": null,
-                    "email": "user4@gmail.com",
-                    "phone": "0123456789",
-                    "status": 0,
-                    "created_at": "2021-12-06 07:48:38",
-                    "updated_at": "2021-12-06 07:48:38"
-                },
-                {
-                    "id": 3,
-                    "role": {
-                        "id": 1,
-                        "name": "Super Admin",
-                        "code": "1",
-                        "description": "",
-                        "deleted_at": null,
-                        "created_at": "2021-12-06T07:48:38.000000Z",
-                        "updated_at": "2021-12-06T07:48:38.000000Z"
-                    },
-                    "name": "Mrs. Viola Halvorson",
-                    "full_name": "Rozella",
-                    "avatar": null,
-                    "email": "user4@gmail.com",
-                    "phone": "0123456789",
-                    "status": 0,
-                    "created_at": "2021-12-06 07:48:38",
-                    "updated_at": "2021-12-06 07:48:38"
-                },
-                {
-                    "id": 2,
-                    "role": {
-                        "id": 1,
-                        "name": "Super Admin",
-                        "code": "1",
-                        "description": "",
-                        "deleted_at": null,
-                        "created_at": "2021-12-06T07:48:38.000000Z",
-                        "updated_at": "2021-12-06T07:48:38.000000Z"
-                    },
-                    "name": "Mrs. Viola Halvorson",
-                    "full_name": "Rozella",
-                    "avatar": null,
-                    "email": "user4@gmail.com",
-                    "phone": "0123456789",
-                    "status": 1,
-                    "created_at": "2021-12-06 07:48:38",
-                    "updated_at": "2021-12-06 07:48:38"
-                },
-                {
-                    "id": 1,
-                    "role": {
-                        "id": 1,
-                        "name": "Super Admin",
-                        "code": "1",
-                        "description": "",
-                        "deleted_at": null,
-                        "created_at": "2021-12-06T07:48:38.000000Z",
-                        "updated_at": "2021-12-06T07:48:38.000000Z"
-                    },
-                    "name": "Mrs. Viola Halvorson",
-                    "full_name": "Rozella",
-                    "avatar": null,
-                    "email": "user4@gmail.com",
-                    "phone": "0123456789",
-                    "status": 0,
-                    "created_at": "2021-12-06 07:48:38",
-                    "updated_at": "2021-12-06 07:48:38"
-                },
-            ],
+            listCustomers: [],
             checkAll: false,
             hasChecked: false,
             pushItem: [],
+            full_name: "",
             pagination: {
-                current_page: 1,
-                last_page: 1,
-                per_page: 10,
-                total: 0
+                currentPage: null,
+                lastPage: null,
+                perPage: null,
+                total: null
             },
             pageRanges: [10, 20, 50, 100],
         }
@@ -216,35 +181,155 @@ export default {
             return status === 1 ? 'Active' : 'Inactive'
         },
         updateCustomer(id) {
-            this.customer = this.customers.find(customer => customer.id === id)
-            this.showModal = true
+            this.$router.push({name: 'UserAdminUpdate', params: {id}}, () => {
+            })
         },
         deleteCustomer(id) {
-            this.customer = this.customers.find(customer => customer.id === id)
-            this.showModalDelete = true
+            this.$popup(
+                    this.$t('pages.users.delete.title'),
+                    this.$t('pages.users.delete.content'),
+                    {
+                        okText: this.$t('pages.users.delete.ok'),
+                        cancelText: this.$t('pages.users.delete.cancel'),
+                        iconClass: 'info-circle',
+                        type: 'warning'
+                    },
+                    {
+                        onOk: async (d) => {
+                            await CustomerService.delete(id)
+                                    .then(() => {
+                                        this.$toast.success(this.$t('pages.users.message.delete_success'));
+                                        this.getCustomers(this.pagination.currentPage, this.pagination.perPage)
+                                    })
+                                    .catch((err) => {
+                                        console.log(err)
+                                        this.$toast.error(this.$t('pages.users.message.delete_fail'))
+                                    })
+                            d.closeDialog()
+                        },
+                        onCancel: (d) => {
+                            d.closeDialog()
+                        },
+                        onClickOut: (d) => {
+                            d.closeDialog()
+                        }
+                    }
+            )
         },
         checkItem(e) {
-            if (e.target.checked) {
-                this.pushItem.push(e.target.value)
+            console.log(e)
+            if (e.checked) {
+                this.pushItem.push(e.value)
             } else {
-                this.pushItem.splice(this.pushItem.indexOf(e.target.value), 1)
+                this.pushItem.splice(this.pushItem.indexOf(e.value), 1)
             }
-            this.checkAll = this.pushItem.length === this.customers.length;
+            this.checkAll = this.pushItem.length === this.listCustomers.length;
             this.hasChecked = this.pushItem.length > 0;
         },
         toggleCheckAll() {
             this.pushItem = []
             this.hasChecked = false
+            this.listCustomers.map((e) => {
+                if (this.userInfo.id !== e.id) {
+                    e.checked = this.checkAll
+                }
+                if (e.checked) {
+                    this.hasChecked = true
+                }
+            })
+            if (this.checkAll) {
+                this.listCustomers.map((e) => {
+                    this.pushItem = [...this.pushItem, ...[e.id]]
+                    if (this.userInfo.id !== e.id) {
+                        this.pushItem = [...this.pushItem, ...[e.id]]
+                    }
+                })
+            }
         },
         changePage(page) {
-            this.pagination.current_page = page
+            this.hasChecked = false;
+            this.checkAll = false;
+            this.listCustomers.map((e) => {
+                if (e.checked) {
+                    this.pushItem.splice(this.pushItem.indexOf(e.id));
+                }
+            });
+            this.getCustomers(page, this.pagination.perPage)
+        },
+        changePageRange(range) {
+            this.pagination.perPage = range;
+            this.hasChecked = false;
+            this.checkAll = false;
+            this.closeDropPageRange();
+            this.getCustomers(1, this.pagination.perPage);
+        },
+        async getCustomers(page, limit) {
+            CustomerService.list(page, limit)
+                    .then((res) => {
+                        if (res && res.data) {
+                            this.listCustomers = res.data.customers.map((e) => {
+                                e.checked = false
+                                return e
+                            })
+                            this.pushItem = []
+                            this.pagination = {
+                                currentPage: res.data.current_page,
+                                lastPage: res.data.last_page,
+                                perPage: res.data.per_page * 1,
+                                total: res.data.total,
+                            };
+                        }
+                    })
+                    .catch((err) => {
+                        this.$toast.error(err.data.message);
+                    });
+        },
+        deleteAll() {
+            this.$popup(
+                    this.$t('pages.users.delete.title'),
+                    this.$t('pages.users.delete.content'),
+                    {
+                        okText: this.$t('pages.users.delete.ok'),
+                        cancelText: this.$t('pages.users.delete.cancel'),
+                        iconClass: 'info-circle',
+                        type: 'warning'
+                    },
+                    {
+                        onOk: async (d) => {
+                            let data = {
+                                ids: this.selected.map(item => item.id),
+                                _method: 'delete'
+                            }
+                            await CustomerService.deleteAll(data)
+                                    .then(() => {
+                                        this.checkAll = false
+                                        this.$toast.success(this.$t('pages.users.message.delete_success'))
+                                        this.getCustomers(this.pagination.currentPage, this.pagination.perPage)
+                                        this.hasChecked = false
+                                    })
+                                    .catch((err) => {
+                                        console.log(err)
+                                    })
+                            d.closeDialog()
+                        },
+                        onCancel: (d) => {
+                            d.closeDialog()
+                        },
+                        onClickOut: (d) => {
+                            d.closeDialog()
+                        }
+                    }
+            )
         },
     },
     created() {
         this.$store.dispatch(ACTION_SET_ACTIVE_SIDEBAR, 'customers');
         this.$store.dispatch(ACTION_SET_PAGE_TITLE, 'Customers');
-    }
-    ,
+        this.pagination.currentPage = 1
+        this.pagination.perPage = 10
+        this.getCustomers(this.pagination.currentPage, this.pagination.perPage)
+    },
+    computed: {},
 }
 </script>
 

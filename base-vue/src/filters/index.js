@@ -6,7 +6,11 @@ import moment from "moment";
 
 export function jpyFormat(money, decimal) {
     decimal = typeof decimal === 'undefined' ? 0 : decimal
-    return formatNumber(money, decimal) + ' ¥ '
+    if (money < 0) {
+        return '- ¥ ' + formatNumber(Math.abs(money), decimal)
+    }
+    return '¥ ' + formatNumber(money, decimal)
+
 }
 
 export function number(number, decimal) {

@@ -18,7 +18,9 @@
                     </a>
                     <div class="user-info">
                         <h4 class="fw-semibold mt-3 mb-0">
-                            {{userInfo && (userInfo.profile && userInfo.profile.full_name || userInfo.first_name + userInfo.last_name) }}
+                            {{
+                                userInfo && (userInfo.profile && userInfo.profile.full_name || userInfo.first_name + userInfo.last_name)
+                            }}
                         </h4>
                         <span class="mb-0 text-muted"> {{ userInfo && (userInfo.role && userInfo.role.name) }}</span>
                     </div>
@@ -31,12 +33,22 @@
                         v-if="menu.isShown"
                         :class="{'active': menu.activeName === activeSidebar}">
                         <a class="side-menu__item" data-toggle="slide"
-                           @click="goTo(menu.router, menu.currentData, menu.activeName)"
                            @mouseover="hoverSidebar(index + 1)" @mouseleave="leaveSidebar()"
                         >
                             <img :src="menu.path_svg_dark" class="side-menu__image">
                             <span class="side-menu__label">{{ menu.title }}</span>
+                            <i class="angle fe fe-chevron-down" v-if="menu.children.length"></i>
                         </a>
+                        <ul class="slide-menu open" v-if="menu.children.length>0">
+                            <template v-for="(child, index) in menu.children">
+                                <li :key="'child-' + index">
+                                    <a class="slide-item">
+                                        <span>{{ child.title }}</span>
+                                    </a>
+                                </li>
+                            </template>
+                            >
+                        </ul>
                     </li>
                 </template>
                 <li class="">
@@ -95,6 +107,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../../../assets/scss/sidemenu';
+
 .app-sidebar {
     background: #fff;
     border-right: 1px solid #e3e3e3;

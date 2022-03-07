@@ -185,6 +185,12 @@
                 "label": "住所",
                 "placeholder": "住所を入力してください"
             },
+            "postal_code": {
+                "label": "郵便番号"
+            },
+            "document": {
+                "label": "確認書面"
+            },
             "status": {
                 "title": "ステータス設定",
                 "label": "ステータス",
@@ -192,7 +198,8 @@
                 "active": "有効",
                 "deactivate": "無効",
                 "choose": "保存"
-            }
+            },
+            "actions": "アクション"
         },
         "profile": {
             "title": "プロフィール",
@@ -275,6 +282,10 @@
                     }
                 }
             }
+        },
+        "faqs": {
+            "title" : "よくあるご質問",
+            "category": "カテゴリFAQ"
         }
     },
     "frontend": {
