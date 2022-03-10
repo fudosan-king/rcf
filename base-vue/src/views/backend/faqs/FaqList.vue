@@ -52,14 +52,14 @@
                 </div>
             </div><!-- COL END -->
         </div>
-        <div class="modal fade" id="modal-create-category">
+        <div class="modal fade" id="modal-category">
             <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content" v-click-out="() =>{closeModal('modal-create-category')} ">
+                <div class="modal-content" v-click-out="() => {closeModal('modal-category')} ">
                     <template>
-                        <div class="modal-header">
+                        <div class="modal-header">¬
                             <h5 class="modal-title">Category</h5>
                             <button type="button" class="close btn" data-dismiss="modal" aria-label="Close"
-                                    @click="closeModal('modal-create-category')">
+                                    @click="() =>{closeModal('modal-category');}">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
@@ -69,18 +69,7 @@
 
                             </div>
                             <div class="row text-center mt-3 justify-content-center">
-                                <div class="col-md-3 p-0">
-                                    <label class="radio pr-4">
-                                        <input type="radio" name="status">
-                                        <span class="pleft--10">{{ $t('pages.users.status.active') }}</span>
-                                    </label>
-                                </div>
-                                <div class="col-md-3 p-0">
-                                    <label class="radio">
-                                        <input type="radio" name="status">
-                                        <span class="pleft--10">{{ $t('pages.users.status.deactivate') }}</span>
-                                    </label>
-                                </div>
+                                <input type="text" class="form-control">
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -88,7 +77,7 @@
                                 {{ $t('pages.users.status.choose') }}
                             </button>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                                    @click="closeModal('modal-create-category');">{{ $t('buttons.cancel') }}
+                                    @click="closeModal('modal-category');">{{ $t('buttons.cancel') }}
                             </button>
                         </div>
                     </template>
@@ -118,7 +107,7 @@ export default {
             this.$store.dispatch('updateQuestion', id);
         },
         openCategory() {
-            this.toggleModal('modal-create-category')
+            this.toggleModal('modal-category')
         },
     },
 

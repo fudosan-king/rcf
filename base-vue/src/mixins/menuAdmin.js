@@ -26,11 +26,23 @@ export default {
                     path_svg: require('../assets/svgs/icons/ic_fund_active.svg'),
                     path_svg_dark: require('../assets/svgs/icons/ic_fund.svg'),
                     title: this.$t('sidebar.fund.title'),
-                    router: {name: 'AdminFund', path: '/admin/funds'},
+                    router: '',
                     permissions: '',
-                    children: [],
+                    children: [
+                        {
+                            title: this.$t('sidebar.fund.title'),
+                            name: 'AdminFund',
+                            path: '/admin/funds'
+                        },
+                        {
+                            title: this.$t('sidebar.fund.create'),
+                            name: 'CreateFund',
+                            path: '/admin/fund/create'
+                        },
+                    ],
                     activeName: 'funds',
                     currentData: 'funds',
+                    type: 'sub',
                 },
                 {
                     path_svg: require('../assets/svgs/icons/ic_customer_active.svg'),
@@ -41,26 +53,56 @@ export default {
                     children: [],
                     activeName: 'customers',
                     currentData: 'customers',
+                    type: '',
                 },
                 {
                     path_svg: require('../assets/svgs/icons/ic_user_active.svg'),
                     path_svg_dark: require('../assets/svgs/icons/ic_user.svg'),
                     title: this.$t('sidebar.user.title'),
-                    router: {name: 'UserAdmin', path: '/admin/users'},
+                    router: '',
                     permissions: '',
-                    children: [],
+                    children: [
+                        {
+                            title: this.$t('sidebar.user.title'),
+                            name: 'UserAdmin',
+                            path: '/admin/users'
+                        },
+                        {
+                            title: this.$t('sidebar.user.create'),
+                            name: 'CreateUser',
+                            path: '/admin/user/create'
+                        },
+                    ],
                     activeName: 'users',
                     currentData: 'users',
+                    type: 'sub',
                 },
                 {
                     path_svg: require('../assets/svgs/icons/ic_faq_active.svg'),
                     path_svg_dark: require('../assets/svgs/icons/ic_faq.svg'),
                     title: this.$t('sidebar.faq.title'),
-                    router: {name: 'AdminFaq', path: '/admin/faqs'},
-                    children: [],
+                    router: '',
+                    children: [
+                        {
+                            title: this.$t('sidebar.fund.title'),
+                            name: 'AdminFaq',
+                            path: '/admin/faqs'
+                        },
+                        {
+                            title: this.$t('sidebar.fund.create'),
+                            name: 'CreateFaq',
+                            path: '/admin/faq/create'
+                        },
+                        {
+                            title: this.$t('sidebar.faq.category'),
+                            name: 'AdminFaqCategory',
+                            path: '/admin/faq-categories'
+                        },
+                    ],
                     permissions: '',
                     activeName: 'faqs',
                     currentData: 'faqs',
+                    type: "sub"
                 },
                 {
                     path_svg: require('../assets/svgs/icons/ic_setting_active.svg'),

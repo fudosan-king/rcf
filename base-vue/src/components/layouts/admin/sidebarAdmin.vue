@@ -27,27 +27,26 @@
                 </div>
             </div>
             <ul class="side-menu" id="menu-list-sidebar">
-                <li class="slide"><a href="#"></a></li>
+                <li></li>
                 <template v-for="(menu, index) in menus">
                     <li :key="'menu-' + index" class="slide"
                         v-if="menu.isShown"
                         :class="{'active': menu.activeName === activeSidebar}">
-                        <a class="side-menu__item" data-toggle="slide"
+                        <a class="side-menu__item" :data-toggle="{'slide': menu.type === 'sub'}"
                            @mouseover="hoverSidebar(index + 1)" @mouseleave="leaveSidebar()"
-                        >
-                            <img :src="menu.path_svg_dark" class="side-menu__image">
+                           @click="goTo(menu.router, menu.currentData, menu.activeName)"
+                        ><img :src="menu.path_svg_dark" class="side-menu__image" alt="">
                             <span class="side-menu__label">{{ menu.title }}</span>
-                            <i class="angle fe fe-chevron-down" v-if="menu.children.length"></i>
+                            <i class="fas fa-chevron-down angle"
+                               v-if="menu.type ==='sub' && menu.children.length">
+                            </i>
                         </a>
-                        <ul class="slide-menu open" v-if="menu.children.length>0">
+                        <ul class="slide-menu" v-if="menu.type ==='sub' && menu.children.length">
                             <template v-for="(child, index) in menu.children">
-                                <li :key="'child-' + index">
-                                    <a class="slide-item">
-                                        <span>{{ child.title }}</span>
-                                    </a>
+                                <li :key="'menu-child-' + index">
+                                    <a class="slide-item">{{ child.title }}</a>
                                 </li>
                             </template>
-                            >
                         </ul>
                     </li>
                 </template>
@@ -219,15 +218,13 @@ export default {
     margin-bottom: 0;
     padding: 0;
 
-    .side-item-category {
-        color: #2c364c;
-        font-size: 11px;
-        font-weight: 700;
-        height: 15px;
-        letter-spacing: .5px;
-        margin-bottom: 12px;
-        padding: 0 20px 0 25px;
-        text-transform: uppercase;
+    .slide {
+        &.active {
+            .angle {
+                color: #0162e8 !important;
+                transform: rotate(180deg)
+            }
+        }
     }
 
     .side-menu__item {
@@ -239,6 +236,10 @@ export default {
             width: 20px !important;
             height: 20px !important;
             margin-right: 10px;
+        }
+
+        .angle {
+            color: #bac5d4 !important;
         }
 
     }

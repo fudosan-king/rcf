@@ -187,8 +187,6 @@ export default {
                 "Name 4",
                 "Name 5",
             ]
-
-
         }
     },
     watch: {},
@@ -217,6 +215,7 @@ export default {
             if (this.modalOpened) {
                 this.$nextTick(() => {
                     if (this.$el.querySelector(`#${id}`)) {
+                        console.log(this.$el.querySelector(`#${id}`))
                         this.$el.querySelector(`#${id}`).classList.remove('show')
                     }
                 })

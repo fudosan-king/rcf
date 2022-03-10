@@ -174,9 +174,9 @@ export default {
         }
     },
     watch: {
-        userInfo(val) {
-            console.log(val)
-        }
+        // userInfo(val) {
+        //     console.log(val)
+        // }
     },
     methods: {
     },

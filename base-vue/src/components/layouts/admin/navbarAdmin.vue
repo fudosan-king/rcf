@@ -9,7 +9,7 @@
                     </router-link>
                 </div>
                 <div class="app-sidebar__toggle" data-toggle="sidebar">
-                    <a class="open-toggle"><i class="header-icon fe fe-align-left"></i></a>
+                    <a class="open-toggle"><i class="fas fa-align-left"></i></a>
                     <span class="close-toggle"><i class="header-icons fe fe-x"></i></span>
                 </div>
             </div>
@@ -79,4 +79,40 @@ export default {
 }
 </script>
 <style lang="scss">
+.main-header-left{
+    .responsive-logo{
+        display: none;
+    }
+}
+@media (max-width: 574px) {
+    .responsive-logo {
+        display: block !important;
+    }
+}
+.app-sidebar__toggle {
+    -webkit-transition: background-color 0.3s ease;
+    -o-transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease;
+    z-index: 1;
+    display: block;
+    font-size: 22px;
+    color: #272746;
+    position: relative;
+    line-height: 23px;
+    outline: none;
+    height: 40px;
+    width: 40px;
+    background: transparent;
+    margin: auto auto auto 10px;
+    text-align: center;
+    border-radius: 50%;
+    &:hover {
+        color: #fff;
+    }
+    &:focus,
+    &:hover {
+        text-decoration: none;
+    }
+}
+
 </style>

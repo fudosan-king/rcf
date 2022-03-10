@@ -30,41 +30,41 @@
         "page-range": "表示件数"
     },
     "sidebar": {
-        "dashboard": "Dashboard",
+        "dashboard": "ダッシュボード",
         "user": {
             "title": "ユーザー",
             "list": "ユーザー一覧",
             "create": "ユーザー作成",
             "permissions": "権限"
         },
-        "settings": "Settings",
-        "customers": "Customers",
+        "setting": "設定",
+        "customers": "顧客",
         "transactions": {
-            "title": "Transactions",
-            "list": "List Transactions",
-            "create": "Create Transaction"
+            "title": "取引",
+            "list": "取引一覧",
+            "create": "取引作成"
         },
         "fund": {
-            "title": "Fund",
-            "list": "List Fund",
-            "create": "Create Fund"
+            "title": "資金",
+            "list": "資金一覧",
+            "create": "資金作成"
         },
-        "document": "Document",
+        "document": "文書",
         "faq": {
             "title": "FAQ",
-            "create": "Create FAQ",
-            "list": "List FAQ"
+            "create": "FAQ作成",
+            "list": "FAQ一覧",
+            "category": "カテゴリFAQ"
         },
         "contract": {
-            "title": "Contract",
-            "create": "Create Contract",
-            "list": "List Contract"
+            "title": "契約",
+            "create": "契約作成",
+            "list": "契約一覧"
         },
         "admin_management": {
-            "list": "Users List",
-            "role": "Permissions"
-        },
-        "setting": "Setting"
+            "list": "管理者一覧",
+            "role": "ロール管理"
+        }
     },
     "pages": {
         "auth": {
@@ -284,7 +284,7 @@
             }
         },
         "faqs": {
-            "title" : "よくあるご質問",
+            "title": "よくあるご質問",
             "category": "カテゴリFAQ"
         }
     },
@@ -424,8 +424,7 @@
                     "required": "チェックボックスは必須です"
                 }
             },
-            "messages": {
-            }
+            "messages": {}
         },
         "register": {
             "title": "出資者基本情報登録",
@@ -532,7 +531,7 @@
                 "sub_title": "本人確認の資料を登録ください",
                 "document_info": "本人確認書類の登録 ",
                 "doc_type": "書類タイプ",
-                "tap": "タップして表面を読み取る\n"
+                "tap": "タップして表面を読み取る"
             },
             "register_refund": {
                 "title": "払戻し口座情報登録",
@@ -547,7 +546,7 @@
             },
             "register_confirmation": {
                 "title": "確認画面",
-                "sub_title": "まだ申請は完了しておりません。\nご記入内容に問題がないかご確認の上、申請するボタンをクリックしてください",
+                "sub_title": "まだ申請は完了しておりません。ご記入内容に問題がないかご確認の上、申請するボタンをクリックしてください",
                 "investor_info": "出資者情報",
                 "profession": "職業",
                 "company": "勤務先",

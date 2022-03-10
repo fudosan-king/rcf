@@ -44,7 +44,7 @@
 }
 
 body {
-    font-family: SegoeUI, sans-serif;
+    font-family: 'Mulish', sans-serif;
 }
 
 .ckbox {
@@ -188,28 +188,32 @@ body {
     .tooltip-inner {
         background: #73886b;
     }
-    &.bs-tooltip-top{
+
+    &.bs-tooltip-top {
         .arrow {
             &:before {
                 border-top-color: #73886b;
             }
         }
     }
-    &.bs-tooltip-right{
+
+    &.bs-tooltip-right {
         .arrow {
             &:before {
                 border-right-color: #73886b;
             }
         }
     }
-    &.bs-tooltip-bottom{
+
+    &.bs-tooltip-bottom {
         .arrow {
             &:before {
                 border-bottom-color: #73886b;
             }
         }
     }
-    &.bs-tooltip-left{
+
+    &.bs-tooltip-left {
         .arrow {
             &:before {
                 border-left-color: #73886b;
@@ -222,28 +226,32 @@ body {
     .tooltip-inner {
         background: #48c774;
     }
-    &.bs-tooltip-top{
+
+    &.bs-tooltip-top {
         .arrow {
             &:before {
                 border-top-color: #48c774;
             }
         }
     }
-    &.bs-tooltip-right{
+
+    &.bs-tooltip-right {
         .arrow {
             &:before {
                 border-right-color: #48c774;
             }
         }
     }
-    &.bs-tooltip-bottom{
+
+    &.bs-tooltip-bottom {
         .arrow {
             &:before {
                 border-bottom-color: #48c774;
             }
         }
     }
-    &.bs-tooltip-left{
+
+    &.bs-tooltip-left {
         .arrow {
             &:before {
                 border-left-color: #48c774;
@@ -258,28 +266,31 @@ body {
         background: #ff3860;
     }
 
-    &.bs-tooltip-top{
+    &.bs-tooltip-top {
         .arrow {
             &:before {
                 border-top-color: #ff3860;
             }
         }
     }
-    &.bs-tooltip-right{
+
+    &.bs-tooltip-right {
         .arrow {
             &:before {
                 border-right-color: #ff3860;
             }
         }
     }
-    &.bs-tooltip-bottom{
+
+    &.bs-tooltip-bottom {
         .arrow {
             &:before {
                 border-bottom-color: #ff3860;
             }
         }
     }
-    &.bs-tooltip-left{
+
+    &.bs-tooltip-left {
         .arrow {
             &:before {
                 border-left-color: #ff3860;

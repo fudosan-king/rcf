@@ -30,7 +30,7 @@ export default {
     },
     created() {
         this.$nextTick(() => {
-            this.toggleDropdown()
+            this.toggleDropdown();
         });
     },
     methods: {
@@ -68,6 +68,29 @@ export default {
                 })
             }
         },
+        toggleSlideMenu() {
+            this.$nextTick(() => {
+                const slide = document.querySelectorAll('[data-toggle="slide"]')
+                console.log(slide)
+                if (slide.length > 0) {
+                    slide.forEach((el) => {
+                        el.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            if (this.parentElement.classList.contains('is-expanded')) {
+                                this.parentElement.classList.remove('is-expanded');
+                            } else {
+                                this.parentElement.classList.toggle('is-expanded');
+                            }
+                        });
+                    })
+                }
+            })
+        },
+    },
+    mounted() {
+        this.$nextTick(() => {
+            this.toggleSlideMenu();
+        });
     }
 }
 </script>
