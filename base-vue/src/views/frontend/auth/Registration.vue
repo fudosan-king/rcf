@@ -82,7 +82,7 @@
                                 </div>
                                 <div class="col-8">
                                     <span class="view_katakana">{{
-                                            customers.first_name_kana + " " + customers.last_name_kana
+                                            customers.kana_first_name + " " + customers.kana_last_name
                                         }}</span>
                                 </div>
                             </div>
@@ -629,8 +629,8 @@ export default {
                 email: "◯◯◯◯◯◯@xxxix.jp",
                 first_name: "山田",
                 last_name: "太郎",
-                first_name_kana: "ヤマダ",
-                last_name_kana: "タロウ",
+                kana_first_name: "ヤマダ",
+                kana_last_name: "タロウ",
                 genders: "男性",
                 birthday: "1980年1月31日",
                 postal_code: "100-0001",

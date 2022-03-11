@@ -5,12 +5,9 @@
                 <router-link :to="{name: 'home'}">
                     <img src="../../../assets/images/svg/logo.svg" alt="" class="logo-white img-fluid" width="155">
                 </router-link>
-    
-    
                 <div class="collapse navbar-collapse nav_menu-list">
                     <ul>
                         <li>
-                            <!--                            <router-link :to="{name: 'registerUser'}">{{ $t('frontend.navbar.register') }}</router-link>-->
                             <a @click="registerUser" data-bs-toggle="modal">新規会員登録</a>
                         </li>
                     </ul>

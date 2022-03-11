@@ -1,6 +1,12 @@
 import router from '@/routers'
-import { AuthService } from '@/services';
-import { ACTION_GO_LOGIN, ACTION_LOGIN, ACTION_LOGOUT, ACTION_REFRESH_TOKEN, ACTION_SAVE_AUTH_USER } from './actions';
+import {AuthService} from '@/services';
+import {
+    ACTION_GO_LOGIN,
+    ACTION_LOGIN,
+    ACTION_LOGOUT,
+    ACTION_REFRESH_TOKEN,
+    ACTION_SAVE_AUTH_USER
+} from './actions'
 
 import {
     GO_LOGIN,
@@ -29,11 +35,17 @@ const getters = {
     isAuthenticated(state) {
         return Boolean(state.authUser);
     },
+
+    isFetchingAccessToken(state) {
+        return state.isFetchingAccessToken;
+    }
 }
 
 const actions = {
     async [ACTION_LOGIN](context, payload) {
         const {data} = await AuthService.login(payload);
+        localStorage.setItem('userInfo', JSON.stringify(data.user))
+        localStorage.setItem('accessToken', data.access_token)
         context.commit(LOGIN, data);
         await context.dispatch(ACTION_SAVE_AUTH_USER);
     },
@@ -49,8 +61,7 @@ const actions = {
         context.commit(GO_LOGIN);
         localStorage.removeItem('accessToken')
         localStorage.removeItem('userInfo')
-        router.push({name: 'login'}, () => {
-        })
+        router.push({name: 'login'}, () => {})
     },
 
     async [ACTION_REFRESH_TOKEN](context) {

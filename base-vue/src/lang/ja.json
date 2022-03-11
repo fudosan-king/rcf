@@ -1,353 +1,572 @@
 {
-  "app": {
-    "title": "天然無垢材・自然素材のリノベーションマンション｜ログマンション"
-  },
-  "messages": {
-    "target_not_found": "対象が見つかりません",
-    "page_not_found": "ページが見つかりません"
-  },
-  "placeholders": {
-    "select": "選択してください"
-  },
-  "buttons": {
-    "delete": "削除",
-    "save": "保存",
-    "create": "作成",
-    "cancel": "キャンセル",
-    "return_login": "ログインに戻る"
-  },
-  "sidebar": {
-    "dashboard": "Dashboard",
-    "user": {
-      "title": "ユーザー",
-      "list": "ユーザー一覧",
-      "create": "ユーザー作成",
-      "permissions": "権限"
+    "app": {
+        "title": "天然無垢材・自然素材のリノベーションマンション｜ログマンション"
     },
-    "settings": "Settings",
-    "customers": "Customers",
-    "transactions": {
-      "title": "Transactions",
-      "list": "List Transactions",
-      "create": "Create Transaction"
+    "messages": {
+        "target_not_found": "対象が見つかりません",
+        "page_not_found": "ページが見つかりません"
     },
-    "fund": {
-      "title": "Fund",
-      "list": "List Fund",
-      "create": "Create Fund"
+    "placeholders": {
+        "select": "選択してください"
     },
-    "document": "Document",
-    "faq": {
-      "title": "FAQ",
-      "create": "Create FAQ",
-      "list": "List FAQ"
-    },
-    "contract": {
-      "title": "Contract",
-      "create": "Create Contract",
-      "list": "List Contract"
-    },
-    "admin_management": {
-      "list": "Users List",
-      "role": "Permissions"
-    },
-    "setting": "Setting"
-  },
-  "pages": {
-    "auth": {
-      "login": {
-        "title": "ログイン"
-      }
-    },
-    "dashboard": {
-      "title": "ダッシュボード"
-    },
-    "transactions": {
-      "title": "トランザクション",
-      "create": "トランザクション作成",
-      "edit": "トランザクション編集"
-    }
-  },
-  "frontend": {
-    "top": "TOP",
     "buttons": {
-      "click_here": "詳細はこちら",
-      "agree": "上記に同意して確認画面へ",
-      "confirm_info": "確認画面へ",
-      "register": "出資者情報登録へ",
-      "back": "戻る",
-      "next_steps": "本人確認書類登録に進む",
-      "next_refund" : "払い戻し口座登録に進む",
-      "apply": "この内容で申請する",
-      "back_to_top": "マイページTOPへ"
+        "delete": "削除",
+        "save": "保存",
+        "add": "追加",
+        "update": "更新",
+        "create": "作成",
+        "cancel": "キャンセル",
+        "return_login": "ログインに戻る"
     },
-    "require": "必須",
-    "navbar": {
-      "register": "新規会員登録",
-      "login": "ログイン",
-      "transition": {
-        "info": "お取引情報",
-        "fund_condition": "資産状況",
-        "portfolio": "ポートフォリオ",
-        "transaction_history": "取引履歴",
-        "document": "交付書面"
-      },
-      "customers": {
-        "title": "お客様情報",
-        "info": "会員情報",
-        "logout": "ログアウト"
-      },
-      "fund": {
-        "title": "ファンド情報",
-        "list": "ファンド一覧"
-      },
-      "use": {
-        "title": "快適にご利用いただくために",
-        "faq": "FAQ",
-        "contact": "お問い合わせ"
-      }
+    "tooltip": {
+        "required": "要件",
+        "edit": "編集",
+        "delete": "削除",
+        "role": "ロール",
+        "status": "ユーザステータス変更"
     },
-    "popup": {
-      "delete": {
-        "title": "削除",
-        "content": "削除してもよろしいですか？"
-      },
-      "ok": "OK",
-      "cancel": "キャンセル"
+    "page": {
+        "title": "やさしい手 文書管理システム",
+        "page-range": "表示件数"
     },
-    "auth": {
-      "login": "ログイン",
-      "register": "新規会員登録",
-      "activation": {
-        "title": "LogKnot株式会社 - アタリマエをリノベーション",
-        "title_confirm": "会員登録完了。",
-        "content": "メールアドレスの確認とアカウントの登録が完了しました",
-        "next_register": "引き続き出資者情報の登録にお進みください。"
-      }
-    },
-    "home": {
-      "title": "天然無垢材・自然素材のリノベーションマンション｜ログマンション",
-      "email": "Eメール",
-      "password": "パスワード"
-    },
-    "first_time": {
-      "navbar": "はじめての方へ",
-      "title": "はじめての方へ - Rimawaru"
-    },
-    "fund": {
-      "navbar": "投資物件情報",
-      "title": "リマワル（第一号） - Rimawaru",
-      "fund_list": "投資物件情報一覧"
-    },
-    "flow": {
-      "navbar": "ご利用の流れ",
-      "title": "ご利用の流れ - Rimawaru",
-      "flow_title": "ご利用の流れ"
-    },
-    "faq": {
-      "navbar": "よくあるご質問",
-      "title": "よくあるご質問 - Rimawaru",
-      "list": "よくあるご質問一覧"
-    },
-    "contact": {
-      "navbar": "お問い合わせ",
-      "title": "資料請求 - Rimawaru",
-      "contact_title": "資料請求",
-      "agree": "同意する",
-      "notes": "フォームに必要事項をご入力ください。",
-      "import": "郵便番号から住所を自動入力",
-      "fields": {
-        "name": {
-          "label": "お名前",
-          "placeholder": "例：山田 太郎",
-          "required": "ユーザ名は必須です",
-          "max": "ユーザ名は50文字以内で入力してください"
+    "sidebar": {
+        "dashboard": "ダッシュボード",
+        "user": {
+            "title": "ユーザー",
+            "list": "ユーザー一覧",
+            "create": "ユーザー作成",
+            "permissions": "権限"
         },
-        "postal_code": {
-          "label": "郵便番号",
-          "placeholder": "例：123-4567",
-          "required": "郵便番号は必須です"
+        "setting": "設定",
+        "customers": "顧客",
+        "transactions": {
+            "title": "取引",
+            "list": "取引一覧",
+            "create": "取引作成"
         },
-        "prefectures": {
-          "label": "都道府県",
-          "placeholder": "例：東京都",
-          "required": "都道府県は必須です"
+        "fund": {
+            "title": "資金",
+            "list": "資金一覧",
+            "create": "資金作成"
         },
-        "address": {
-          "label": "住所",
-          "placeholder": "例：東京都渋谷区神宮前1-1-1",
-          "required": "住所は必須です"
+        "document": "文書",
+        "faq": {
+            "title": "FAQ",
+            "create": "FAQ作成",
+            "list": "FAQ一覧",
+            "category": "カテゴリFAQ"
         },
-        "phone": {
-          "label": "ご連絡先電話番号  ",
-          "placeholder": "例：080-0000-0000",
-          "validate": {
-            "required": "ご連絡先電話番号は必須です",
-            "maxLength": "電話番号は9～13文字で指定してください",
-            "minLength": "電話番号は9～13文字で指定してください"
-          }
+        "contract": {
+            "title": "契約",
+            "create": "契約作成",
+            "list": "契約一覧"
         },
-        "building": {
-          "label": "建物名・号室",
-          "placeholder": "例：渋谷ハイツ"
-        },
-        "email": {
-          "label": "メールアドレス",
-          "placeholder": "例：◯◯◯◯◯◯@xxxxxxxx.jp",
-          "validate": {
-            "email": "メールが無効です",
-            "required": "無効な形式です"
-          }
-        },
-        "inquiry": "その他お問い合わせ",
-        "checkbox": {
-          "required": "チェックボックスは必須です"
+        "admin_management": {
+            "list": "管理者一覧",
+            "role": "ロール管理"
         }
-      },
-      "messages": {
-      }
     },
-    "register": {
-      "title": "出資者基本情報登録",
-      "sub_title": "フォームに必要事項をご入力ください。",
-      "email": {
-        "label": "メールアドレス",
-        "placeholder": "◯◯◯◯◯◯@xxxxxxxx.jp",
-        "validation": {
-          "email": "メールが無効です",
-          "required": "無効な形式です"
-        }
-      },
-      "name": {
-        "label": "本名",
-        "validation": {
-          "maxLength": "本名は50文字以下で指定してください",
-          "name_jp": "数字と特殊文字を除く半幅文字を入力してください",
-          "required": "本名は必須です"
-        }
-      },
-      "katakana": {
-        "label": "本名（カナ）",
-        "validation": {
-          "maxLength": "本名（カナ）は50文字以下で指定してください",
-          "katakana": "全角カナで入力してください",
-          "required": "本名（カナ）は必須です "
-        }
-      },
-      "genders": {
-        "label": "性別",
-        "male": "男性",
-        "female": "女性"
-      },
-      "birthday": {
-        "label": "生年月日",
-        "placeholder": "数字8桁で入力（例：19800511）",
-        "validation": {
-          "required": "生年月日は必須です"
-        }
-      },
-      "postal_code": {
-        "label": "郵便番号",
-        "placeholder": "1234567",
-        "auto_complete": "郵便番号から住所を自動的入力",
-        "validation": {
-          "required": "郵便番号は必須です",
-          "maxLength": "郵便番号は10文字以下で指定してください"
-        }
-      },
-      "prefectures": {
-        "label": "都道府県",
-        "placeholder": "都道府県を選択してください"
-      },
-      "locality": "市区町村",
-      "street": "番地",
-      "address": "住所",
-      "building": "建物名・号室",
-      "phone": {
-        "label": "電話番号  ",
-        "placeholder": "例：080-0000-0000",
-        "validate": {
-          "required": "ご連絡先電話番号は必須です",
-          "maxLength": "電話番号は9～13文字で指定してください",
-          "minLength": "電話番号は9～13文字で指定してください"
-        }
-      },
-      "document": {
-        "label": "確認書面",
-        "value_1": "電子交付に関する同意",
-        "value_2": "反社勢力でない事の表明・確約に関する同意",
-        "value_3": "個人情報の取扱いに関する同意",
-        "validate": "確認書面は必須です"
-      },
-      "register_investor": {
-        "title": "投資家情報登録",
-        "sub_title": "出資者情報をご入力ください。",
-        "investor_info": "出資者情報の登録",
-        "profession": {
-          "label": "ご職業"
+    "pages": {
+        "auth": {
+            "login": {
+                "title": "ログイン",
+                "email": {
+                    "label": "メールアドレス",
+                    "placeholder": "メールアドレスを入力してください",
+                    "error": "メールアドレスを入力してください",
+                    "required": "メールアドレスを入力してください",
+                    "invalid": "メールアドレスが無効です",
+                    "exists": "メールアドレスが存在しません",
+                    "not_found": "メールアドレスが存在しません",
+                    "not_verified": "メールアドレスが未確認です",
+                    "max_length": "メールアドレスは255文字以内で入力してください"
+                },
+                "password": {
+                    "label": "パスワード",
+                    "placeholder": "パスワードを入力してください",
+                    "error": "パスワードを入力してください",
+                    "required": "パスワードを入力してください",
+                    "invalid": "パスワードが無効です",
+                    "max_length": "パスワードは16文字以内で入力してください",
+                    "min_length": "パスワードは8文字以上で入力してください"
+                }
+            }
         },
-        "company": {
-          "label": "ご勤務先名",
-          "placeholder": "ご勤務先名"
+        "dashboard": {
+            "title": "ダッシュボード"
         },
-        "income": {
-          "label": "ご年収",
-          "placeholder": "ご年収"
+        "transactions": {
+            "title": "トランザクション",
+            "create": "トランザクション作成",
+            "edit": "トランザクション編集"
         },
-        "investment_purpose": {
-          "label": "投資目的"
+        "users": {
+            "title": "ユーザー",
+            "manage": "ユーザー管理",
+            "list": "ユーザー一覧",
+            "add": "ユーザー追加",
+            "update": "ユーザー更新",
+            "edit": "ユーザー編集",
+            "delete": {
+                "title": "ユーザー削除",
+                "content": "ユーザーを削除しますか？",
+                "ok": "削除",
+                "cancel": "キャンセル"
+            },
+            "name": {
+                "label": "ユーザー名",
+                "placeholder": "ユーザー名を入力してください",
+                "validation": {
+                    "required": "ユーザー名を入力してください",
+                    "max_length": "ユーザー名は255文字以内で入力してください",
+                    "min_length": "ユーザー名は2文字以上で入力してください"
+                }
+            },
+            "email": {
+                "label": "メールアドレス",
+                "placeholder": "メールアドレスを入力してください"
+            },
+            "role": {
+                "title": "ロール設定",
+                "label": "ロール",
+                "placeholder": "ロールを選択してください",
+                "required": "役割が必要です"
+            },
+            "full_name": {
+                "label": "フルネーム",
+                "placeholder": "フルネームを入力してください"
+            },
+            "status": {
+                "title": "ステータス設定",
+                "label": "ステータス",
+                "content": "ステータスを設定しますか？",
+                "active": "有効",
+                "deactivate": "無効",
+                "choose": "保存"
+            },
+            "message": {
+                "change_status_success": "ユーザのステータスが変更されました",
+                "delete_success": "ユーザーを削除しました",
+                "delete_fail": "ユーザーの削除に失敗しました",
+                "create_success": "ユーザーを作成しました",
+                "update_success": "ユーザーを更新しました"
+            },
+            "created_at": "作成日",
+            "actions": "アクション"
         },
-        "investment_method": {
-          "label": "投資方法"
+        "customers": {
+            "title": "顧客",
+            "list": "顧客一覧",
+            "add": "顧客追加",
+            "edit": "顧客編集",
+            "delete": {
+                "title": "顧客削除",
+                "content": "顧客を削除しますか？",
+                "ok": "削除",
+                "cancel": "キャンセル",
+                "message": {
+                    "delete_success": "顧客を削除しました",
+                    "delete_failed": "顧客の削除に失敗しました"
+                }
+            },
+            "name": {
+                "label": "顧客名",
+                "placeholder": "顧客名を入力してください"
+            },
+            "email": {
+                "label": "メールアドレス",
+                "placeholder": "メールアドレスを入力してください"
+            },
+            "phone": {
+                "label": "電話番号",
+                "placeholder": "電話番号を入力してください"
+            },
+            "address": {
+                "label": "住所",
+                "placeholder": "住所を入力してください"
+            },
+            "postal_code": {
+                "label": "郵便番号"
+            },
+            "document": {
+                "label": "確認書面"
+            },
+            "status": {
+                "title": "ステータス設定",
+                "label": "ステータス",
+                "content": "ステータスを設定しますか？",
+                "active": "有効",
+                "deactivate": "無効",
+                "choose": "保存"
+            },
+            "actions": "アクション"
         },
-        "investment_experience": {
-          "label": "投資のご経験"
+        "profile": {
+            "title": "プロフィール",
+            "buttons": {
+                "save": "保存",
+                "reset": "リセット"
+            },
+            "input_field": {
+                "username": {
+                    "label": "アカウント名",
+                    "placeholder": "アカウント名を入力してください"
+                },
+                "email": {
+                    "label": "メールアドレス",
+                    "placeholder": "メールアドレスを入力してください"
+                },
+                "password": {
+                    "label": "パスワード",
+                    "placeholder": "パスワードを入力してください"
+                },
+                "new_password": {
+                    "label": "新しいパスワード",
+                    "placeholder": "新しいパスワードを入力してください"
+                },
+                "password_confirm": {
+                    "label": "新パスワード(確認用)",
+                    "placeholder": "新パスワード(確認用)を入力してください"
+                },
+                "position": {
+                    "label": "役職",
+                    "placeholder": "役職"
+                },
+                "phone": {
+                    "label": "電話番号",
+                    "placeholder": "電話番号を入力してください"
+                },
+                "full_name": {
+                    "label": "従業員名",
+                    "placeholder": "従業員名を入力してください"
+                },
+                "katakana_name": {
+                    "label": "従業員名（カナ）",
+                    "placeholder": "従業員名（カナ）を入力してください"
+                }
+            },
+            "messages": {
+                "update_success": "プロフィールが保存されました",
+                "validation": {
+                    "employee_id_required": "従業員IDが必要です",
+                    "organization_required": "組織が必要です",
+                    "name_required": "ユーザ名を入力してください",
+                    "name_maxlength": "ユーザ名は50文字以下で指定してください",
+                    "position_required": "位置が必要です",
+                    "email_required": "メールアドレスを入力してください",
+                    "email_invalid": "メールアドレスのフォーマットが正しくありません",
+                    "role_required": "役割が必要です",
+                    "phone_required": "電話が必要です",
+                    "old_password_required": "パスワードを入力してください",
+                    "old_password_wrong": "パスワードが違います",
+                    "old_password_minlength": "パスワードは8文字以上で指定してください",
+                    "old_password_maxlength": "パスワードは255文字以下で指定してください",
+                    "password_required": "新しいパスワードを入力してください",
+                    "new_password_required": "新しいパスワードを入力してください",
+                    "new_password_minlength": "パスワードは8文字以上で指定してください",
+                    "new_password_maxlength": "パスワードは16文字以下で指定してください",
+                    "password_confirm_required": "パスワード確認を入力してください",
+                    "password_confirm_minlength": "パスワードは8文字以上で指定してください",
+                    "password_confirm_maxlength": "パスワードは文字以下で指定してください",
+                    "password_confirm_not_match": "新しいパスワードと一致しません",
+                    "kanji_valid": "全角カナで入力してください",
+                    "katakana_valid": "全角カナで入力してください",
+                    "katakana_maxlength": "従業員名（カナ）は50文字以下で指定してください",
+                    "phone_maxlength": "電話番号は9～13文字で指定してください",
+                    "phone_minlength": "電話番号は9～13文字で指定してください",
+                    "full_name_maxlength": "従業員名は50文字以下で指定してください",
+                    "avatar": {
+                        "file_size": "１ＭＢ以下のファイルを指定してください",
+                        "format": "画像のファイルを選択してください",
+                        "format_invalid": ".jpg/.jpeg/.png/.gifのファイルを選択してください"
+                    }
+                }
+            }
         },
-        "investment_type": {
-          "label": "投資資金の種類"
+        "faqs": {
+            "title": "よくあるご質問",
+            "category": "カテゴリFAQ"
         }
-      },
-      "register_document": {
-        "title": "本人確認書類登録",
-        "sub_title": "本人確認の資料を登録ください",
-        "document_info": "本人確認書類の登録 ",
-        "doc_type": "書類タイプ",
-        "tap": "タップして表面を読み取る\n"
-      },
-      "register_refund": {
-        "title": "払戻し口座情報登録",
-        "sub_title": "払い戻し金の振込先をご登録ください。",
-        "info": "出資者基本情報",
-        "bank_name": "金融機関名",
-        "bank_branch_name": "支店名",
-        "bank_branch_number": "支店番号",
-        "account_type": "口座種類",
-        "account_number": "口座番号",
-        "account_name": "口座名義"
-      },
-      "register_confirmation": {
-        "title": "確認画面",
-        "sub_title": "まだ申請は完了しておりません。\nご記入内容に問題がないかご確認の上、申請するボタンをクリックしてください",
-        "investor_info": "出資者情報",
-        "profession": "職業",
-        "company": "勤務先",
-        "income": "年収",
-        "investment_method": "投資方針",
-        "investment_experience": "投資経験",
-        "document_info": "本人確認書類の登録 ",
-        "refund_info": "払い戻し口座情報の登録 ",
-        "bank_name": "金融機関名",
-        "bank_branch_name": "支店情報",
-        "account_name": "口座名義人",
-        "account_number": "口座情報",
-        "checkbox_confirm": "上記の内容は私の投資家情報として相違ありません"
-      },
-      "register_completed": {
-        "title": "投資家情報の申請受付を完了いたしました"
-      },
-      "basic_info": {
-        "title": "出資者基本情報"
-      }
+    },
+    "frontend": {
+        "top": "TOP",
+        "buttons": {
+            "click_here": "詳細はこちら",
+            "agree": "上記に同意して確認画面へ",
+            "confirm_info": "確認画面へ",
+            "register": "出資者情報登録へ",
+            "back": "戻る",
+            "next_steps": "本人確認書類登録に進む",
+            "next_refund": "払い戻し口座登録に進む",
+            "apply": "この内容で申請する",
+            "back_to_top": "マイページTOPへ"
+        },
+        "require": "必須",
+        "navbar": {
+            "register": "新規会員登録",
+            "login": "ログイン",
+            "transition": {
+                "info": "お取引情報",
+                "fund_condition": "資産状況",
+                "portfolio": "ポートフォリオ",
+                "transaction_history": "取引履歴",
+                "document": "交付書面"
+            },
+            "customers": {
+                "title": "お客様情報",
+                "info": "会員情報",
+                "logout": "ログアウト"
+            },
+            "fund": {
+                "title": "ファンド情報",
+                "list": "ファンド一覧"
+            },
+            "use": {
+                "title": "快適にご利用いただくために",
+                "faq": "FAQ",
+                "contact": "お問い合わせ"
+            }
+        },
+        "popup": {
+            "delete": {
+                "title": "削除",
+                "content": "削除してもよろしいですか？"
+            },
+            "ok": "OK",
+            "cancel": "キャンセル"
+        },
+        "auth": {
+            "login": "ログイン",
+            "register": "新規会員登録",
+            "activation": {
+                "title": "LogKnot株式会社 - アタリマエをリノベーション",
+                "title_confirm": "会員登録完了。",
+                "content": "メールアドレスの確認とアカウントの登録が完了しました",
+                "next_register": "引き続き出資者情報の登録にお進みください。"
+            }
+        },
+        "home": {
+            "title": "天然無垢材・自然素材のリノベーションマンション｜ログマンション",
+            "email": "Eメール",
+            "password": "パスワード"
+        },
+        "first_time": {
+            "navbar": "はじめての方へ",
+            "title": "はじめての方へ - Rimawaru"
+        },
+        "fund": {
+            "navbar": "投資物件情報",
+            "title": "リマワル（第一号） - Rimawaru",
+            "fund_list": "投資物件情報一覧"
+        },
+        "flow": {
+            "navbar": "ご利用の流れ",
+            "title": "ご利用の流れ - Rimawaru",
+            "flow_title": "ご利用の流れ"
+        },
+        "faq": {
+            "navbar": "よくあるご質問",
+            "title": "よくあるご質問 - Rimawaru",
+            "list": "よくあるご質問一覧"
+        },
+        "contact": {
+            "navbar": "お問い合わせ",
+            "title": "資料請求 - Rimawaru",
+            "contact_title": "資料請求",
+            "agree": "同意する",
+            "notes": "フォームに必要事項をご入力ください。",
+            "import": "郵便番号から住所を自動入力",
+            "fields": {
+                "name": {
+                    "label": "お名前",
+                    "placeholder": "例：山田 太郎",
+                    "required": "ユーザ名は必須です",
+                    "max": "ユーザ名は50文字以内で入力してください"
+                },
+                "postal_code": {
+                    "label": "郵便番号",
+                    "placeholder": "例：123-4567",
+                    "required": "郵便番号は必須です"
+                },
+                "prefectures": {
+                    "label": "都道府県",
+                    "placeholder": "例：東京都",
+                    "required": "都道府県は必須です"
+                },
+                "address": {
+                    "label": "住所",
+                    "placeholder": "例：東京都渋谷区神宮前1-1-1",
+                    "required": "住所は必須です"
+                },
+                "phone": {
+                    "label": "ご連絡先電話番号  ",
+                    "placeholder": "例：080-0000-0000",
+                    "validate": {
+                        "required": "ご連絡先電話番号は必須です",
+                        "maxLength": "電話番号は9～13文字で指定してください",
+                        "minLength": "電話番号は9～13文字で指定してください"
+                    }
+                },
+                "building": {
+                    "label": "建物名・号室",
+                    "placeholder": "例：渋谷ハイツ"
+                },
+                "email": {
+                    "label": "メールアドレス",
+                    "placeholder": "例：◯◯◯◯◯◯@xxxxxxxx.jp",
+                    "validate": {
+                        "email": "メールが無効です",
+                        "required": "無効な形式です"
+                    }
+                },
+                "inquiry": "その他お問い合わせ",
+                "checkbox": {
+                    "required": "チェックボックスは必須です"
+                }
+            },
+            "messages": {}
+        },
+        "register": {
+            "title": "出資者基本情報登録",
+            "sub_title": "フォームに必要事項をご入力ください。",
+            "email": {
+                "label": "メールアドレス",
+                "placeholder": "◯◯◯◯◯◯@xxxxxxxx.jp",
+                "validation": {
+                    "email": "メールが無効です",
+                    "required": "無効な形式です"
+                }
+            },
+            "name": {
+                "label": "本名",
+                "validation": {
+                    "maxLength": "本名は50文字以下で指定してください",
+                    "name_jp": "数字と特殊文字を除く半幅文字を入力してください",
+                    "required": "本名は必須です"
+                }
+            },
+            "katakana": {
+                "label": "本名（カナ）",
+                "validation": {
+                    "maxLength": "本名（カナ）は50文字以下で指定してください",
+                    "katakana": "全角カナで入力してください",
+                    "required": "本名（カナ）は必須です "
+                }
+            },
+            "genders": {
+                "label": "性別",
+                "male": "男性",
+                "female": "女性"
+            },
+            "birthday": {
+                "label": "生年月日",
+                "placeholder": "数字8桁で入力（例：19800511）",
+                "validation": {
+                    "required": "生年月日は必須です"
+                }
+            },
+            "postal_code": {
+                "label": "郵便番号",
+                "placeholder": "1234567",
+                "auto_complete": "郵便番号から住所を自動的入力",
+                "validation": {
+                    "required": "郵便番号は必須です",
+                    "maxLength": "郵便番号は10文字以下で指定してください"
+                }
+            },
+            "prefectures": {
+                "label": "都道府県",
+                "placeholder": "都道府県を選択してください"
+            },
+            "locality": "市区町村",
+            "street": "番地",
+            "address": "住所",
+            "building": "建物名・号室",
+            "phone": {
+                "label": "電話番号  ",
+                "placeholder": "例：080-0000-0000",
+                "validate": {
+                    "required": "ご連絡先電話番号は必須です",
+                    "maxLength": "電話番号は9～13文字で指定してください",
+                    "minLength": "電話番号は9～13文字で指定してください"
+                }
+            },
+            "document": {
+                "label": "確認書面",
+                "value_1": "電子交付に関する同意",
+                "value_2": "反社勢力でない事の表明・確約に関する同意",
+                "value_3": "個人情報の取扱いに関する同意",
+                "validate": "確認書面は必須です"
+            },
+            "register_investor": {
+                "title": "投資家情報登録",
+                "sub_title": "出資者情報をご入力ください。",
+                "investor_info": "出資者情報の登録",
+                "profession": {
+                    "label": "ご職業"
+                },
+                "company": {
+                    "label": "ご勤務先名",
+                    "placeholder": "ご勤務先名"
+                },
+                "income": {
+                    "label": "ご年収",
+                    "placeholder": "ご年収"
+                },
+                "investment_purpose": {
+                    "label": "投資目的"
+                },
+                "investment_method": {
+                    "label": "投資方法"
+                },
+                "investment_experience": {
+                    "label": "投資のご経験"
+                },
+                "investment_type": {
+                    "label": "投資資金の種類"
+                }
+            },
+            "register_document": {
+                "title": "本人確認書類登録",
+                "sub_title": "本人確認の資料を登録ください",
+                "document_info": "本人確認書類の登録 ",
+                "doc_type": "書類タイプ",
+                "tap": "タップして表面を読み取る"
+            },
+            "register_refund": {
+                "title": "払戻し口座情報登録",
+                "sub_title": "払い戻し金の振込先をご登録ください。",
+                "info": "出資者基本情報",
+                "bank_name": "金融機関名",
+                "bank_branch_name": "支店名",
+                "bank_branch_number": "支店番号",
+                "account_type": "口座種類",
+                "account_number": "口座番号",
+                "account_name": "口座名義"
+            },
+            "register_confirmation": {
+                "title": "確認画面",
+                "sub_title": "まだ申請は完了しておりません。ご記入内容に問題がないかご確認の上、申請するボタンをクリックしてください",
+                "investor_info": "出資者情報",
+                "profession": "職業",
+                "company": "勤務先",
+                "income": "年収",
+                "investment_method": "投資方針",
+                "investment_experience": "投資経験",
+                "document_info": "本人確認書類の登録 ",
+                "refund_info": "払い戻し口座情報の登録 ",
+                "bank_name": "金融機関名",
+                "bank_branch_name": "支店情報",
+                "account_name": "口座名義人",
+                "account_number": "口座情報",
+                "checkbox_confirm": "上記の内容は私の投資家情報として相違ありません"
+            },
+            "register_completed": {
+                "title": "投資家情報の申請受付を完了いたしました"
+            },
+            "basic_info": {
+                "title": "出資者基本情報"
+            }
+        }
     }
-  }
 }

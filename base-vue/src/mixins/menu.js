@@ -174,16 +174,10 @@ export default {
         }
     },
     watch: {
-        userInfo(val) {
-            console.log(val)
-        }
+        // userInfo(val) {
+        //     console.log(val)
+        // }
     },
     methods: {
     },
-    created() {
-        // this.setSidebarRoles(this.userInfo)
-    },
-    mounted() {
-        // this.setSidebarRoles(this.userInfo)
-    }
 }

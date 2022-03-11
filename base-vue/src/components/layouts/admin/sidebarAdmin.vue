@@ -11,67 +11,47 @@
         <div class="main-side-menu">
             <div class="app-sidebar__user">
                 <div class="dropdown user-pro-body">
-                    <div class="">
-                        <img alt="user-img" class="avatar avatar-xl rounded-circle"
-                             src="https://laravel.spruko.com/valex/ltr/assets/img/faces/6.jpg"><span
-                            class="avatar-status profile-status bg-green"></span>
-                    </div>
+                    <a @click="goTo({name: 'dashboard'})">
+                        <img alt="user-img" class="avatar avatar-xl rounded-circle bg-white "
+                             :src="avatar">
+                        <span class="avatar-status profile-status bg-green"></span>
+                    </a>
                     <div class="user-info">
-                        <h4 class="fw-semibold mt-3 mb-0">Petey Cruiser</h4>
-                        <span class="mb-0 text-muted">Premium Member</span>
+                        <h4 class="fw-semibold mt-3 mb-0">
+                            {{
+                                userInfo && (userInfo.profile && userInfo.profile.full_name || userInfo.first_name + userInfo.last_name)
+                            }}
+                        </h4>
+                        <span class="mb-0 text-muted"> {{ userInfo && (userInfo.role && userInfo.role.name) }}</span>
                     </div>
                 </div>
             </div>
-            <ul class="side-menu">
-                <li class="side-item side-item-category">General</li>
-                <li class="slide">
-                    <a class="side-menu__item" href="icons.html">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
-                            <path d="M0 0h24v24H0V0z" fill="none"/>
-                            <path
-                                    d="M12 4c-4.42 0-8 3.58-8 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm3.5 4c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zm-7 0c.83 0 1.5.67 1.5 1.5S9.33 11 8.5 11 7 10.33 7 9.5 7.67 8 8.5 8zm3.5 9.5c-2.33 0-4.32-1.45-5.12-3.5h1.67c.7 1.19 1.97 2 3.45 2s2.76-.81 3.45-2h1.67c-.8 2.05-2.79 3.5-5.12 3.5z"
-                                    opacity=".3"/>
-                            <circle cx="15.5" cy="9.5" r="1.5"/>
-                            <circle cx="8.5" cy="9.5" r="1.5"/>
-                            <path
-                                    d="M12 16c-1.48 0-2.75-.81-3.45-2H6.88c.8 2.05 2.79 3.5 5.12 3.5s4.32-1.45 5.12-3.5h-1.67c-.69 1.19-1.97 2-3.45 2zm-.01-14C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
-                        </svg>
-                        <span class="side-menu__label">Icons</span><span
-                            class="badge badge-danger side-badge">New</span></a>
-                </li>
-                <li class="slide">
-                    <a class="side-menu__item" data-toggle="slide" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
-                            <path d="M0 0h24v24H0V0z" fill="none"/>
-                            <path d="M19 5H5v14h14V5zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" opacity=".3"/>
-                            <path
-                                    d="M3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2zm2 0h14v14H5V5zm2 5h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"/>
-                        </svg>
-                        <span class="side-menu__label">Charts</span><i class="angle fe fe-chevron-down"></i></a>
-                    <ul class="slide-menu">
-                        <li><a class="slide-item" href="chart-morris.html">Morris Charts</a></li>
-                        <li><a class="slide-item" href="chart-flot.html">Flot Charts</a></li>
-                        <li><a class="slide-item" href="chart-chartjs.html">ChartJS</a></li>
-                        <li><a class="slide-item" href="chart-echart.html">Echart</a></li>
-                        <li><a class="slide-item" href="chart-sparkline.html">Sparkline</a></li>
-                        <li><a class="slide-item" href="chart-peity.html">Chart-peity</a></li>
-                    </ul>
-                </li>
-                <li class="slide">
-                    <a class="side-menu__item" data-toggle="slide" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
-                            <path d="M0 0h24v24H0V0z" fill="none"/>
-                            <path d="M3.31 11l2.2 8.01L18.5 19l2.2-8H3.31zM12 17c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"
-                                  opacity=".3"/>
-                            <path
-                                    d="M22 9h-4.79l-4.38-6.56c-.19-.28-.51-.42-.83-.42s-.64.14-.83.43L6.79 9H2c-.55 0-1 .45-1 1 0 .09.01.18.04.27l2.54 9.27c.23.84 1 1.46 1.92 1.46h13c.92 0 1.69-.62 1.93-1.46l2.54-9.27L23 10c0-.55-.45-1-1-1zM12 4.8L14.8 9H9.2L12 4.8zM18.5 19l-12.99.01L3.31 11H20.7l-2.2 8zM12 13c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
-                        </svg>
-                        <span class="side-menu__label">Ecommerce</span><i class="angle fe fe-chevron-down"></i></a>
-                    <ul class="slide-menu">
-                        <li><a class="slide-item" href="products.html">Products</a></li>
-                        <li><a class="slide-item" href="product-details.html">Product-Details</a></li>
-                        <li><a class="slide-item" href="product-cart.html">Cart</a></li>
-                    </ul>
+            <ul class="side-menu" id="menu-list-sidebar">
+                <li></li>
+                <template v-for="(menu, index) in menus">
+                    <li :key="'menu-' + index" class="slide"
+                        v-if="menu.isShown"
+                        :class="{'active': menu.activeName === activeSidebar}">
+                        <a class="side-menu__item" :data-toggle="{'slide': menu.type === 'sub'}"
+                           @mouseover="hoverSidebar(index + 1)" @mouseleave="leaveSidebar()"
+                           @click="goTo(menu.router, menu.currentData, menu.activeName)"
+                        ><img :src="menu.path_svg_dark" class="side-menu__image" alt="">
+                            <span class="side-menu__label">{{ menu.title }}</span>
+                            <i class="fas fa-chevron-down angle"
+                               v-if="menu.type ==='sub' && menu.children.length">
+                            </i>
+                        </a>
+                        <ul class="slide-menu" v-if="menu.type ==='sub' && menu.children.length">
+                            <template v-for="(child, index) in menu.children">
+                                <li :key="'menu-child-' + index">
+                                    <a class="slide-item">{{ child.title }}</a>
+                                </li>
+                            </template>
+                        </ul>
+                    </li>
+                </template>
+                <li class="">
+                    <a class="bottom-sidebar"></a>
                 </li>
             </ul>
         </div>
@@ -80,25 +60,188 @@
 
 
 <script>
-import AdminLeftMenu from "../AdminLeftMenu.js";
+import menuAdmin from "../../../mixins/menuAdmin";
+import {mapGetters} from "vuex";
 
 export default {
     name: "sidebar",
-    created() {
-
+    mixins: [menuAdmin],
+    computed: {
+        ...mapGetters({
+            activeSidebar: 'activeSidebar'
+        }),
+        avatar() {
+            if (this.userInfo && this.userInfo.profile && this.userInfo.profile.avatar) {
+                return this.userInfo.profile.avatar
+            }
+            return require('../../../assets/svgs/icons/ic_ava.svg')
+        }
     },
-    methods: {
-        init() {
-            new AdminLeftMenu;
+    created() {
+    },
+    watch: {
+        $route() {
+            this.styleSidebar()
+            this.leaveSidebar()
         },
     },
+    methods: {
+        goTo(link, current, active) {
+            localStorage.setItem('prev', active)
+            this.$emit('click-out')
+            if (this.$route.name === link.name) {
+                this.$emit('refresh')
+            } else {
+                this.$router.push(link, () => {
+                })
+            }
+        },
+
+    },
     mounted() {
-        this.init();
+        this.styleSidebar()
     }
 
 }
 </script>
 
 <style lang="scss">
+@import '../../../assets/scss/sidemenu';
 
+.app-sidebar {
+    background: #fff;
+    border-right: 1px solid #e3e3e3;
+    bottom: 0;
+    color: #14112d;
+    left: 0;
+    max-height: 100%;
+    position: fixed;
+    top: 0 !important;
+    transition: left .3s ease, width .3s ease;
+    width: 240px;
+    z-index: 1029 !important;
+
+    .main-sidebar-header {
+        background: #fff;
+        border-bottom: 1px solid #eae8f1;
+        border-right: 1px solid #eae8f1;
+        height: 64px;
+        left: 0;
+        padding: 15px 20px;
+        position: fixed;
+        right: 0;
+        top: 0;
+        transition: left .3s ease, width .3s ease;
+        width: 240px;
+        z-index: 999;
+
+        img {
+            transition: none;
+            transform: none;
+        }
+    }
+
+    .main-side-menu {
+        height: 90%;
+        margin-top: 70px;
+        overflow: hidden;
+        overflow-y: auto;
+        @media (max-width: 767px) {
+            margin-top: 0;
+        }
+
+        .app-sidebar__user {
+            align-items: center;
+            background-position: 0;
+            background-size: cover;
+            color: #a8a8a8;
+            display: inline-block;
+            width: 100%;
+
+            .user-pro-body {
+                display: block;
+                padding: 15px 0;
+
+                img {
+                    display: block;
+                    margin: 0 auto 0;
+                    border: 2px solid #c9d2e8;
+                    box-shadow: 0 5px 5px 0 rgba(44, 44, 44, 0.2);
+                    padding: 3px;
+                    background: $white;
+                }
+
+                .u-dropdown {
+                    color: #97999f;
+                }
+
+                .user-info span.text-gray {
+                    color: #969696 !important;
+                }
+
+                .avatar-xl {
+                    font-size: 36px !important;
+                    height: 72px !important;
+                    width: 72px !important;
+                }
+
+                .avatar {
+                    align-items: center;
+                    background-color: #0162e8;
+                    border-radius: 100%;
+                    color: #fff;
+                    display: flex;
+                    font-size: 16px;
+                    font-weight: 600;
+                    height: 36px;
+                    justify-content: center;
+                    position: relative;
+                    width: 36px;
+                }
+            }
+
+            .user-info {
+                margin: 0 auto;
+                text-align: center;
+
+                h4 {
+                    color: #14112d;
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}
+
+.side-menu {
+    list-style: none;
+    margin-bottom: 0;
+    padding: 0;
+
+    .slide {
+        &.active {
+            .angle {
+                color: #0162e8 !important;
+                transform: rotate(180deg)
+            }
+        }
+    }
+
+    .side-menu__item {
+        border-radius: 0;
+        margin: 0;
+        padding: 10px 20px 10px 22px;
+
+        .side-menu__image {
+            width: 20px !important;
+            height: 20px !important;
+            margin-right: 10px;
+        }
+
+        .angle {
+            color: #bac5d4 !important;
+        }
+
+    }
+}
 </style>

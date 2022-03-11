@@ -1,36 +1,33 @@
 <template>
-    <div class="modal modal-fx-fadeInScale">
-        <div class="modal-background"></div>
-        <div class="modal-content"
-             :style="{width: width}">
-            <div class="modal-box box has-padding-lg br--10">
-                <div v-if="customIcon"
-                     class="box-icon is-custom"
-                     v-html="customIcon"></div>
-                <p v-if="title" class="box-title has-margin-bottom-lg is-size-5">{{ title }} </p>
-                <div class="has-text-centered box-sub-title has-margin-left-lg has-margin-right-lg content font-size-7 "
-                     v-html="content"/>
-                <div class="columns col-group-btn-dialog is-centered d-flex modal-footer-button">
-                    <div class="column is-half" v-if="okText">
-                        <button type="button"
-                                ref="modalConfirmButton"
-                                class="button btn-save p-0 is-fullwidth color__white background__pink w--100 border-width-0"
-                                style="width: 100% !important;"
-                                @click="okClick">
-                            {{ okText }}
-                        </button>
-                    </div>
-                    <div class="column is-half" v-if="cancelText">
-                        <button type="button"
-                                class="button btn-back background__grey w--100"
-                                style="width: 100% !important;"
-                                @click="cancelClick">
-                            {{ cancelText }}
-                        </button>
+    <div class="modal fade">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body text-center pxy--20 px--20">
+                    <img src="../assets/svgs/icons/ic_close.svg" alt=""
+                         class="img-fluid width--85 margin__top-20 margin__bottom-20">
+                    <h4 class="text-danger margin__bottom-20">{{ title }}</h4>
+                    <p class="margin__bottom-20 mx--20" v-html="content"></p>
+                    <div class="row">
+                        <div class="col-md-6" v-if="okText">
+                            <button type="button"
+                                    ref="modalConfirmButton"
+                                    class="btn btn-save color__white background__pink w--100"
+                                    @click="okClick">
+                                {{ okText }}
+                            </button>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="button"
+                                    class="btn btn-back background__grey w--100 border--1"
+                                    @click="cancelClick">
+                                {{ cancelText }}
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="modal-backdrop"></div>
     </div>
 </template>
 
@@ -101,14 +98,14 @@ export default {
     mounted() {
         this.$nextTick(() => {
             setTimeout(() => {
-                this.$el.classList.add('is-active');
+                document.body.classList.add('modal-open');
+                this.$el.classList.add('show');
                 this.freeze();
-                
                 if (this.clickOut) {
                     document.body.addEventListener('click', this.bodyClickEv)
                     document.body.addEventListener('keyup', this.bodyKeyEv)
                 }
-                this.$refs.modalConfirmButton.focus()
+                // this.$refs.modalConfirmButton.focus()
             }, 60);
         });
     },
@@ -124,7 +121,7 @@ export default {
             this.onClickOut(this)
         },
         closeDialog() {
-            this.$el.classList.remove('is-active');
+            this.$el.classList.remove('show');
             this.$nextTick(() => {
                 setTimeout(() => {
                     this.$destroy();
@@ -147,7 +144,7 @@ export default {
             document.getElementsByTagName('body')[0].style.overflowY = '';
         },
         bodyClickEv($ev) {
-            const dialog = this.$el.querySelector('.modal-box')
+            const dialog = this.$el.querySelector('.modal-body');
             if (dialog && !dialog.contains($ev.target)) {
                 this.clickOutDialog()
                 this.outClick()
@@ -170,41 +167,39 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.box {
-    .box-title {
-        text-align: center;
-        color: #373a3c;
-        margin: 30px;
-    }
-    
-    .has-icon-circle {
-        width: 38px;
-        height: 38px;
-        border-radius: 50%;
-        margin: 0 auto;
-        border-width: 2px;
-        border-style: solid;
-        display: flex;
-        align-content: center;
-        align-items: center;
-        justify-content: center;
-        font-size: 25px;
-    }
-    
-    .modal-footer-button {
-        margin: 20px;
-    }
-    
-    .content {
-        white-space: normal;
-        word-wrap: break-word;
-    }
-    
-    button {
-        &:hover {
-            box-shadow: 0 0 5px #61C5FA;
+<style lang="scss">
+.modal-open {
+    overflow: hidden;
+
+    .show {
+        display: block;
+
+        .modal-dialog {
+            transform: none;
         }
     }
+
+    .modal-content {
+        z-index: 99992;
+    }
+
+    .modal-backdrop {
+        opacity: 0.7;
+    }
 }
+
+.modal-dialog-centered:before {
+    content: "";
+    display: block;
+    height: calc(100vh - 1rem);
+}
+
+@media (min-width: 576px) {
+    .modal-dialog-centered:before {
+        height: calc(100vh - 3.5rem);
+
+    }
+
+}
+
 </style>
